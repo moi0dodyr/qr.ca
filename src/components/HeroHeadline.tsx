@@ -10,8 +10,10 @@ export const HeroHeadline: React.FC = () => {
         <span className="inline-flex items-center justify-center">
           <CanadaFlag className="w-[36px] sm:w-[42px] md:w-[45px] h-[45px] sm:h-[52px] md:h-[56px] shrink-0" />
         </span>
-        <span className="text-[#ef6f68]">Canadian</span>
-        <span>-native QR Code Generator</span>
+        <span>
+          <span className="text-[#ef6f68]">Canadian</span>-native
+        </span>
+        <span>QR Code Generator</span>
       </h1>
 
       {/* Subtitle */}
