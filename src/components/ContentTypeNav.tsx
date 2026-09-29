@@ -1,22 +1,17 @@
 import React from 'react';
 import {
-  GlobeIcon,
-  IdCardIcon,
-  LinkFillIcon,
-  NoteIcon,
-  UserIcon,
-  ForkKnifeIcon,
-  ChevronDownIcon,
+  GlobeFilledIcon,
+  IdCardFilledIcon,
+  LinkFilledIcon,
+  NoteFilledIcon,
+  UserFilledIcon,
+  ForkKnifeFilledIcon,
+  MoreFilledIcon,
 } from './icons';
 
-export type ContentTabType =
-  | 'website'
-  | 'vcard'
-  | 'links'
-  | 'text'
-  | 'contact'
-  | 'menu'
-  | 'more';
+import { type ContentTabType, tabColors } from '../utils/theme';
+
+export type { ContentTabType };
 
 interface TabItem {
   id: ContentTabType;
@@ -28,37 +23,51 @@ const tabs: TabItem[] = [
   {
     id: 'website',
     label: 'Website',
-    icon: (isActive) => <GlobeIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <GlobeFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'vcard',
     label: 'vCard',
-    icon: (isActive) => <IdCardIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <IdCardFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'links',
     label: 'Links Page',
-    icon: (isActive) => <LinkFillIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <LinkFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'text',
     label: 'Text',
-    icon: (isActive) => <NoteIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <NoteFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'contact',
     label: 'Contact',
-    icon: (isActive) => <UserIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <UserFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'menu',
     label: 'Restaurant menu',
-    icon: (isActive) => <ForkKnifeIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <ForkKnifeFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
   {
     id: 'more',
     label: 'More',
-    icon: (isActive) => <ChevronDownIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'currentColor'} />,
+    icon: (isActive) => (
+      <MoreFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+    ),
   },
 ];
 
@@ -75,22 +84,23 @@ export const ContentTypeNav: React.FC<ContentTypeNavProps> = ({
     <div className="w-full bg-white border-b border-[rgba(44,46,48,0.1)] flex items-center justify-between overflow-x-auto scrollbar-none select-none">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
+        const colorHex = tabColors[tab.id];
         return (
           <button
             key={tab.id}
             type="button"
             onClick={() => onSelectTab(tab.id)}
+            style={isActive ? { borderBottomColor: colorHex } : undefined}
             className={`flex items-center gap-3 h-[72px] px-4 shrink-0 transition-colors cursor-pointer relative ${
-              isActive
-                ? 'border-b-2 border-[#00a7f5]'
-                : 'border-b-2 border-transparent hover:bg-neutral-50/70'
+              isActive ? 'border-b-2' : 'border-b-2 border-transparent hover:bg-neutral-50/70'
             }`}
           >
-            {/* Icon circle */}
+            {/* Icon circle (no drop shadow) */}
             <div
+              style={isActive ? { backgroundColor: colorHex } : undefined}
               className={`size-[32px] rounded-full flex items-center justify-center transition-colors shrink-0 ${
                 isActive
-                  ? 'bg-[#00a7f5] text-white shadow-[0px_2px_4px_rgba(0,167,245,0.3)]'
+                  ? 'text-white'
                   : 'border border-[rgba(44,46,48,0.08)] bg-white text-[rgba(44,46,48,0.7)]'
               }`}
             >

@@ -1,3 +1,21 @@
+# TASK-01: Official Figma Brand Logo & Favicon Replacement
+
+## Overview
+Replace the current generic 3-finder logo and favicon with the official brand asset extracted from Figma node `6062:2298`.
+
+---
+
+## Background & Problem
+- Current [`public/logo.svg`](../../public/logo.svg), [`public/favicon.svg`](../../public/favicon.svg), and the `BrandLogo` component in [`src/components/icons.tsx`](../../src/components/icons.tsx) use an outdated, hand-coded QR pattern with standard square finders.
+- Figma specifies a distinct branded mark: a cyan square (`#00A7F5`) with rounded corners, featuring two diagonally opposed finder patterns (one containing a rounded square with a circle, one containing a rounded square with a square) along with subtle dot micro-modules in the other quadrants.
+
+---
+
+## Figma Reference Asset
+- **Node**: `6062:2298` (`Logo`)
+- **Asset Endpoint**: `http://localhost:3845/assets/7b1006299cc184273d00aaed6dccc0a0761d1ad3.svg`
+- **Vector Specification**:
+```xml
 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g id="Logo">
     <path d="M3 8.25C3 5.35051 5.35051 3 8.25 3H27.75C30.6495 3 33 5.35051 33 8.25V27.75C33 30.6495 30.6495 33 27.75 33H8.25C5.35051 33 3 30.6495 3 27.75V8.25Z" fill="#00A7F5"/>
@@ -21,3 +39,18 @@
     <path d="M27.4559 21.5191C27.4559 20.8695 26.9293 20.3429 26.2797 20.3429C25.6301 20.3429 25.1035 20.8695 25.1035 21.5191C25.1035 22.1687 25.6301 22.6953 26.2797 22.6953C26.9293 22.6953 27.4559 22.1687 27.4559 21.5191Z" fill="white"/>
   </g>
 </svg>
+```
+
+---
+
+## Action Items
+1. **Update [`public/logo.svg`](../../public/logo.svg)**: Overwrite with the exact vector from Figma.
+2. **Update [`public/favicon.svg`](../../public/favicon.svg)**: Overwrite with the exact vector from Figma.
+3. **Update [`src/components/icons.tsx`](../../src/components/icons.tsx)**: Update the `BrandLogo` component to render the exact SVG markup above with dynamic `className`.
+
+---
+
+## Acceptance Criteria
+- [x] Browser favicon renders the new branded QR mark crisply.
+- [x] Header brand icon matches Figma node `6062:2298` at 36x36px.
+- [x] `npm run build` succeeds without lint or type errors.

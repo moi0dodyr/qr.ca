@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import QRCodeStyling from 'qr-code-styling';
 import { Header } from './components/Header';
 import { HeroHeadline } from './components/HeroHeadline';
@@ -7,12 +7,46 @@ import { ContentForm } from './components/ContentForm';
 import { DownloadPanel } from './components/DownloadPanel';
 import { SignUpModal } from './components/SignUpModal';
 import type { ShapeType } from './components/ShapeTiles';
+import { tabColors } from './utils/theme';
+import { initialVCardData, generateVCardString, type VCardData } from './utils/vcard';
+import { initialLinksPageData, generateLinksPagePayload, type LinksPageData } from './utils/links';
 
 export default function App() {
-  const [urlValue, setUrlValue] = useState('https://www.acne.com/');
+  // Content type states
+  const [websiteUrl, setWebsiteUrl] = useState('https://www.acme.com/');
+  const [vCardData, setVCardData] = useState<VCardData>(initialVCardData);
+  const [linksData, setLinksData] = useState<LinksPageData>(initialLinksPageData);
+  const [textContent, setTextContent] = useState('Welcome to our flagship Toronto store! Scan for special in-store perks.');
+  const [contactNumber, setContactNumber] = useState('+1 (800) 555-QRCA');
+  const [menuUrl, setMenuUrl] = useState('https://menu.qr.ca/bistro-toronto');
+
   const [selectedShape, setSelectedShape] = useState<ShapeType>('square');
   const [selectedColor, setSelectedColor] = useState<string>('#2c2e30');
   const [activeContentTab, setActiveContentTab] = useState<ContentTabType>('website');
+
+  // Compute active QR payload based on the active tab and data
+  const activePayload = useMemo(() => {
+    switch (activeContentTab) {
+      case 'website':
+        return websiteUrl.trim() || 'https://www.acme.com/';
+      case 'vcard':
+        return generateVCardString(vCardData);
+      case 'links':
+        return generateLinksPagePayload(linksData);
+      case 'text':
+        return textContent || ' ';
+      case 'contact':
+        return contactNumber.trim()
+          ? contactNumber.startsWith('tel:')
+            ? contactNumber
+            : `tel:${contactNumber.trim()}`
+          : '+1 (800) 555-QRCA';
+      case 'menu':
+        return menuUrl.trim() || 'https://menu.qr.ca';
+      default:
+        return websiteUrl.trim() || 'https://www.acme.com/';
+    }
+  }, [activeContentTab, websiteUrl, vCardData, linksData, textContent, contactNumber, menuUrl]);
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,7 +97,7 @@ export default function App() {
   const handleDirectDownload = () => {
     if (qrCodeInstance) {
       qrCodeInstance.download({
-        name: 'qr-ca-code',
+        name: `qr-ca-${activeContentTab}`,
         extension: 'png',
       });
     }
@@ -72,22 +106,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-[#2c2e30] flex flex-col font-['Inter_Tight'] selection:bg-[#00a7f5]/20 selection:text-[#00a7f5]">
       {/* Top Header */}
-      <Header
-        onSignUpClick={() => {
-          setModalTitle('Get Started with QR.ca');
-          setModalDescription(
-            'Create free branded QR codes in seconds, share them with your Canadian audience, and track scan performance.'
-          );
-          setIsModalOpen(true);
-        }}
-        onLogInClick={() => {
-          setModalTitle('Welcome Back to QR.ca');
-          setModalDescription(
-            'Log in to manage your active QR codes, review analytics, and download high-resolution marketing assets.'
-          );
-          setIsModalOpen(true);
-        }}
-      />
+      <Header />
 
       {/* Main Generator Section */}
       <main className="w-full max-w-[1148px] mx-auto px-4 sm:px-6 py-8 md:py-12 flex flex-col gap-[32px] md:gap-[40px] items-center">
@@ -108,8 +127,18 @@ export default function App() {
           >
             {/* Steps 1 & 2 */}
             <ContentForm
-              urlValue={urlValue}
-              onUrlChange={setUrlValue}
+              websiteUrl={websiteUrl}
+              onWebsiteUrlChange={setWebsiteUrl}
+              vCardData={vCardData}
+              onVCardDataChange={setVCardData}
+              linksData={linksData}
+              onLinksDataChange={setLinksData}
+              textContent={textContent}
+              onTextContentChange={setTextContent}
+              contactNumber={contactNumber}
+              onContactNumberChange={setContactNumber}
+              menuUrl={menuUrl}
+              onMenuUrlChange={setMenuUrl}
               selectedShape={selectedShape}
               onSelectShape={setSelectedShape}
               selectedColor={selectedColor}
@@ -120,9 +149,10 @@ export default function App() {
 
             {/* Step 3 */}
             <DownloadPanel
-              urlValue={urlValue}
+              urlValue={activePayload}
               shape={selectedShape}
               color={selectedColor}
+              accentColor={tabColors[activeContentTab]}
               onDownloadClick={handleDownloadClick}
               onTrackScansToggle={handleTrackScansToggle}
               onInstanceReady={setQrCodeInstance}

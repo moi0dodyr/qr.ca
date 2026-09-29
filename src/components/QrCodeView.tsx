@@ -75,11 +75,6 @@ export const QrCodeView: React.FC<QrCodeViewProps> = ({
         cornerSquareType = 'extra-rounded';
         cornerDotType = 'dot';
         break;
-      case 'classy-rounded':
-        dotType = 'classy-rounded';
-        cornerSquareType = 'extra-rounded';
-        cornerDotType = 'dot';
-        break;
     }
 
     return { dotType, cornerSquareType, cornerDotType };
@@ -125,6 +120,7 @@ export const QrCodeView: React.FC<QrCodeViewProps> = ({
       containerRef.current.innerHTML = '';
       qrCode.append(containerRef.current);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update when properties change

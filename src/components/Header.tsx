@@ -8,17 +8,17 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onSignUpClick, onLogInClick }) => {
   return (
-    <header className="w-full border-b border-[rgba(44,46,48,0.08)] bg-white px-6 py-5 flex items-center justify-between shrink-0">
+    <header className="relative w-full border-b border-[rgba(44,46,48,0.08)] bg-white px-6 py-5 flex items-center justify-between shrink-0">
       {/* Brand */}
-      <div className="flex gap-2 items-center cursor-pointer select-none">
+      <div className="flex gap-2 items-center cursor-pointer select-none z-10">
         <BrandLogo className="size-9" />
         <span className="font-['Inter_Tight'] font-semibold text-[18px] text-[#2c2e30] tracking-tight">
           QR.ca
         </span>
       </div>
 
-      {/* Navigation Links */}
-      <nav className="hidden md:flex items-center gap-8 font-['Inter_Tight'] font-medium text-[16px] text-[rgba(44,46,48,0.7)] tracking-[0.32px]">
+      {/* Navigation Links (Mathematically Centered) */}
+      <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 font-['Inter_Tight'] font-medium text-[16px] text-[rgba(44,46,48,0.7)] tracking-[0.32px]">
         <a href="#features" className="hover:text-[#2c2e30] transition-colors">
           Features
         </a>
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onSignUpClick, onLogInClick }) =
       </nav>
 
       {/* Account Actions */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 z-10">
         <button
           type="button"
           onClick={onLogInClick}

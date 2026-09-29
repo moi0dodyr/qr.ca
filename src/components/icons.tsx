@@ -3,103 +3,100 @@ import React from 'react';
 // Brand Logo: Cyan rounded square with stylized white QR modules
 export const BrandLogo: React.FC<{ className?: string }> = ({ className = "w-9 h-9" }) => (
   <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <rect width="36" height="36" rx="8" fill="#00A7F5" />
-    {/* Top-Left Finder */}
-    <rect x="5.5" y="5.5" width="10" height="10" rx="2" fill="white" />
-    <rect x="7.5" y="7.5" width="6" height="6" rx="1" fill="#00A7F5" />
-    <rect x="9" y="9" width="3" height="3" rx="0.5" fill="white" />
-
-    {/* Top-Right Finder */}
-    <rect x="20.5" y="5.5" width="10" height="10" rx="2" fill="white" />
-    <rect x="22.5" y="7.5" width="6" height="6" rx="1" fill="#00A7F5" />
-    <rect x="24" y="9" width="3" height="3" rx="0.5" fill="white" />
-
-    {/* Bottom-Left Finder */}
-    <rect x="5.5" y="20.5" width="10" height="10" rx="2" fill="white" />
-    <rect x="7.5" y="22.5" width="6" height="6" rx="1" fill="#00A7F5" />
-    <rect x="9" y="24" width="3" height="3" rx="0.5" fill="white" />
-
-    {/* Custom data modules */}
-    <rect x="20.5" y="20.5" width="3" height="3" rx="0.5" fill="white" />
-    <rect x="25.5" y="20.5" width="5" height="3" rx="0.5" fill="white" />
-    <rect x="20.5" y="25.5" width="4" height="5" rx="0.5" fill="white" />
-    <rect x="26.5" y="25.5" width="4" height="5" rx="0.5" fill="white" />
-    <rect x="17.5" y="14" width="3" height="8" rx="0.5" fill="white" />
+    <g id="Logo">
+      <path d="M3 8.25C3 5.35051 5.35051 3 8.25 3H27.75C30.6495 3 33 5.35051 33 8.25V27.75C33 30.6495 30.6495 33 27.75 33H8.25C5.35051 33 3 30.6495 3 27.75V8.25Z" fill="#00A7F5" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M27 6C28.6569 6 30 7.34315 30 9V15C30 16.6569 28.6569 18 27 18H21C19.3431 18 18 16.6569 18 15V9C18 7.34315 19.3431 6 21 6H27ZM21 7.5C20.1716 7.5 19.5 8.17157 19.5 9V15C19.5 15.8284 20.1716 16.5 21 16.5H27C27.8284 16.5 28.5 15.8284 28.5 15V9C28.5 8.17157 27.8284 7.5 27 7.5H21Z" fill="white" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 18C16.6569 18 18 19.3431 18 21V27C18 28.6569 16.6569 30 15 30H9C7.34315 30 6 28.6569 6 27V21C6 19.3431 7.34315 18 9 18H15ZM9 19.5C8.17157 19.5 7.5 20.1716 7.5 21V27C7.5 27.8284 8.17157 28.5 9 28.5H15C15.8284 28.5 16.5 27.8284 16.5 27V21C16.5 20.1716 15.8284 19.5 15 19.5H9Z" fill="white" />
+      <path d="M21 12C21 10.3431 22.3431 9 24 9C25.6569 9 27 10.3431 27 12C27 13.6569 25.6569 15 24 15C22.3431 15 21 13.6569 21 12Z" fill="white" />
+      <path d="M9 21.75C9 21.3358 9.33579 21 9.75 21H14.25C14.6642 21 15 21.3358 15 21.75V26.25C15 26.6642 14.6642 27 14.25 27H9.75C9.33579 27 9 26.6642 9 26.25V21.75Z" fill="white" />
+      <path d="M10.1036 14.7786C10.1036 14.129 10.6302 13.6024 11.2798 13.6024C11.9294 13.6024 12.456 14.129 12.456 14.7786C12.456 15.4282 11.9294 15.9548 11.2798 15.9548C10.6302 15.9548 10.1036 15.4282 10.1036 14.7786Z" fill="white" />
+      <path d="M13.044 14.7786C13.044 14.129 13.5706 13.6024 14.2202 13.6024C14.8698 13.6024 15.3964 14.129 15.3964 14.7786C15.3964 15.4282 14.8698 15.9548 14.2202 15.9548C13.5706 15.9548 13.044 15.4282 13.044 14.7786Z" fill="white" />
+      <path d="M7.10356 11.25C7.10356 10.6004 7.63016 10.0738 8.27975 10.0738C8.92935 10.0738 9.45595 10.6004 9.45595 11.25C9.45595 11.8996 8.92935 12.4262 8.27975 12.4262C7.63016 12.4262 7.10356 11.8996 7.10356 11.25Z" fill="white" />
+      <path d="M20.7191 24.9809C20.7191 24.3313 21.2457 23.8047 21.8953 23.8047C22.5449 23.8047 23.0715 24.3313 23.0715 24.9809C23.0715 25.6305 22.5449 26.1571 21.8953 26.1571C21.2457 26.1571 20.7191 25.6305 20.7191 24.9809Z" fill="white" />
+      <path d="M28.9523 24.9809C28.9523 24.3313 28.4257 23.8047 27.7761 23.8047C27.1265 23.8047 26.5999 24.3313 26.5999 24.9809C26.5999 25.6305 27.1265 26.1571 27.7761 26.1571C28.4257 26.1571 28.9523 25.6305 28.9523 24.9809Z" fill="white" />
+      <path d="M26.012 24.9809C26.012 24.3313 25.4854 23.8047 24.8358 23.8047C24.1862 23.8047 23.6596 24.3313 23.6596 24.9809C23.6596 25.6305 24.1862 26.1571 24.8358 26.1571C25.4854 26.1571 26.012 25.6305 26.012 24.9809Z" fill="white" />
+      <path d="M10.1036 7.72137C10.1036 7.07178 10.6302 6.54518 11.2798 6.54518C11.9294 6.54518 12.456 7.07178 12.456 7.72137C12.456 8.37097 11.9294 8.89757 11.2798 8.89757C10.6302 8.89757 10.1036 8.37097 10.1036 7.72137Z" fill="white" />
+      <path d="M13.044 7.72137C13.044 7.07178 13.5706 6.54518 14.2202 6.54518C14.8698 6.54518 15.3964 7.07178 15.3964 7.72137C15.3964 8.37097 14.8698 8.89757 14.2202 8.89757C13.5706 8.89757 13.044 8.37097 13.044 7.72137Z" fill="white" />
+      <path d="M7.10356 14.7786C7.10356 14.129 7.63016 13.6024 8.27975 13.6024C8.92935 13.6024 9.45595 14.129 9.45595 14.7786C9.45595 15.4282 8.92935 15.9548 8.27975 15.9548C7.63016 15.9548 7.10356 15.4282 7.10356 14.7786Z" fill="white" />
+      <path d="M19.5428 27.9809C19.5428 27.3313 20.0694 26.8047 20.719 26.8047C21.3686 26.8047 21.8952 27.3313 21.8952 27.9809C21.8952 28.6305 21.3686 29.1571 20.719 29.1571C20.0694 29.1571 19.5428 28.6305 19.5428 27.9809Z" fill="white" />
+      <path d="M29.9572 27.9809C29.9572 27.3313 29.4306 26.8047 28.781 26.8047C28.1314 26.8047 27.6048 27.3313 27.6048 27.9809C27.6048 28.6305 28.1314 29.1571 28.781 29.1571C29.4306 29.1571 29.9572 28.6305 29.9572 27.9809Z" fill="white" />
+      <path d="M7.10356 7.72137C7.10356 7.07178 7.63016 6.54518 8.27975 6.54518C8.92935 6.54518 9.45595 7.07178 9.45595 7.72137C9.45595 8.37097 8.92935 8.89757 8.27975 8.89757C7.63016 8.89757 7.10356 8.37097 7.10356 7.72137Z" fill="white" />
+      <path d="M22.0074 21.5191C22.0074 20.8695 22.534 20.3429 23.1836 20.3429C23.8332 20.3429 24.3598 20.8695 24.3598 21.5191C24.3598 22.1687 23.8332 22.6953 23.1836 22.6953C22.534 22.6953 22.0074 22.1687 22.0074 21.5191Z" fill="white" />
+      <path d="M27.4559 21.5191C27.4559 20.8695 26.9293 20.3429 26.2797 20.3429C25.6301 20.3429 25.1035 20.8695 25.1035 21.5191C25.1035 22.1687 25.6301 22.6953 26.2797 22.6953C26.9293 22.6953 27.4559 22.1687 27.4559 21.5191Z" fill="white" />
+    </g>
   </svg>
 );
 
-// Canadian National Flag SVG
-export const CanadaFlag: React.FC<{ className?: string }> = ({ className = "w-[45px] h-[36px]" }) => (
-  <svg viewBox="0 0 900 450" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <rect width="900" height="450" fill="white" rx="4" />
-    <rect width="225" height="450" fill="#FF0000" />
-    <rect x="675" width="225" height="450" fill="#FF0000" />
-    {/* Maple Leaf */}
+// Canadian Maple Leaf SVG (Pantone Vectorized from Figma)
+export const CanadaFlag: React.FC<{ className?: string; color?: string }> = ({
+  className = "w-[45px] h-[56px]",
+  color = "#EF6F68",
+}) => (
+  <svg viewBox="0 0 45 55.8984" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
-      d="M450 357.5L445.5 315C427.5 321.75 418.5 310.5 405 292.5L373.5 306L360 270L328.5 288L337.5 243C315 247.5 301.5 238.5 292.5 225L324 189L301.5 180L337.5 135L360 148.5C369 135 373.5 117 382.5 90L405 135L427.5 112.5L432 171C436.5 166.5 441 157.5 450 135C459 157.5 463.5 166.5 468 171L472.5 112.5L495 135L517.5 90C526.5 117 531 135 540 148.5L562.5 135L598.5 180L576 189L607.5 225C598.5 238.5 585 247.5 562.5 243L571.5 288L540 270L526.5 306L495 292.5C481.5 310.5 472.5 321.75 454.5 315L450 357.5Z"
-      fill="#FF0000"
+      d="M22.0803 4.7185C22.2782 4.78569 22.8005 6.00407 22.9224 6.24643L24.7461 9.88611C25.145 10.6861 25.7933 11.7597 26.1007 12.5488C27.3425 12.7482 27.6107 12.0033 28.6122 11.5198C29.2332 11.2201 30.0511 10.6126 30.6612 10.3915C30.8764 10.4947 30.6019 11.4712 30.5492 11.7172C29.765 15.376 29.1474 19.0627 28.4289 22.7333C28.3995 22.8838 28.538 23.1479 28.603 23.2817C28.7274 23.3637 29.098 23.5849 29.2146 23.5264C29.6911 23.2874 30.2641 22.5033 30.5887 22.1533L32.8347 19.7596C33.205 19.3629 33.5915 18.9646 33.967 18.5722C34.1861 18.3431 34.3377 18.2613 34.5552 17.9901C34.7326 18.5087 35.7594 20.9827 36.0923 21.2072C36.8196 21.3746 37.8203 20.9622 38.5461 20.8414C39.6346 20.6602 40.7029 20.4199 41.7774 20.1698C42.1399 20.0854 42.4908 20.0448 42.8489 19.9403C42.3325 22.2487 41.1359 24.6542 40.7275 26.9981C40.6347 27.5301 42.9175 28.2801 43.4844 28.7439L43.5023 28.7588C42.5958 29.5388 41.7047 30.2208 40.7882 30.9756C39.3555 32.1751 37.9145 33.3647 36.4654 34.5443L34.149 36.444C33.6115 36.8819 32.6512 37.5028 32.413 38.1348C32.5366 38.6504 32.9068 39.6221 33.0944 40.1272C33.3453 40.8096 33.5874 41.4951 33.8209 42.1836C33.2863 42.0524 32.8685 42.0035 32.3387 41.9042L28.45 41.2148C26.9178 40.9395 25.1681 40.5414 23.6241 40.4364C22.3521 40.4088 22.6495 42.3368 22.7023 43.1285C22.8908 45.951 22.9894 48.8131 23.1634 51.6252C22.7616 51.6388 22.3556 51.63 21.9533 51.6248L21.0639 51.6186C20.9853 50.0159 21.8243 41.5487 21.4106 40.8639C21.2571 40.6098 20.8851 40.4477 20.5985 40.432C19.7654 40.3864 18.8162 40.6923 17.9982 40.8375C17.0475 41.0063 16.0911 41.1539 15.142 41.3302C13.8183 41.576 12.4974 41.848 11.162 42.0101C10.9716 42.0332 10.6193 42.1857 10.4694 42.1515C10.4179 41.9853 11.6978 38.5642 11.8487 38.0756C11.7627 37.8996 11.6617 37.7451 11.5102 37.6177C8.92485 35.4445 6.28141 33.3397 3.68602 31.1772C2.69586 30.3521 1.66417 29.5843 0.693299 28.7305C1.56615 28.1867 2.55633 27.9197 3.35228 27.2992C3.43894 27.2316 3.54679 26.9526 3.51758 26.8414C3.05164 25.0684 2.43773 23.3094 1.88576 21.5572C1.75758 21.1493 1.43889 20.4158 1.41485 20.0384L1.45681 19.9944C2.30078 20.0758 3.16988 20.3951 4.01852 20.5118C4.73673 20.6106 7.64767 21.4385 8.17084 21.1639C8.68359 20.8948 9.21111 18.5295 9.68537 18.0933C10.0049 18.106 13.0948 21.7844 13.6185 22.2129C13.9698 22.5003 14.6228 23.6668 15.2244 23.5011C16.2171 23.2276 15.6738 22.0578 15.5607 21.3784C15.464 20.816 15.3499 20.2442 15.2379 19.678L14.3002 14.8242C14.0481 13.5784 13.7287 11.3709 13.3811 10.2091C13.4165 10.2375 13.6869 10.4586 13.7066 10.4698C14.2665 10.7856 14.8395 11.1085 15.3988 11.4232C15.9837 11.738 16.5219 12.122 17.1152 12.4215C17.9478 12.8418 18.1333 12.5389 18.4827 11.8159C19.3785 9.96214 20.2775 8.11371 21.2621 6.30532C21.5416 5.79199 21.7686 5.20352 22.0803 4.7185Z"
+      fill={color}
     />
   </svg>
 );
 
-// Globe Outline Icon
-export const GlobeIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-    <path d="M2 12h20" />
+export const MapleLeafIcon = CanadaFlag;
+
+// 1. Globe Filled Icon (Website Tab)
+export const GlobeFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 24 24" fill={color} className={className}>
+    <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.07a14.09 14.09 0 0 1 1.91 3.93h-3.82A14.09 14.09 0 0 1 12 4.07zM4.26 14a7.84 7.84 0 0 1 0-4h3.38a16.7 16.7 0 0 0-.14 2 16.7 16.7 0 0 0 .14 2zm.81 2h2.95a15.65 15.65 0 0 0 1.38 3.56A8.03 8.03 0 0 1 5.07 16zm2.95-8H5.07a8.03 8.03 0 0 1 3.53-3.56A15.65 15.65 0 0 0 8.02 8zm3.98 11.93A14.09 14.09 0 0 1 10.09 16h3.82a14.09 14.09 0 0 1-1.91 3.93zM9.64 14a14.7 14.7 0 0 1-.14-2c0-.68.05-1.35.14-2h4.72c.09.65.14 1.32.14 2s-.05 1.35-.14 2zm4.96 5.56A15.65 15.65 0 0 0 15.98 16h2.95a8.03 8.03 0 0 1-3.53 3.56zM16.36 14a16.7 16.7 0 0 0 .14-2 16.7 16.7 0 0 0-.14-2h3.38a7.84 7.84 0 0 1 0 4z" />
   </svg>
 );
+export const GlobeIcon = GlobeFilledIcon;
 
-// Identification Card Outline Icon
-export const IdCardIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <rect width="18" height="14" x="3" y="5" rx="2" />
-    <circle cx="9" cy="11" r="2" />
-    <path d="M15 9h2" />
-    <path d="M15 13h2" />
-    <path d="M6 16c0-1.5 1.5-2.5 3-2.5s3 1 3 2.5" />
+// 2. Identification Card Filled Icon (vCard Tab)
+export const IdCardFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 24 24" fill={color} className={className}>
+    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-11 5a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm3 8H6v-1c0-1.33 2-2 3-2s3 .67 3 2zm6-2h-4v-1.5h4zm0-3h-4V10.5h4zm0-3h-4V7.5h4z" />
   </svg>
 );
+export const IdCardIcon = IdCardFilledIcon;
 
-// Link Fill Icon
+// 3. Link Filled Icon (Links Page Tab)
 export const LinkFillIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
   <svg viewBox="0 0 24 24" fill={color} className={className}>
     <path d="M13.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L18.586 10l-4.293-4.293-1 1a1 1 0 0 1-1.414-1.414l1.414-1.414v-.586zm-2.586 7.414a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414L10.707 12.12l-4.293 4.293 4.293 4.293 1.414-1.414a1 1 0 0 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0l1.472 1.472z" />
   </svg>
 );
+export const LinkFilledIcon = LinkFillIcon;
 
-// Note Outline Icon
-export const NoteIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-    <polyline points="14 2 14 8 20 8" />
-    <line x1="8" y1="13" x2="16" y2="13" />
-    <line x1="8" y1="17" x2="14" y2="17" />
+// 4. Note Filled Icon (Text Tab)
+export const NoteFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 24 24" fill={color} className={className}>
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
   </svg>
 );
+export const NoteIcon = NoteFilledIcon;
 
-// User Outline Icon
-export const UserIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <circle cx="12" cy="7" r="4" />
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+// 5. User Filled Icon (Contact Tab)
+export const UserFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 24 24" fill={color} className={className}>
+    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
   </svg>
 );
+export const UserIcon = UserFilledIcon;
 
-// Fork & Knife Outline Icon
-export const ForkKnifeIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M18 2v20M18 2a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3M6 2v6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2M9 11v11" />
+// 6. Fork & Knife Filled Icon (Restaurant Menu Tab)
+export const ForkKnifeFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 24 24" fill={color} className={className}>
+    <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm7-7c-2.21 0-4 1.79-4 4v7h2.5V22h2.5V2h-1z" />
   </svg>
 );
+export const ForkKnifeIcon = ForkKnifeFilledIcon;
 
-// Chevron Down / More Icon
+// 7. Chevron Down / More Icon
 export const ChevronDownIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <polyline points="6 9 12 15 18 9" />
   </svg>
 );
+export const MoreFilledIcon = ChevronDownIcon;
 
 // Sketch / Gem Diamond Icon for Premium badge
 export const GemIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-3 h-3", color = "currentColor" }) => (

@@ -3,13 +3,12 @@ import React from 'react';
 export type ShapeType =
   | 'square'
   | 'rounded'
-  | 'dots'
-  | 'classy'
-  | 'classy-rounded'
   | 'extra-rounded'
+  | 'dots'
+  | 'diamond'
   | 'horizontal-bars'
   | 'vertical-bars'
-  | 'diamond';
+  | 'classy';
 
 interface ShapeTileOption {
   id: ShapeType;
@@ -17,209 +16,188 @@ interface ShapeTileOption {
   preview: React.ReactNode;
 }
 
-export const shapeOptions: ShapeTileOption[] = [
-  // 1. Classic Square
+const shapeOptions: ShapeTileOption[] = [
+  // 1. Square Modules (Figma 6062:2414)
   {
     id: 'square',
     label: 'Square',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="10" height="10" fill="#2C2E30" />
-        <rect x="20" y="6" width="10" height="10" fill="#2C2E30" />
-        <rect x="6" y="20" width="10" height="10" fill="#2C2E30" />
-        <rect x="20" y="20" width="10" height="10" fill="#2C2E30" />
-        <rect x="34" y="6" width="8" height="8" fill="#2C2E30" />
-        <rect x="34" y="18" width="8" height="8" fill="#2C2E30" />
-        <rect x="34" y="34" width="8" height="8" fill="#2C2E30" />
-        <rect x="6" y="34" width="8" height="8" fill="#2C2E30" />
-        <rect x="18" y="34" width="12" height="8" fill="#2C2E30" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <path d="M24 48H0V24H24V48ZM8 32V40H16V32H8Z" fill="currentColor" />
+        <rect x="8" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="8" width="8" height="8" fill="currentColor" />
+        <rect width="8" height="8" fill="currentColor" />
+        <rect y="8" width="8" height="8" fill="currentColor" />
+        <rect x="16" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="24" y="8" width="8" height="8" fill="currentColor" />
+        <rect x="24" width="8" height="8" fill="currentColor" />
+        <rect x="40" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="40" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="32" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="24" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="24" width="8" height="8" fill="currentColor" />
+        <rect x="40" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="24" y="16" width="8" height="8" fill="currentColor" />
+        <rect x="24" y="32" width="8" height="8" fill="currentColor" />
+        <rect x="32" y="40" width="8" height="8" fill="currentColor" />
       </svg>
     ),
   },
 
-  // 2. Rounded Square
+  // 2. Rounded Modules (Figma 6062:2854)
   {
     id: 'rounded',
     label: 'Rounded',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="10" height="10" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="6" width="10" height="10" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="20" width="10" height="10" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="20" width="10" height="10" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="6" width="8" height="8" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="18" width="8" height="8" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="34" width="8" height="8" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="34" width="8" height="8" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="18" y="34" width="12" height="8" rx="2" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <path
+          d="M32 15C32 15.5523 32.4477 16 33 16H47C47.5523 16 48 16.4477 48 17V47C48 47.5523 47.5523 48 47 48H33C32.4477 48 32 47.5523 32 47V40H39C39.5523 40 40 39.5523 40 39V33C40 32.4477 39.5523 32 39 32H32V40H25C24.4477 40 24 40.4477 24 41V47C24 47.5523 23.5523 48 23 48H1C0.447716 48 0 47.5523 0 47V25C0 24.4477 0.447715 24 1 24H7C7.55228 24 8 23.5523 8 23V16H16V23C16 23.5523 16.4477 24 17 24H24V17C24 16.4477 23.5523 16 23 16H16V8H23C23.5523 8 24 7.55228 24 7V1C24 0.447715 24.4477 0 25 0H31C31.5523 0 32 0.447715 32 1V15ZM8 39C8 39.5523 8.44772 40 9 40H15C15.5523 40 16 39.5523 16 39V33C16 32.4477 15.5523 32 15 32H9C8.44772 32 8 32.4477 8 33V39ZM24 31C24 31.5523 24.4477 32 25 32H32V25C32 24.4477 31.5523 24 31 24H24V31ZM16 8H9C8.44772 8 8 8.44772 8 9V16H1C0.447715 16 0 15.5523 0 15V1C0 0.447715 0.447715 0 1 0H15C15.5523 0 16 0.447715 16 1V8ZM48 7C48 7.55228 47.5523 8 47 8H41C40.4477 8 40 7.55228 40 7V1C40 0.447715 40.4477 0 41 0H47C47.5523 0 48 0.447715 48 1V7Z"
+          fill="currentColor"
+        />
       </svg>
     ),
   },
 
-  // 3. Extra Rounded / Squircle
+  // 3. Squircle Interconnected (Figma 6062:2855)
   {
     id: 'extra-rounded',
     label: 'Squircle',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="10" height="10" rx="5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="6" width="10" height="10" rx="5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="20" width="10" height="10" rx="5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="20" width="10" height="10" rx="5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="6" width="8" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="18" width="8" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="34" width="8" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="34" width="8" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="18" y="34" width="12" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <path
+          d="M16 24H20C22.2091 24 24 25.7909 24 28V32H28C30.2091 32 32 33.7909 32 36C32 38.2091 30.2091 40 28 40H24V44C24 46.2091 22.2091 48 20 48H4C1.79086 48 6.44266e-08 46.2091 0 44V28C2.57706e-07 25.7909 1.79086 24 4 24H8V16H16V24ZM28 0C30.2091 0 32 1.79086 32 4V16H44C46.2091 16 48 17.7909 48 20V44C48 46.2091 46.2091 48 44 48H36C33.7909 48 32 46.2091 32 44C32 41.7909 33.7909 40 36 40H40V32H36C33.7909 32 32 30.2091 32 28V24H28C25.7909 24 24 22.2091 24 20V16H20C17.7909 16 16 14.2091 16 12C16 9.79086 17.7909 8 20 8H24V4C24 1.79086 25.7909 0 28 0ZM8 40H16V32H8V40ZM12 0C14.2091 0 16 1.79086 16 4C16 6.20914 14.2091 8 12 8H8V12C8 14.2091 6.20914 16 4 16C1.79086 16 0 14.2091 0 12V4C0 1.79086 1.79086 0 4 0H12ZM45 0C46.6569 0 48 1.34315 48 3V5C48 6.65685 46.6569 8 45 8H43C41.3431 8 40 6.65685 40 5V3C40 1.34315 41.3431 0 43 0H45Z"
+          fill="currentColor"
+        />
       </svg>
     ),
   },
 
-  // 4. Dot Matrix / Circular Dots
+  // 4. Circular Dot Matrix (Figma 6062:2856)
   {
     id: 'dots',
     label: 'Dots',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <circle cx="8" cy="8" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="16" cy="8" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="24" cy="8" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="32" cy="8" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="40" cy="8" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="8" cy="16" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="24" cy="16" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="40" cy="16" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="8" cy="24" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="16" cy="24" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="32" cy="24" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="40" cy="24" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="8" cy="32" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="24" cy="32" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="40" cy="32" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="8" cy="40" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="16" cy="40" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="24" cy="40" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="32" cy="40" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="40" cy="40" r="3.5" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <g fill="currentColor">
+          <circle cx="12" cy="20" r="4" />
+          <circle cx="12" cy="28" r="4" />
+          <circle cx="4" cy="28" r="4" />
+          <circle cx="4" cy="36" r="4" />
+          <circle cx="4" cy="44" r="4" />
+          <circle cx="12" cy="44" r="4" />
+          <circle cx="20" cy="44" r="4" />
+          <circle cx="20" cy="36" r="4" />
+          <circle cx="20" cy="28" r="4" />
+          <circle cx="12" cy="4" r="4" />
+          <circle cx="4" cy="4" r="4" />
+          <circle cx="4" cy="12" r="4" />
+          <circle cx="20" cy="12" r="4" />
+          <circle cx="28" cy="12" r="4" />
+          <circle cx="28" cy="4" r="4" />
+          <circle cx="44" cy="4" r="4" />
+          <circle cx="44" cy="44" r="4" />
+          <circle cx="44" cy="36" r="4" />
+          <circle cx="44" cy="28" r="4" />
+          <circle cx="36" cy="28" r="4" />
+          <circle cx="44" cy="20" r="4" />
+          <circle cx="36" cy="20" r="4" />
+          <circle cx="28" cy="20" r="4" />
+          <circle cx="28" cy="36" r="4" />
+          <circle cx="36" cy="44" r="4" />
+        </g>
       </svg>
     ),
   },
 
-  // 5. Classy Diamond / Star
+  // 5. Classy Star / Diamond Notches (Figma 6062:2857)
   {
     id: 'diamond',
     label: 'Diamond',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <polygon points="12,6 18,12 12,18 6,12" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="26,6 32,12 26,18 20,12" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="40,6 46,12 40,18 34,12" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="12,20 18,26 12,32 6,26" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="26,20 32,26 26,32 20,26" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="40,20 46,26 40,32 34,26" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="12,34 18,40 12,46 6,40" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="26,34 32,40 26,46 20,40" fill="rgba(44, 46, 48, 0.7)" />
-        <polygon points="40,34 46,40 40,46 34,40" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <path
+          d="M31.3848 0C31.7245 8.14074e-05 31.9999 0.275486 32 0.615234V16H47C47.5523 16 48 16.4477 48 17V44C48 46.2091 46.2091 48 44 48H32.6152C32.2755 47.9999 32.0001 47.7245 32 47.3848C32 43.3064 35.3064 40 39.3848 40H40V32H32V36C32 38.2091 30.2091 40 28 40H24V44C24 46.2091 22.2091 48 20 48H1C0.447715 48 1.61065e-08 47.5523 0 47V28C2.57706e-07 25.7909 1.79086 24 4 24H8V20C8 17.7909 9.79086 16 12 16H15C15.5523 16 16 16.4477 16 17V24H23C23.5523 24 24 24.4477 24 25V32H32V24H24V16H16.6152C16.2755 15.9999 16.0001 15.7245 16 15.3848C16 11.3064 19.3064 8 23.3848 8H24V7.38477C24 3.30636 27.3064 0 31.3848 0ZM8 40H16V32H8V40ZM15.3848 0C15.7245 8.11499e-05 15.9999 0.275486 16 0.615234C16 4.69364 12.6936 8 8.61523 8H8V8.61523C8 12.6936 4.69364 16 0.615234 16C0.275486 15.9999 8.11822e-05 15.7245 0 15.3848V4C0 1.79086 1.79086 0 4 0H15.3848ZM47 0C47.5523 0 48 0.447715 48 1V4C48 6.20914 46.2091 8 44 8H41C40.4477 8 40 7.55228 40 7V4C40 1.79086 41.7909 0 44 0H47Z"
+          fill="currentColor"
+        />
       </svg>
     ),
   },
 
-  // 6. Horizontal Bars
+  // 6. Horizontal Rounded Pills (Figma 6062:2858)
   {
     id: 'horizontal-bars',
     label: 'Bars',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="22" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="32" y="6" width="10" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="15" width="12" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="22" y="15" width="20" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="24" width="28" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="38" y="24" width="4" height="7" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="33" width="10" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="33" width="22" height="7" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <g fill="currentColor">
+          <rect x="8" y="16.5" width="8" height="7" rx="3.5" />
+          <rect x="0" y="24.5" width="24" height="7" rx="3.5" />
+          <rect x="0" y="32.5" width="8" height="7" rx="3.5" />
+          <rect x="0" y="40.5" width="24" height="7" rx="3.5" />
+          <rect x="16" y="32.5" width="16" height="7" rx="3.5" />
+          <rect x="0" y="0.5" width="16" height="7" rx="3.5" />
+          <rect x="0" y="8.5" width="8" height="7" rx="3.5" />
+          <rect x="16" y="8.5" width="16" height="7" rx="3.5" />
+          <rect x="24" y="0.5" width="8" height="7" rx="3.5" />
+          <rect x="40" y="0.5" width="8" height="7" rx="3.5" />
+          <rect x="40" y="32.5" width="8" height="7" rx="3.5" />
+          <rect x="32" y="24.5" width="16" height="7" rx="3.5" />
+          <rect x="24" y="16.5" width="24" height="7" rx="3.5" />
+          <rect x="32" y="40.5" width="16" height="7" rx="3.5" />
+        </g>
       </svg>
     ),
   },
 
-  // 7. Vertical Pills
+  // 7. Vertical Rounded Pills (Figma 6062:2859)
   {
     id: 'vertical-bars',
     label: 'Pills',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="7" height="22" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="32" width="7" height="10" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="15" y="6" width="7" height="12" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="15" y="22" width="7" height="20" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="24" y="6" width="7" height="28" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="24" y="38" width="7" height="4" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="33" y="6" width="7" height="10" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="33" y="20" width="7" height="22" rx="3.5" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <g fill="currentColor">
+          <rect x="8.5" y="16" width="7" height="8" rx="3.5" />
+          <rect x="8.5" y="24" width="7" height="8" rx="3.5" />
+          <rect x="0.5" y="24" width="7" height="24" rx="3.5" />
+          <rect x="8.5" y="40" width="7" height="8" rx="3.5" />
+          <rect x="16.5" y="24" width="7" height="24" rx="3.5" />
+          <rect x="8.5" y="0" width="7" height="8" rx="3.5" />
+          <rect x="0.5" y="0" width="7" height="16" rx="3.5" />
+          <rect x="16.5" y="8" width="7" height="8" rx="3.5" />
+          <rect x="40.5" y="0" width="7" height="8" rx="3.5" />
+          <rect x="40.5" y="16" width="7" height="32" rx="3.5" />
+          <rect x="32.5" y="16" width="7" height="16" rx="3.5" />
+          <rect x="24.5" y="0" width="7" height="24" rx="3.5" />
+          <rect x="24.5" y="32" width="7" height="8" rx="3.5" />
+          <rect x="32.5" y="40" width="7" height="8" rx="3.5" />
+        </g>
       </svg>
     ),
   },
 
-  // 8. Classy Connected
+  // 8. Classy Connected / Matrix (Figma 6062:2860)
   {
     id: 'classy',
     label: 'Classy',
     preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <path
-          d="M6 10C6 7.79086 7.79086 6 10 6H16V16H6V10Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M20 6H30V12C30 14.2091 28.2091 16 26 16H20V6Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M34 6H42V14C42 15.1046 41.1046 16 40 16H34V6Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M6 20H16V28C16 30.2091 14.2091 32 12 32H6V20Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M20 20H28C30.2091 20 32 21.7909 32 24V32H20V20Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M34 22C34 20.8954 34.8954 20 36 20H42V30C42 31.1046 41.1046 32 40 32H34V22Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M8 36C8 34.8954 8.89543 34 10 34H18V42H10C8.89543 42 8 41.1046 8 40V36Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <path
-          d="M22 34H32V40C32 41.1046 31.1046 42 30 42H22V34Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-      </svg>
-    ),
-  },
-
-  // 9. Classy Rounded / Fluid Blobs
-  {
-    id: 'classy-rounded',
-    label: 'Fluid',
-    preview: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
-        <rect x="6" y="6" width="10" height="10" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="20" y="6" width="10" height="10" rx="2" fill="rgba(44, 46, 48, 0.7)" />
-        <path
-          d="M34 6H40C41.1046 6 42 6.89543 42 8V14C42 15.1046 41.1046 16 40 16H36C34.8954 16 34 15.1046 34 14V6Z"
-          fill="rgba(44, 46, 48, 0.7)"
-        />
-        <rect x="6" y="20" width="10" height="10" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="25" cy="25" r="5" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="34" y="20" width="8" height="12" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="6" y="34" width="12" height="8" rx="4" fill="rgba(44, 46, 48, 0.7)" />
-        <rect x="22" y="34" width="8" height="8" rx="3" fill="rgba(44, 46, 48, 0.7)" />
-        <circle cx="38" cy="38" r="4" fill="rgba(44, 46, 48, 0.7)" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-12 h-12">
+        <g fill="currentColor">
+          <rect x="8" y="16.5" width="8" height="7" rx="3.5" />
+          <rect x="0" y="24.5" width="24" height="7" rx="3.5" />
+          <rect x="0" y="32.5" width="8" height="7" rx="3.5" />
+          <rect x="0" y="40.5" width="24" height="7" rx="3.5" />
+          <rect x="16" y="32.5" width="16" height="7" rx="3.5" />
+          <rect x="0" y="0.5" width="16" height="7" rx="3.5" />
+          <rect x="0" y="8.5" width="8" height="7" rx="3.5" />
+          <rect x="16" y="8.5" width="16" height="7" rx="3.5" />
+          <rect x="24" y="0.5" width="8" height="7" rx="3.5" />
+          <rect x="40" y="0.5" width="8" height="7" rx="3.5" />
+          <rect x="40" y="32.5" width="8" height="7" rx="3.5" />
+          <rect x="32" y="24.5" width="16" height="7" rx="3.5" />
+          <rect x="24" y="16.5" width="24" height="7" rx="3.5" />
+          <rect x="32" y="40.5" width="16" height="7" rx="3.5" />
+        </g>
       </svg>
     ),
   },
@@ -248,8 +226,8 @@ export const ShapeTiles: React.FC<ShapeTilesProps> = ({
             title={opt.label}
             className={`w-[116px] h-[116px] rounded-[12px] bg-white transition-all flex items-center justify-center relative cursor-pointer group ${
               isSelected
-                ? 'border-2 border-[#2c2e30] shadow-[0px_2px_8px_rgba(44,46,48,0.12)]'
-                : 'border border-[rgba(44,46,48,0.08)] hover:border-[rgba(44,46,48,0.24)] hover:bg-[#fafafa]'
+                ? 'border-2 border-[#2c2e30] shadow-[0px_2px_8px_rgba(44,46,48,0.12)] text-[#2c2e30]'
+                : 'border border-[rgba(44,46,48,0.08)] text-[rgba(44,46,48,0.7)] hover:border-[rgba(44,46,48,0.24)] hover:bg-[#fafafa]'
             }`}
           >
             <div className={`transition-transform duration-150 ${isSelected ? 'scale-105' : 'group-hover:scale-105'}`}>
@@ -264,15 +242,25 @@ export const ShapeTiles: React.FC<ShapeTilesProps> = ({
         );
       })}
 
-      {/* 10th card: +10 more in the App */}
+      {/* More Shapes marketing hook (Figma 6063:4912) */}
       <button
         type="button"
         onClick={onAppBadgeClick}
-        className="w-[116px] h-[116px] rounded-[12px] border border-dashed border-[rgba(44,46,48,0.2)] bg-transparent hover:bg-white/80 transition-all flex flex-col items-center justify-center cursor-pointer group"
+        className="w-[116px] h-[116px] rounded-[12px] border border-dashed border-[rgba(44,46,48,0.16)] bg-white/40 hover:bg-white hover:border-[rgba(44,46,48,0.32)] transition-all overflow-hidden relative cursor-pointer group shrink-0"
+        data-node-id="6063:4912"
+        data-name="More Shapes"
       >
-        <div className="text-[14px] text-[rgba(44,46,48,0.7)] text-center tracking-[0.7px] leading-[18px] group-hover:text-[#2c2e30]">
-          <p className="font-semibold">+10 more</p>
-          <p>in the App</p>
+        <p className="absolute left-1/2 -translate-x-1/2 top-[calc(50%-17px)] w-[83px] text-center font-['Inter_Tight'] font-normal text-[14px] text-[rgba(44,46,48,0.7)] leading-[18px] tracking-[0.7px] group-hover:text-[#2c2e30] transition-colors select-none">
+          Unlock more in App
+        </p>
+        <div className="absolute flex h-[92.209px] items-center justify-center left-[-25.5px] top-[-20.5px] w-[105.028px] pointer-events-none select-none" data-node-id="6063:4914">
+          <div className="-rotate-[40deg] flex-none">
+            <div className="bg-[#d68a00] flex h-[18px] items-center px-[6px] py-[4px] relative rounded-[6px] w-[122px]" data-name="More Shapes Badge">
+              <p className="flex-1 font-['Inter_Tight'] font-medium text-[12px] text-center text-white tracking-[0.72px] uppercase leading-none whitespace-nowrap" data-node-id="6063:4915">
+                +10 more
+              </p>
+            </div>
+          </div>
         </div>
       </button>
     </div>

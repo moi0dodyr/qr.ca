@@ -3,11 +3,13 @@ import QRCodeStyling from 'qr-code-styling';
 import { QrCodeView } from './QrCodeView';
 import type { ShapeType } from './ShapeTiles';
 import { GemIcon } from './icons';
+import { getDownloadPanelTheme } from '../utils/theme';
 
 interface DownloadPanelProps {
   urlValue: string;
   shape: ShapeType;
   color: string;
+  accentColor?: string;
   onDownloadClick: () => void;
   onTrackScansToggle: () => void;
   onInstanceReady: (instance: QRCodeStyling) => void;
@@ -17,22 +19,22 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
   urlValue,
   shape,
   color,
+  accentColor = '#00A7F5',
   onDownloadClick,
   onTrackScansToggle,
   onInstanceReady,
 }) => {
+  const theme = getDownloadPanelTheme(accentColor);
+
   return (
     <div
-      className="bg-[rgba(0,167,245,0.08)] border border-[rgba(0,167,245,0.12)] flex flex-col gap-[28px] items-start p-[24px] sm:p-[28px] rounded-[28px] w-full lg:w-[393px] shrink-0 relative select-none"
+      style={{
+        backgroundColor: theme.panelBg,
+        borderColor: theme.panelBorder,
+      }}
+      className="border flex flex-col gap-[28px] items-start p-[24px] sm:p-[28px] rounded-[28px] w-full lg:w-[393px] shrink-0 relative select-none transition-colors duration-200"
       data-name="Download Panel"
     >
-      {/* "NO CREDIT CARD REQUIRED" Floating Badge */}
-      <div className="-translate-x-1/2 absolute bg-white border border-[rgba(44,46,48,0.16)] flex h-[24px] items-center justify-center left-1/2 px-[10px] py-[4px] rounded-[6px] top-[-12px] shadow-[0px_2px_4px_rgba(0,0,0,0.04)] z-10">
-        <span className="font-['Inter_Tight'] font-medium text-[12px] text-[rgba(44,46,48,0.7)] text-center tracking-[0.72px] uppercase whitespace-nowrap">
-          no credit card required
-        </span>
-      </div>
-
       {/* Step 3 Header */}
       <div className="flex items-center gap-[12px] w-full" data-name="Download Header">
         <div className="bg-[#2c2e30] border border-[#f4f5f5] text-white rounded-full size-[32px] flex items-center justify-center font-['Inter_Tight'] font-semibold text-[16px] shrink-0">
@@ -45,10 +47,20 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
 
       {/* QR Preview & Tracking section */}
       <div className="flex flex-col gap-[24px] items-center w-full" data-name="QR Preview">
-        <div className="flex flex-col gap-[20px] items-center w-full max-w-[277px]" data-name="Preview Content">
+        <div className="flex flex-col gap-[20px] items-center w-full max-w-[277px] relative" data-name="Preview Content">
+          {/* "NO CREDIT CARD REQUIRED" Floating Badge anchored to the QR code frame */}
+          <div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white border border-[rgba(44,46,48,0.16)] flex h-[24px] items-center justify-center px-[8px] py-[10px] rounded-[6px] shadow-[0px_2px_4px_rgba(0,0,0,0.04)] z-20"
+            data-name="Credit Card Notice"
+          >
+            <span className="font-['Inter_Tight'] font-medium text-[12px] text-[rgba(44,46,48,0.7)] text-center tracking-[0.72px] uppercase whitespace-nowrap">
+              no credit card required
+            </span>
+          </div>
+
           {/* White Card framing the QR code */}
           <div
-            className="bg-white border border-[rgba(44,46,48,0.1)] rounded-[12px] size-[268px] flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-transform duration-200 hover:scale-[1.01]"
+            className="bg-white border border-[rgba(44,46,48,0.1)] rounded-[12px] size-[268px] flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-transform duration-200 hover:scale-[1.01] relative"
             data-name="QR Code"
           >
             <QrCodeView
@@ -98,7 +110,12 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
           <button
             type="button"
             onClick={onDownloadClick}
-            className="bg-gradient-to-b from-[rgba(0,167,245,0.24)] to-[rgba(0,167,245,0.08)] border border-[rgba(0,167,245,0.36)] shadow-[0px_4px_0px_0px_rgba(0,167,245,0.25)] active:translate-y-[2px] active:shadow-[0px_2px_0px_0px_rgba(0,167,245,0.25)] flex h-[44px] items-center justify-center px-[16px] py-[10px] rounded-[12px] w-full text-[#2c2e30] font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] hover:brightness-105 transition-all cursor-pointer"
+            style={{
+              background: theme.buttonBg,
+              borderColor: theme.buttonBorder,
+              boxShadow: theme.buttonShadow,
+            }}
+            className="border active:translate-y-[2px] flex h-[44px] items-center justify-center px-[16px] py-[10px] rounded-[12px] w-full text-[#2c2e30] font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] hover:brightness-105 transition-all duration-200 cursor-pointer"
             data-name="Download Button"
           >
             Download QR

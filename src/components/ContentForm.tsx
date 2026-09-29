@@ -1,48 +1,62 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ShapeTiles, type ShapeType } from './ShapeTiles';
 import type { ContentTabType } from './ContentTypeNav';
-import { CanadaFlag, BrandLogo } from './icons';
+import { VCardFormSection } from './VCardFormSection';
+import type { VCardData } from '../utils/vcard';
+import { LinksFormSection } from './LinksFormSection';
+import type { LinksPageData } from '../utils/links';
 
-export type DesignTabType = 'shape' | 'logo' | 'frame' | 'colors';
-
-interface ContentFormProps {
-  urlValue: string;
-  onUrlChange: (val: string) => void;
+export interface ContentFormProps {
+  websiteUrl: string;
+  onWebsiteUrlChange: (val: string) => void;
+  vCardData: VCardData;
+  onVCardDataChange: (val: VCardData) => void;
+  linksData: LinksPageData;
+  onLinksDataChange: (val: LinksPageData) => void;
+  textContent: string;
+  onTextContentChange: (val: string) => void;
+  contactNumber: string;
+  onContactNumberChange: (val: string) => void;
+  menuUrl: string;
+  onMenuUrlChange: (val: string) => void;
   selectedShape: ShapeType;
   onSelectShape: (shape: ShapeType) => void;
-  selectedColor: string;
-  onSelectColor: (color: string) => void;
+  selectedColor?: string;
+  onSelectColor?: (color: string) => void;
   activeContentTab: ContentTabType;
   onOpenSignUpModal: (source: string) => void;
+  urlValue?: string;
+  onUrlChange?: (val: string) => void;
 }
 
 export const ContentForm: React.FC<ContentFormProps> = ({
-  urlValue,
-  onUrlChange,
+  websiteUrl,
+  onWebsiteUrlChange,
+  vCardData,
+  onVCardDataChange,
+  linksData,
+  onLinksDataChange,
+  textContent,
+  onTextContentChange,
+  contactNumber,
+  onContactNumberChange,
+  menuUrl,
+  onMenuUrlChange,
   selectedShape,
   onSelectShape,
-  selectedColor,
-  onSelectColor,
   activeContentTab,
   onOpenSignUpModal,
+  urlValue,
+  onUrlChange,
 }) => {
-  const [activeDesignTab, setActiveDesignTab] = useState<DesignTabType>('shape');
-
-  // Preview form states for non-website tabs
-  const [vCardName, setVCardName] = useState('Alex Morgan');
-  const [vCardPhone, setVCardPhone] = useState('+1 (416) 555-0192');
-  const [vCardEmail, setVCardEmail] = useState('alex@startup.ca');
-  const [textContent, setTextContent] = useState('Welcome to our flagship Toronto store! Scan for special in-store perks.');
-  const [menuUrl, setMenuUrl] = useState('https://menu.qr.ca/bistro-toronto');
-
-  const colorPresets = [
-    { label: 'Charcoal', hex: '#2c2e30' },
-    { label: 'Brand Blue', hex: '#00a7f5' },
-    { label: 'Canadian Coral', hex: '#ef6f68' },
-    { label: 'Emerald', hex: '#10b981' },
-    { label: 'Violet', hex: '#8b5cf6' },
-    { label: 'Amber', hex: '#f59e0b' },
-  ];
+  const currentUrl = websiteUrl ?? urlValue ?? '';
+  const handleUrlChange = (val: string) => {
+    if (onWebsiteUrlChange) {
+      onWebsiteUrlChange(val);
+    } else if (onUrlChange) {
+      onUrlChange(val);
+    }
+  };
 
   return (
     <div
@@ -71,8 +85,8 @@ export const ContentForm: React.FC<ContentFormProps> = ({
             </label>
             <input
               type="text"
-              value={urlValue}
-              onChange={(e) => onUrlChange(e.target.value)}
+              value={currentUrl}
+              onChange={(e) => handleUrlChange(e.target.value)}
               placeholder="https://www.example.com/"
               className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-[16px] py-[10px] rounded-[12px] font-['Inter_Tight'] font-normal text-[16px] text-[#2c2e30] tracking-[0.32px] w-full focus:outline-none focus:border-[#00a7f5] focus:ring-2 focus:ring-[#00a7f5]/20 transition-all placeholder:text-neutral-400"
             />
@@ -80,51 +94,17 @@ export const ContentForm: React.FC<ContentFormProps> = ({
         )}
 
         {activeContentTab === 'vcard' && (
-          <div className="flex flex-col gap-[12px] w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1">
-                <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Full Name</label>
-                <input
-                  type="text"
-                  value={vCardName}
-                  onChange={(e) => setVCardName(e.target.value)}
-                  className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Phone</label>
-                <input
-                  type="text"
-                  value={vCardPhone}
-                  onChange={(e) => setVCardPhone(e.target.value)}
-                  className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-1">
-              <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Work Email</label>
-              <input
-                type="email"
-                value={vCardEmail}
-                onChange={(e) => setVCardEmail(e.target.value)}
-                className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
-              />
-            </div>
-          </div>
+          <VCardFormSection
+            data={vCardData}
+            onChange={onVCardDataChange}
+          />
         )}
 
         {activeContentTab === 'links' && (
-          <div className="flex flex-col gap-3 w-full">
-            <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Bio Link Page URL</label>
-            <input
-              type="text"
-              defaultValue="https://qr.ca/alex-portfolio"
-              className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
-            />
-            <div className="text-[13px] text-[rgba(44,46,48,0.6)]">
-              Connect your Instagram, TikTok, LinkedIn, and personal website under one branded QR link.
-            </div>
-          </div>
+          <LinksFormSection
+            data={linksData}
+            onChange={onLinksDataChange}
+          />
         )}
 
         {activeContentTab === 'text' && (
@@ -133,7 +113,7 @@ export const ContentForm: React.FC<ContentFormProps> = ({
             <textarea
               rows={3}
               value={textContent}
-              onChange={(e) => setTextContent(e.target.value)}
+              onChange={(e) => onTextContentChange(e.target.value)}
               className="bg-white border border-[rgba(44,46,48,0.16)] p-3 rounded-[12px] text-[15px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5] resize-none"
             />
           </div>
@@ -144,7 +124,9 @@ export const ContentForm: React.FC<ContentFormProps> = ({
             <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Direct Contact Card</label>
             <input
               type="text"
-              defaultValue="+1 (800) 555-QRCA"
+              value={contactNumber}
+              onChange={(e) => onContactNumberChange(e.target.value)}
+              placeholder="+1 (800) 555-QRCA"
               className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
             />
           </div>
@@ -156,7 +138,8 @@ export const ContentForm: React.FC<ContentFormProps> = ({
             <input
               type="text"
               value={menuUrl}
-              onChange={(e) => setMenuUrl(e.target.value)}
+              onChange={(e) => onMenuUrlChange(e.target.value)}
+              placeholder="https://menu.qr.ca/bistro-toronto"
               className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
             />
           </div>
@@ -193,158 +176,34 @@ export const ContentForm: React.FC<ContentFormProps> = ({
           </h2>
         </div>
 
-        {/* Sub-tabs: Shape, Logo, Frame, Colors */}
+        {/* Sub-tabs: Shape (active), Logo, Frame, Colors (static) */}
         <div className="flex flex-col gap-[16px] w-full">
-          <div className="border-b border-[rgba(44,46,48,0.08)] flex gap-[24px] items-center w-full select-none">
-            <button
-              type="button"
-              onClick={() => setActiveDesignTab('shape')}
-              className={`h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] transition-colors cursor-pointer relative ${
-                activeDesignTab === 'shape'
-                  ? 'border-b-2 border-[#00a7f5] text-[#2c2e30]'
-                  : 'text-[rgba(44,46,48,0.7)] hover:text-[#2c2e30]'
-              }`}
-            >
+          <div className="border-b border-[rgba(44,46,48,0.08)] flex gap-[24px] items-center w-full select-none" data-name="Design Tabs">
+            {/* Shape Tab: Active */}
+            <div className="border-b-2 border-[#00a7f5] h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[#2c2e30] tracking-[0.32px] shrink-0">
               Shape
-            </button>
+            </div>
 
-            <button
-              type="button"
-              onClick={() => setActiveDesignTab('logo')}
-              className={`h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] transition-colors cursor-pointer relative ${
-                activeDesignTab === 'logo'
-                  ? 'border-b-2 border-[#00a7f5] text-[#2c2e30]'
-                  : 'text-[rgba(44,46,48,0.7)] hover:text-[#2c2e30]'
-              }`}
-            >
+            {/* Inactive & Non-Clickable Tabs */}
+            <div className="h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[rgba(44,46,48,0.7)] tracking-[0.32px] cursor-default pointer-events-none shrink-0">
               Logo
-            </button>
+            </div>
 
-            <button
-              type="button"
-              onClick={() => setActiveDesignTab('frame')}
-              className={`h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] transition-colors cursor-pointer relative ${
-                activeDesignTab === 'frame'
-                  ? 'border-b-2 border-[#00a7f5] text-[#2c2e30]'
-                  : 'text-[rgba(44,46,48,0.7)] hover:text-[#2c2e30]'
-              }`}
-            >
+            <div className="h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[rgba(44,46,48,0.7)] tracking-[0.32px] cursor-default pointer-events-none shrink-0">
               Frame
-            </button>
+            </div>
 
-            <button
-              type="button"
-              onClick={() => setActiveDesignTab('colors')}
-              className={`h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] tracking-[0.32px] transition-colors cursor-pointer relative ${
-                activeDesignTab === 'colors'
-                  ? 'border-b-2 border-[#00a7f5] text-[#2c2e30]'
-                  : 'text-[rgba(44,46,48,0.7)] hover:text-[#2c2e30]'
-              }`}
-            >
+            <div className="h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[rgba(44,46,48,0.7)] tracking-[0.32px] cursor-default pointer-events-none shrink-0">
               Colors
-            </button>
+            </div>
           </div>
 
           {/* Sub-tab content */}
-          {activeDesignTab === 'shape' && (
-            <ShapeTiles
-              selectedShape={selectedShape}
-              onSelectShape={onSelectShape}
-              onAppBadgeClick={() => onOpenSignUpModal('shape-presets')}
-            />
-          )}
-
-          {activeDesignTab === 'logo' && (
-            <div className="flex flex-col gap-4 py-2">
-              <p className="text-[14px] text-[rgba(44,46,48,0.7)]">
-                Add an official Canadian badge or your custom brand logo to the center of your code:
-              </p>
-              <div className="flex flex-wrap gap-3 items-center">
-                <button
-                  type="button"
-                  onClick={() => onOpenSignUpModal('logo-custom')}
-                  className="h-16 px-4 rounded-[12px] bg-white border border-[rgba(44,46,48,0.12)] hover:border-[#00a7f5] flex items-center gap-3 cursor-pointer transition-all"
-                >
-                  <BrandLogo className="w-8 h-8" />
-                  <span className="text-[14px] font-medium text-[#2c2e30]">QR.ca Official Badge</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onOpenSignUpModal('logo-canada')}
-                  className="h-16 px-4 rounded-[12px] bg-white border border-[rgba(44,46,48,0.12)] hover:border-[#00a7f5] flex items-center gap-3 cursor-pointer transition-all"
-                >
-                  <CanadaFlag className="w-8 h-6 rounded-[2px]" />
-                  <span className="text-[14px] font-medium text-[#2c2e30]">Maple Leaf</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onOpenSignUpModal('logo-upload')}
-                  className="h-16 px-5 rounded-[12px] border border-dashed border-[rgba(44,46,48,0.2)] hover:border-[#00a7f5] hover:bg-white text-[14px] font-medium text-[rgba(44,46,48,0.7)] hover:text-[#2c2e30] flex items-center justify-center cursor-pointer transition-all"
-                >
-                  + Upload Custom Logo
-                </button>
-              </div>
-            </div>
-          )}
-
-          {activeDesignTab === 'frame' && (
-            <div className="flex flex-col gap-4 py-2">
-              <p className="text-[14px] text-[rgba(44,46,48,0.7)]">
-                Add a call-to-action banner to increase scan rates by up to 80%:
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['No Frame', 'Bottom "SCAN ME"', 'Top "SCAN ME"', 'Badge Card', 'Handheld Phone'].map((frameStyle, idx) => (
-                  <button
-                    key={frameStyle}
-                    type="button"
-                    onClick={() => onOpenSignUpModal('frame-select')}
-                    className={`h-14 px-4 rounded-[12px] bg-white border text-[14px] font-medium transition-all cursor-pointer ${
-                      idx === 0
-                        ? 'border-[#2c2e30] text-[#2c2e30] shadow-[0px_2px_4px_rgba(0,0,0,0.06)]'
-                        : 'border-[rgba(44,46,48,0.12)] text-[rgba(44,46,48,0.7)] hover:border-[#2c2e30]'
-                    }`}
-                  >
-                    {frameStyle}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeDesignTab === 'colors' && (
-            <div className="flex flex-col gap-4 py-2">
-              <p className="text-[14px] text-[rgba(44,46,48,0.7)]">
-                Choose from Canadian-inspired palettes or customize with brand hex codes:
-              </p>
-              <div className="flex flex-wrap gap-3 items-center">
-                {colorPresets.map((preset) => {
-                  const isSelected = selectedColor === preset.hex;
-                  return (
-                    <button
-                      key={preset.hex}
-                      type="button"
-                      onClick={() => onSelectColor(preset.hex)}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-[10px] bg-white border transition-all cursor-pointer ${
-                        isSelected
-                          ? 'border-[#2c2e30] shadow-sm'
-                          : 'border-[rgba(44,46,48,0.12)] hover:border-[rgba(44,46,48,0.3)]'
-                      }`}
-                    >
-                      <span
-                        className="size-4 rounded-full border border-black/10 shrink-0"
-                        style={{ backgroundColor: preset.hex }}
-                      />
-                      <span className="text-[13px] font-medium text-[#2c2e30]">
-                        {preset.label}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+          <ShapeTiles
+            selectedShape={selectedShape}
+            onSelectShape={onSelectShape}
+            onAppBadgeClick={() => onOpenSignUpModal('shape-presets')}
+          />
         </div>
       </div>
     </div>

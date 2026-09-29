@@ -27,7 +27,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
           origin: { y: 0.6 },
           colors: ['#00A7F5', '#EF6F68', '#2C2E30'],
         });
-      } catch (e) {
+      } catch {
         // ignore if canvas not supported
       }
     }
@@ -59,7 +59,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
         <div className="flex flex-col items-center text-center gap-3 pt-2">
           <div className="flex items-center gap-2">
             <BrandLogo className="size-10" />
-            <CanadaFlag className="w-8 h-5 rounded-[2px] shadow-xs" />
+            <CanadaFlag className="w-8 h-10" />
           </div>
           <h3 className="font-['Inter_Tight'] font-bold text-[22px] sm:text-[24px] text-[#2c2e30] leading-tight">
             {title}
@@ -112,7 +112,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
 
         {/* Footer Guarantee */}
         <div className="text-center text-[12px] text-[rgba(44,46,48,0.5)] pt-1 border-t border-neutral-100">
-          🍁 100% Canadian data residency &middot; No credit card required
+          No credit card required
         </div>
       </div>
     </div>
