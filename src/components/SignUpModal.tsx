@@ -5,7 +5,6 @@ import { BrandLogo, CanadaFlag, GoogleIcon } from './icons';
 interface SignUpModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onDirectDownload?: () => void;
   title?: string;
   description?: string;
 }
@@ -13,7 +12,6 @@ interface SignUpModalProps {
 export const SignUpModal: React.FC<SignUpModalProps> = ({
   isOpen,
   onClose,
-  onDirectDownload,
   title = 'Your code is ready to download and customize!',
   description = 'Sign up to QR.ca to download your vector SVG and high-res PNG files, track your live scan analytics, and manage all your Canadian QR codes in one place.',
 }) => {
@@ -95,19 +93,6 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
           >
             Sign up with Email
           </button>
-
-          {/* Direct Download Link */}
-          {onDirectDownload && (
-            <div className="text-center pt-2">
-              <button
-                type="button"
-                onClick={onDirectDownload}
-                className="text-[13px] font-medium text-[#00a7f5] hover:underline cursor-pointer"
-              >
-                Or download a quick PNG preview now ↓
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Footer Guarantee */}

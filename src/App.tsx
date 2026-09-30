@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import QRCodeStyling from 'qr-code-styling';
 import { Header } from './components/Header';
 import { HeroHeadline } from './components/HeroHeadline';
 import { ContentTypeNav, type ContentTabType } from './components/ContentTypeNav';
@@ -55,9 +54,6 @@ export default function App() {
     'Sign up to the platform to download your QR code in high-resolution vector and raster formats (SVG, PNG, JPG), customize styling, and manage all your Canadian QR codes.'
   );
 
-  // QRCodeStyling reference for programmatic direct download
-  const [qrCodeInstance, setQrCodeInstance] = useState<QRCodeStyling | null>(null);
-
   const handleDownloadClick = () => {
     setModalTitle('Your code is ready to download and customize!');
     setModalDescription(
@@ -92,15 +88,6 @@ export default function App() {
       );
     }
     setIsModalOpen(true);
-  };
-
-  const handleDirectDownload = () => {
-    if (qrCodeInstance) {
-      qrCodeInstance.download({
-        name: `qr-ca-${activeContentTab}`,
-        extension: 'png',
-      });
-    }
   };
 
   return (
@@ -155,7 +142,6 @@ export default function App() {
               accentColor={tabColors[activeContentTab]}
               onDownloadClick={handleDownloadClick}
               onTrackScansToggle={handleTrackScansToggle}
-              onInstanceReady={setQrCodeInstance}
             />
           </div>
         </div>
@@ -165,7 +151,6 @@ export default function App() {
       <SignUpModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onDirectDownload={handleDirectDownload}
         title={modalTitle}
         description={modalDescription}
       />

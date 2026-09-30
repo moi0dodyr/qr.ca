@@ -12,7 +12,7 @@ interface DownloadPanelProps {
   accentColor?: string;
   onDownloadClick: () => void;
   onTrackScansToggle: () => void;
-  onInstanceReady: (instance: QRCodeStyling) => void;
+  onInstanceReady?: (instance: QRCodeStyling) => void;
 }
 
 export const DownloadPanel: React.FC<DownloadPanelProps> = ({
