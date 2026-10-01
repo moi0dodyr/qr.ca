@@ -18,15 +18,15 @@ Legend: ✅ built · ◐ partly built · ⬜ planned for the prototype · — ou
 
 | Area | Stories | Prototype | Notes |
 | --- | --- | --- | --- |
-| E1 · Home-page generator | QR-U-01, QR-U-02 | ◐ | The current repo. Gaps are listed in [`prototype-gaps.md`](./prototype-gaps.md) |
+| E1 · Home-page generator | QR-U-01, QR-U-02 | ◐ demo only | **Deferred** ([0002](../decisions/0002-home-page-demo-only-scanner-pages-later.md)). Kept as it is for demos; its gaps are not being worked on |
 | E2 · Sign-up, log-in, OTP reset, welcome | QR-U-03…06 | ⬜ | Screens and states only, with fake auth |
-| E3 · Creation wizard (owner app) | QR-U-07…21 | ⬜ | Main candidate after E1 |
+| E3 · Creation wizard (owner app) | QR-U-07…21 | ⬜ | Owner-side stage |
 | E4 · Dashboard, edit, folders, Archive | QR-U-22…27 | ⬜ | Mock code list |
 | E0 · Owner web app shell | QR-U-42 | ⬜ | Sidebar and its account-state variants |
 | E5 · Scan statistics | QR-U-28, QR-U-29 | ⬜ | Mock scan data; includes the empty state (F-27) |
 | E6 · Trial banner, upgrade, plans, cancel, failed payment | QR-U-30…35 | ⬜ | Fake billing. The trial-end wording waits on SRS-Q-01 |
 | E7 · Account settings, delete account | QR-U-36, QR-U-37 | ⬜ | |
-| E8 · Scanner side: hosted pages and "not live" pages | QR-U-38, QR-U-39 | ⬜ **strong candidate** | Not drawn in Figma (SR-03, C-4). It's what most people see. The prototype can define it |
+| E8 · Scanner side: hosted pages and "not live" pages | QR-U-38, QR-U-39 | ⬜ later | **Deferred** to a later design stage ([0002](../decisions/0002-home-page-demo-only-scanner-pages-later.md)). Not drawn in Figma (SR-03, C-4) |
 | E9 · Schedule editor, review funnel, API keys, tags | QR-U-40, QR-U-41, QR-U-43, QR-U-44 | ⬜ | The schedule editor and the review page are not drawn (C-4) |
 | Admin console | QR-A-01…06 | — | Not drawn in Figma (C-4) |
 

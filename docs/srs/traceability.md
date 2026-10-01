@@ -8,7 +8,7 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 
 | Flow | Name | Stories | Figma | Prototype |
 | --- | --- | --- | --- | --- |
-| FL-01 | First visit to first code | QR-U-01, 02, 03, 06 | `8045:3711`, `8055:3551` | ◐ Home page only; it stops at the sign-up modal |
+| FL-01 | First visit to first code | QR-U-01, 02, 03, 06 | `8045:3711`, `8055:3551` | ◐ Home page only, demo (0002) |
 | FL-02 | Sign up, log in, recover a password | QR-U-03, 04, 05 | `8055:3551`, `8055:3363`, `8067:2887` | ⬜ |
 | FL-03 | Create a code | QR-U-07…21, 43, 44 | `8045:2816` | ⬜ |
 | FL-04 | Create many codes at once | QR-U-17 | `8045:2390` | ⬜ |
@@ -19,7 +19,7 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 | FL-09 | From trial to paid | QR-U-30, 31, 32 | `8045:3479`, `8053:2117` | ⬜ |
 | FL-10 | Manage a plan, cancel, failed payment | QR-U-33, 34, 35 | `8045:3051` | ⬜ |
 | FL-11 | Account settings and deleting the account | QR-U-36, 37 | `8045:3122` | ⬜ |
-| FL-12 | What a scanner sees | QR-U-38, 39, 43, 44 | **not drawn** | ⬜ strong candidate |
+| FL-12 | What a scanner sees | QR-U-38, 39, 43, 44 | **not drawn** | ⬜ deferred (0002) |
 | FL-13 | Support and misuse (admin) | QR-A-01…06 | **not drawn** | — |
 
 ## M1 · Making codes (home page and creation)
