@@ -11,6 +11,7 @@ If an upstream document and a working document disagree, upstream wins. Record t
 
 | File | What it answers |
 | --- | --- |
+| [`domain-model.md`](./domain-model.md) | The rules the prototype's mock data must follow: types, statuses, account states, precedence |
 | [`prototype-scope.md`](./prototype-scope.md) | Which stories and flows this prototype covers, and what it fakes |
 | [`traceability.md`](./traceability.md) | For each feature: SRS story → Figma node → prototype code → status |
 | [`prototype-gaps.md`](./prototype-gaps.md) | Where the current prototype contradicts SRS v1.0 or is missing something it needs |

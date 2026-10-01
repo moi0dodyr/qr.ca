@@ -27,7 +27,7 @@ There's no test runner. Verify in the browser at **375 px and 1440 px** with no 
 ## Requirements: read before building
 
 - **Upstream (read-only):** `docs/srs/upstream/` holds BA SRS v1.0 and Features and Flows v1.0, word for word. **Never edit them.** They are internal: don't paste them into anything external.
-- **Our layer:** `docs/srs/` contains `prototype-scope.md`, `traceability.md` (story → Figma → code) and `prototype-gaps.md`.
+- **Our layer:** `docs/srs/` contains `prototype-scope.md`, `traceability.md` (story → Figma → code), `prototype-gaps.md` and `domain-model.md` (the types, statuses and account states that mock data must respect).
 - **Precedence:** upstream SRS > Figma Wireflows > Figma Mockups > current code. If they conflict, log it in `prototype-gaps.md`. Never resolve it silently.
 - The reference type list is SRS QR-U-07 (A-15). Use upstream IDs (F-, QR-U-, DS-, A-, SRS-Q-) in briefs and commits.
 - Figma: see `docs/design/README.md`. Use the Figma MCP for node IDs.

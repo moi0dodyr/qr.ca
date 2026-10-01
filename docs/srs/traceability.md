@@ -45,6 +45,62 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 | F-30 OTP password reset | QR-U-05 | `8067:2887` | — | ⬜ |
 | F-31 Welcome pop-up | QR-U-06 | `8055:3551` | — | ⬜ |
 
-## M3, M4, M5 (billing), M6, M7, M8
+## M3 · Scanning (scanner side; not drawn in Figma, C-4 / SR-03)
 
-To be filled in when SRS Part 2b (QR-U-28…44, QR-A-01…06) arrives.
+| Feature | Story | Figma | Prototype code | Status |
+| --- | --- | --- | --- | --- |
+| F-19, F-20, F-24 Redirect, code domain, no ads | QR-U-38 | — | — (backend) | — |
+| F-21 App-store routing | QR-U-19 | — | — | ⬜ |
+| F-22 Hosted pages (Multi-Link, vCard, PDF footer) | QR-U-38, QR-U-10 | — | — | ⬜ |
+| F-23 "Not live" pages (paused, unpaid, deleted, disabled, not found) | QR-U-39 | — | — | ⬜ |
+| F-60 Time-based redirects (schedule editor) | QR-U-43 | — | — | ⬜ |
+| F-61 Review / feedback funnel | QR-U-44 | — | — | ⬜ |
+
+## M4 · Scan statistics
+
+| Feature | Story | Figma | Prototype code | Status |
+| --- | --- | --- | --- | --- |
+| F-25, F-27 Per-code statistics and empty state | QR-U-28 | `8045:2575` | — | ⬜ |
+| F-26 Statistics across all codes | QR-U-29 | `8045:3155` | — | ⬜ |
+| F-28, F-29 Digests, export, comparison | — | drawn, hidden at launch | — | — (later) |
+
+## M5 · Trial and billing
+
+| Feature | Story | Figma | Prototype code | Status |
+| --- | --- | --- | --- | --- |
+| F-32 Trial countdown banner | QR-U-30 | `8045:3479` | — | ⬜ |
+| F-31, F-33 Trial start and end ⚠️ SRS-Q-01 | QR-U-31 | `8055:3551` | — | ⬜ |
+| F-34 Upgrade pop-up | QR-U-32 | `8053:2117` | — | ⬜ |
+| F-35 Plans & Billing | QR-U-33 | `8045:3051` | — | ⬜ |
+| F-36 Cancel plan + one retention offer | QR-U-34 | `8045:3051` | — | ⬜ |
+| F-37 Failed payment | QR-U-35 | — (not drawn) | — | ⬜ |
+| F-38 Profile, email, password | QR-U-36 | `8045:3122` | — | ⬜ |
+| F-39 Delete account | QR-U-37 | `8045:3122` | — | ⬜ |
+
+## M6 · Integrations (owner-facing screens only)
+
+| Feature | Story | Figma | Prototype code | Status |
+| --- | --- | --- | --- | --- |
+| F-40 Owner API keys screen | QR-U-40 | `8045:3377` | — | ⬜ |
+| F-41, F-42 GTM / GA4 / Meta Pixel fields | QR-U-41 | `8045:3399` (GTM only so far) | — | ⬜ |
+| F-43…F-47 Recurly, Customer.io, Amplitude, safety check, platform events | — | — | — (backend) | — |
+
+## M7 · Admin console (not drawn)
+
+| Feature | Story | Status |
+| --- | --- | --- |
+| F-49 Customer lookup | QR-A-01 | — |
+| F-50 Disable a harmful code | QR-A-02 | — |
+| F-51 Support actions | QR-A-03 | — |
+| F-52 Review queue | QR-A-04 | — |
+| F-53 Platform statistics | QR-A-05 | — |
+| F-54 Admin access control | QR-A-06 | — |
+
+## M8 · Cross-product (constraints on every prototype screen)
+
+| Feature | Requirement | Prototype status |
+| --- | --- | --- |
+| F-55 EN + fr-CA | SRS §12.8: no hard-coded text | ◐ English only, strings hard-coded (G-14) |
+| F-56 Phone and desktop | SRS §12.8, QR-U-42: no horizontal scroll | ◐ Home page responsive; check every new screen at 375 / 1440 px |
+| F-57 SEO | SRS §12.8 | — |
+| F-58 Feature flags | SRS §12.8 | — |

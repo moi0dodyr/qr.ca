@@ -25,7 +25,7 @@ The repo had no professional context layer. There was no `CLAUDE.md`, the README
 2. Add the upstream copies plus a manifest (`docs/srs/upstream/`).
 3. Add the SRS working layer: index, prototype scope, traceability, gaps, task template and this brief. Add the decisions log and the design map.
 4. Add `CLAUDE.md` and replace the Vite template `README.md`.
-5. *(Blocked)* Add SRS Parts 2b and 2c, Features 4a–4c and 5. Extend traceability, gaps and scope.
+5. Add SRS Parts 2b and 2c (✅ done), then Features 4a–4c and 5 (*blocked*). Extend traceability, gaps and scope, and add `domain-model.md`.
 6. *(Blocked)* Add the Figma wireflows link. Verify the node map against the file and add the flows FL-01…FL-13 to the design map.
 
 ## Out of scope
@@ -37,7 +37,7 @@ The repo had no professional context layer. There was no `CLAUDE.md`, the README
 
 - [ ] `CLAUDE.md` names the stack, commands, conventions, doc map and pipeline, and stays short
 - [ ] Every upstream file has a do-not-edit header and an entry in the manifest
-- [ ] Every story in Part 2a appears in `traceability.md`
+- [x] Every SRS story (QR-U-01…44, QR-A-01…06) appears in `traceability.md`
 - [ ] Every known contradiction between the prototype and the SRS is listed in `prototype-gaps.md`
 - [ ] Stages 5–6 are done once the missing documents and the Figma link arrive
 
@@ -54,3 +54,4 @@ The repo had no professional context layer. There was no `CLAUDE.md`, the README
 | 2026-10-01 | 2 | `90ec7bf` | SRS Part 1 and 2a, Features §1–3 and §6–7. The rest is pending |
 | 2026-10-01 | 3 | `f3bc3d8` | Working layer, decision 0001, design map |
 | 2026-10-01 | 4 | `7ff293e` | CLAUDE.md, README |
+| 2026-10-01 | 5a | — | SRS Parts 2b and 2c added; traceability M3–M8, gaps G-14 and G-15, scope E5–E9, domain-model.md |
