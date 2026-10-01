@@ -52,3 +52,5 @@ The repo had no professional context layer. There was no `CLAUDE.md`, the README
 | --- | --- | --- | --- |
 | 2026-10-01 | 1 | `1500f3d` | PRD tasks archived |
 | 2026-10-01 | 2 | `90ec7bf` | SRS Part 1 and 2a, Features §1–3 and §6–7. The rest is pending |
+| 2026-10-01 | 3 | `f3bc3d8` | Working layer, decision 0001, design map |
+| 2026-10-01 | 4 | `7ff293e` | CLAUDE.md, README |
