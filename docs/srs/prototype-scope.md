@@ -1,6 +1,6 @@
 # Prototype scope
 
-**Status:** Draft. The SRS is complete (Parts 1, 2a–2c). Still waiting on the Figma wireflows link and Features 4a–5.
+**Status:** Draft. All upstream documents and the Wireflows are in. Each row becomes in scope through its own task brief.
 
 ## What this repo is
 

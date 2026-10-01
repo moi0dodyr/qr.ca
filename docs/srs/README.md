@@ -34,6 +34,6 @@ Never push without asking.
 
 | # | Task | Traces to | Status |
 | --- | --- | --- | --- |
-| 01 | [Context layer setup](./tasks/01-context-layer-setup.md) | — | In progress |
+| 01 | [Context layer setup](./tasks/01-context-layer-setup.md) | — | Done |
 
 Prototype tasks 01–15 from before this pipeline existed are in [`../archive/prd/`](../archive/prd/README.md), all completed.

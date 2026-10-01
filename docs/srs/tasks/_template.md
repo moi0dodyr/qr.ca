@@ -5,7 +5,7 @@
 | **Status** | Draft · Confirmed · In progress · Done · Dropped |
 | **Created** | YYYY-MM-DD |
 | **Confirmed by** | Oleg, YYYY-MM-DD |
-| **Traces to** | F-xx · QR-U-xx · Figma `xxxx:xxxx` · gaps G-xx |
+| **Traces to** | F-xx · QR-U-xx · Figma `xxxx:xxxx` · gaps PG-xx |
 
 ## Problem
 

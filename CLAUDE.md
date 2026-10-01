@@ -30,7 +30,7 @@ There's no test runner. Verify in the browser at **375 px and 1440 px** with no 
 - **Our layer:** `docs/srs/` contains `prototype-scope.md`, `traceability.md` (story → Figma → code), `prototype-gaps.md` and `domain-model.md` (the types, statuses and account states that mock data must respect).
 - **Precedence:** upstream SRS > Figma Wireflows > Figma Mockups > current code. If they conflict, log it in `prototype-gaps.md`. Never resolve it silently.
 - The reference type list is SRS QR-U-07 (A-15). Use upstream IDs (F-, QR-U-, DS-, A-, SRS-Q-) in briefs and commits.
-- Figma: see `docs/design/README.md`. Use the Figma MCP for node IDs.
+- Figma: **Wireflows** `heli5YKyvwao7H6XFJQNiY` (flows, canvas `8013:3323`) and **Mockups** `5NuyPHjiXxrvLJGuJZItCf` (visuals). The node map and the Figma-vs-SRS findings (FD-NN) are in `docs/design/README.md`. Gap IDs are `PG-NN`; upstream `G-NN` means business goals.
 
 ## Pipeline (mandatory)
 
