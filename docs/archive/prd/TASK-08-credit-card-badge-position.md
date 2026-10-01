@@ -6,14 +6,14 @@ Move the floating badge tag *"no credit card required"* from the top of the oute
 ---
 
 ## Background & Problem
-- In [`src/components/DownloadPanel.tsx`](../../src/components/DownloadPanel.tsx), the badge was placed at the top of the entire outer download section container (`top-[-12px]`), hovering above the "Step 3: Download your QR" header.
+- In [`src/components/DownloadPanel.tsx`](../../../src/components/DownloadPanel.tsx), the badge was placed at the top of the entire outer download section container (`top-[-12px]`), hovering above the "Step 3: Download your QR" header.
 - User Specification: *"Next thing is the tag that says not credit card required should stay at the top of the QR code itself, not at the top of the download your QR section."*
 - Figma Node `6062:2669`: Located centered over the white QR code card container (`data-name="QR Code"`).
 
 ---
 
 ## Technical Implementation
-In [`src/components/DownloadPanel.tsx`](../../src/components/DownloadPanel.tsx):
+In [`src/components/DownloadPanel.tsx`](../../../src/components/DownloadPanel.tsx):
 
 ### 1. Remove Top Badge from Outer Container
 Remove the existing floating badge located at lines 30-34.
@@ -58,7 +58,7 @@ Remove the existing floating badge located at lines 30-34.
 ---
 
 ## Target File
-- [`src/components/DownloadPanel.tsx`](../../src/components/DownloadPanel.tsx)
+- [`src/components/DownloadPanel.tsx`](../../../src/components/DownloadPanel.tsx)
 
 ---
 

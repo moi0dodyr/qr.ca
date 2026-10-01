@@ -26,7 +26,7 @@
 ## 2. Subheading Single-Line Layout
 
 ### Background & Problem
-- In [`src/components/HeroHeadline.tsx`](../../src/components/HeroHeadline.tsx):
+- In [`src/components/HeroHeadline.tsx`](../../../src/components/HeroHeadline.tsx):
   ```tsx
   <p className="font-['Inter_Tight'] font-normal text-[15px] sm:text-[16px] text-[rgba(44,46,48,0.7)] max-w-[760px] tracking-[0.32px] leading-relaxed">
     Generate branded QR codes in seconds, share them with your audience, and instantly track your scan data.
@@ -47,8 +47,8 @@
 ---
 
 ## Target File
-- [`src/components/HeroHeadline.tsx`](../../src/components/HeroHeadline.tsx)
-- [`src/components/icons.tsx`](../../src/components/icons.tsx)
+- [`src/components/HeroHeadline.tsx`](../../../src/components/HeroHeadline.tsx)
+- [`src/components/icons.tsx`](../../../src/components/icons.tsx)
 
 ---
 

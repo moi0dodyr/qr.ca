@@ -6,8 +6,8 @@ Replace the thin outline/stroke icons in the Content Type Navigation bar with so
 ---
 
 ## Background & Problem
-- In [`src/components/icons.tsx`](../../src/components/icons.tsx), most icons (`GlobeIcon`, `IdCardIcon`, `NoteIcon`, `UserIcon`, `ForkKnifeIcon`) use `stroke="currentColor" fill="none" strokeWidth="1.8"`.
-- When displayed inside the 32x32px circular icon container in [`src/components/ContentTypeNav.tsx`](../../src/components/ContentTypeNav.tsx), thin stroke lines have low contrast against colored or white backgrounds.
+- In [`src/components/icons.tsx`](../../../src/components/icons.tsx), most icons (`GlobeIcon`, `IdCardIcon`, `NoteIcon`, `UserIcon`, `ForkKnifeIcon`) use `stroke="currentColor" fill="none" strokeWidth="1.8"`.
+- When displayed inside the 32x32px circular icon container in [`src/components/ContentTypeNav.tsx`](../../../src/components/ContentTypeNav.tsx), thin stroke lines have low contrast against colored or white backgrounds.
 - Replacing them with solid, filled vector shapes ensures high readability across all active selection colors.
 
 ---
@@ -63,8 +63,8 @@ Replace the thin outline/stroke icons in the Content Type Navigation bar with so
 ---
 
 ## Target Files
-- [`src/components/icons.tsx`](../../src/components/icons.tsx)
-- [`src/components/ContentTypeNav.tsx`](../../src/components/ContentTypeNav.tsx)
+- [`src/components/icons.tsx`](../../../src/components/icons.tsx)
+- [`src/components/ContentTypeNav.tsx`](../../../src/components/ContentTypeNav.tsx)
 
 ---
 

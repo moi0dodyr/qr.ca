@@ -41,7 +41,7 @@ Provide pure helper functions for:
 
 ## 2. Technical Implementation
 
-### File to Create: [`src/utils/links.ts`](../../src/utils/links.ts)
+### File to Create: [`src/utils/links.ts`](../../../src/utils/links.ts)
 
 ```typescript
 export type PlatformLogoKey =

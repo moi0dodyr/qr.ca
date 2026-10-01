@@ -22,7 +22,7 @@ Implement unique selection accent colors for each QR code type in the Content Ty
 ## Technical Implementation
 
 ### 1. Color Configuration Map
-In [`src/components/ContentTypeNav.tsx`](../../src/components/ContentTypeNav.tsx):
+In [`src/components/ContentTypeNav.tsx`](../../../src/components/ContentTypeNav.tsx):
 ```ts
 export const tabColorConfig: Record<ContentTabType, { hex: string; shadow: string }> = {
   website: { hex: '#00A7F5', shadow: 'rgba(0, 167, 245, 0.35)' },
@@ -81,7 +81,7 @@ return (
 ---
 
 ## Target File
-- [`src/components/ContentTypeNav.tsx`](../../src/components/ContentTypeNav.tsx)
+- [`src/components/ContentTypeNav.tsx`](../../../src/components/ContentTypeNav.tsx)
 
 ---
 

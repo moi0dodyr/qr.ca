@@ -13,7 +13,7 @@ In Step 2 ("Design your QR"), disable interactivity for the "Logo", "Frame", and
 ---
 
 ## Technical Implementation
-In [`src/components/ContentForm.tsx`](../../src/components/ContentForm.tsx):
+In [`src/components/ContentForm.tsx`](../../../src/components/ContentForm.tsx):
 
 ### 1. Replace Clickable Buttons with Static Presentation
 ```tsx
@@ -45,7 +45,7 @@ Remove state management for `activeDesignTab` ('logo' | 'frame' | 'colors') and 
 ---
 
 ## Target File
-- [`src/components/ContentForm.tsx`](../../src/components/ContentForm.tsx)
+- [`src/components/ContentForm.tsx`](../../../src/components/ContentForm.tsx)
 
 ---
 

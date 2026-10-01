@@ -37,7 +37,7 @@ The encoder must support all core and extended optional fields:
 
 ## 2. Technical Implementation
 
-### File to Create: [`src/utils/vcard.ts`](../../src/utils/vcard.ts)
+### File to Create: [`src/utils/vcard.ts`](../../../src/utils/vcard.ts)
 
 ```typescript
 export interface VCardData {

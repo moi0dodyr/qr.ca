@@ -36,7 +36,7 @@ To avoid a daunting wall of 14 inputs, the form is divided into three intuitive 
 
 ## 2. Component Design & Code Structure
 
-### Component to Create: [`src/components/VCardFormSection.tsx`](../../src/components/VCardFormSection.tsx)
+### Component to Create: [`src/components/VCardFormSection.tsx`](../../../src/components/VCardFormSection.tsx)
 
 ```tsx
 import React, { useState } from 'react';

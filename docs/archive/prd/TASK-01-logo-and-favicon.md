@@ -6,7 +6,7 @@ Replace the current generic 3-finder logo and favicon with the official brand as
 ---
 
 ## Background & Problem
-- Current [`public/logo.svg`](../../public/logo.svg), [`public/favicon.svg`](../../public/favicon.svg), and the `BrandLogo` component in [`src/components/icons.tsx`](../../src/components/icons.tsx) use an outdated, hand-coded QR pattern with standard square finders.
+- Current [`public/logo.svg`](../../../public/logo.svg), [`public/favicon.svg`](../../../public/favicon.svg), and the `BrandLogo` component in [`src/components/icons.tsx`](../../../src/components/icons.tsx) use an outdated, hand-coded QR pattern with standard square finders.
 - Figma specifies a distinct branded mark: a cyan square (`#00A7F5`) with rounded corners, featuring two diagonally opposed finder patterns (one containing a rounded square with a circle, one containing a rounded square with a square) along with subtle dot micro-modules in the other quadrants.
 
 ---
@@ -44,9 +44,9 @@ Replace the current generic 3-finder logo and favicon with the official brand as
 ---
 
 ## Action Items
-1. **Update [`public/logo.svg`](../../public/logo.svg)**: Overwrite with the exact vector from Figma.
-2. **Update [`public/favicon.svg`](../../public/favicon.svg)**: Overwrite with the exact vector from Figma.
-3. **Update [`src/components/icons.tsx`](../../src/components/icons.tsx)**: Update the `BrandLogo` component to render the exact SVG markup above with dynamic `className`.
+1. **Update [`public/logo.svg`](../../../public/logo.svg)**: Overwrite with the exact vector from Figma.
+2. **Update [`public/favicon.svg`](../../../public/favicon.svg)**: Overwrite with the exact vector from Figma.
+3. **Update [`src/components/icons.tsx`](../../../src/components/icons.tsx)**: Update the `BrandLogo` component to render the exact SVG markup above with dynamic `className`.
 
 ---
 

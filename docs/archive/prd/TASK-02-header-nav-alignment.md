@@ -6,7 +6,7 @@ Fix the visual misalignment of the top navigation menu ("Features", "Resources",
 ---
 
 ## Background & Problem
-- In [`src/components/Header.tsx`](../../src/components/Header.tsx), the container uses `flex justify-between items-center`:
+- In [`src/components/Header.tsx`](../../../src/components/Header.tsx), the container uses `flex justify-between items-center`:
   - Left element (Brand: Logo + "QR.ca"): width ~`100px`.
   - Center element (Nav links: "Features", "Resources", "Price", "FAQ").
   - Right element (Account Actions: "Log in" + "Sign up"): width ~`180px`.
@@ -53,7 +53,7 @@ Keep the outer flex layout, but position the `<nav>` absolutely in the center of
 ---
 
 ## Target File
-- [`src/components/Header.tsx`](../../src/components/Header.tsx)
+- [`src/components/Header.tsx`](../../../src/components/Header.tsx)
 
 ---
 

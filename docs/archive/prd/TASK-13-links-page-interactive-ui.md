@@ -27,14 +27,14 @@ LinksFormSection
 
 ## 2. Technical Implementation
 
-### 2.1 File to Create: [`src/components/platformIcons.tsx`](../../src/components/platformIcons.tsx)
+### 2.1 File to Create: [`src/components/platformIcons.tsx`](../../../src/components/platformIcons.tsx)
 Provides crisp inline SVGs for all 12 platform keys:
 - `website`, `instagram`, `tiktok`, `linkedin`, `youtube`, `x`, `github`, `facebook`, `spotify`, `discord`, `email`, `phone`.
 
-### 2.2 File to Create: [`src/components/PlatformIconPicker.tsx`](../../src/components/PlatformIconPicker.tsx)
+### 2.2 File to Create: [`src/components/PlatformIconPicker.tsx`](../../../src/components/PlatformIconPicker.tsx)
 A popover modal/flyout allowing one-click selection of any of the 12 platforms. Shows the icon, brand color badge, and platform name.
 
-### 2.3 Component to Create: [`src/components/LinksFormSection.tsx`](../../src/components/LinksFormSection.tsx)
+### 2.3 Component to Create: [`src/components/LinksFormSection.tsx`](../../../src/components/LinksFormSection.tsx)
 
 ```tsx
 import React, { useState } from 'react';

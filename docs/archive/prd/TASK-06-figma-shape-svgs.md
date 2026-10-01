@@ -102,7 +102,7 @@ All tiles render inside a `size-[48px]` preview area centered within a `116x116p
 ---
 
 ## Target File
-- [`src/components/ShapeTiles.tsx`](../../src/components/ShapeTiles.tsx)
+- [`src/components/ShapeTiles.tsx`](../../../src/components/ShapeTiles.tsx)
 
 ---
 
