@@ -9,7 +9,8 @@ These are the rules the prototype's **mock data and screen states** must follow.
 | Website URL | ✅ | ✅ | — | Valid http(s); screened before save (QR-A-04) |
 | PDF / File | ✅ | — | PDF opens directly with a QR.CA footer | Limits TBD (SRS-Q-11) |
 | Multi-Link / Links Page | ✅ | ? (Q-W6) | ✅ micro-landing | Label + URL per link, reorderable |
-| vCard | ✅ | ✅ (vCard / Contact) | ✅ micro-landing when dynamic | Name required; `.vcf` download |
+| vCard | ✅ | ✅ | ✅ micro-landing when dynamic | Full card: name, occupation, company, several numbers, email, website, address, photo. Name required; `.vcf` download |
+| Contact | — | ✅ | — | Basic card: name, phone, email ([0003](../decisions/0003-static-contact-and-vcard-both-kept.md); not yet in upstream, DR-04) |
 | App Store | ✅ | — | — | iOS and/or Android + **required** fallback (QR-U-19) |
 | Restaurant Menu | ✅ | — | PDF + footer | Display only (DS-04) |
 | Review / feedback | ✅ | — | Optional 1–5 rating page | Google link always shown (QR-U-44) |

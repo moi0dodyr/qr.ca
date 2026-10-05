@@ -8,3 +8,4 @@ Name files `NNNN-short-name.md`. Each record has: date, status (Accepted / Super
 | --- | --- | --- | --- |
 | [0001](./0001-prototype-repo-and-upstream-docs.md) | The repo is a front-end prototype; BA documents are kept as read-only upstream copies | 2026-10-01 | Accepted |
 | [0002](./0002-home-page-demo-only-scanner-pages-later.md) | The home page is demo-only; scanner pages wait for a later design stage | 2026-10-01 | Accepted |
+| [0003](./0003-static-contact-and-vcard-both-kept.md) | Static *Contact* and *vCard* are two separate types | 2026-10-05 | Accepted |
