@@ -21,7 +21,7 @@ Text was read from the real layer content (not layer names). Arrows were matched
 
 **67 findings: 1 High · 8 Med · 58 Low.** Numbering continues from the old audit (#123–#189).
 
-**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 53 Low.** Fixed the same day: #123, #156, #157, #174, #175 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190).
+**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 49 Low.** Fixed the same day: #123, #156, #157, #174, #175, #186–#189 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190).
 
 - **High (1):** the paused page still had the owner's custom message, cut on the call (#123). ✅ Fixed 2026-10-06.
 - **Regressions:** items closed earlier that aren't fixed in Figma any more: **#40** (plain *Save* path gone, #142: accepted as drawn, DR-09), **#68** and **#69** (API key name and Account ID, #172, #173: accepted as drawn, DR-08), the 2026-10-05 **links fix** for one box (#179), and partly **#27** (#157, design stage), **#57** (#158, #159), **#81** (#162), **#111** (#130).
@@ -129,10 +129,10 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 | 183 | ✅ **Fixed (2026-10-06):** reads *Downgrade*. Plans & Billing, `8292:11749` | "**Downgarde**" | "Downgrade" (typo; open items say none left) | Low | high |
 | 184 | ✅ **Fixed (2026-10-06):** "subscription" (text and layer name). Plans & Billing, `8256:11385` (text `8256:11394`) | "Plans & Billing (active **subsription**)" | "subscription" (typo) | Low | high |
 | 185 | ✅ **Fixed (2026-10-06):** "Enter Measurement ID". Integrations, `8322:33644` | "Enter **Measurment** ID" | "Measurement" (typo) | Low | high |
-| 186 | Integrations wireframe frame `8193:21625` | Layer name "**Google Tag Manager**". The visible title is "Integrations" ✓ | 0007 §2: the screen is called Integrations. Only the layer name is left over | Low | med |
-| 187 | APIs wireframe `8193:21761`, Sidebar | Screen title "**API Settings**", menu item "API" | v2 calls the screen "APIs" (QR-U-40 app map). Pick one name | Low | med |
-| 188 | Account Settings wireframe `8193:19112` | "First Name · Last Name · Jayson · White". No *Save changes* button in the frame | "First name, Last name; **Save changes** shows a success message" (QR-U-36 *edit the name*). The flow has it (`8193:22697`); the wireframe doesn't | Low | med |
-| 189 | Account Settings, note `8256:8666` | "**Must also say** what happens to printed codes ('no longer available' page), and that the subscription is cancelled" | Fixed in the wireframe (#72). The note still reads like the old audit's to-do and could be read as still open | Low | med |
+| 186 | ✅ **Fixed (2026-10-06):** layer renamed *Integrations*. Integrations wireframe frame `8193:21625` | Layer name "**Google Tag Manager**". The visible title is "Integrations" ✓ | 0007 §2: the screen is called Integrations. Only the layer name is left over | Low | med |
+| 187 | ✅ **Fixed (2026-10-06):** screen title is now *API*, as in the menu. APIs wireframe `8193:21761`, Sidebar | Screen title "**API Settings**", menu item "API" | v2 calls the screen "APIs" (QR-U-40 app map). Pick one name | Low | med |
+| 188 | ✅ **Fixed (2026-10-06):** *Save Changes* `8349:34357` added. Account Settings wireframe `8193:19112` | "First Name · Last Name · Jayson · White". No *Save changes* button in the frame | "First name, Last name; **Save changes** shows a success message" (QR-U-36 *edit the name*). The flow has it (`8193:22697`); the wireframe doesn't | Low | med |
+| 189 | ✅ **Fixed (2026-10-06):** the old to-do note was deleted. Account Settings, note `8256:8666` | "**Must also say** what happens to printed codes ('no longer available' page), and that the subscription is cancelled" | Fixed in the wireframe (#72). The note still reads like the old audit's to-do and could be read as still open | Low | med |
 
 ### Added after Oleg's Dashboard change (2026-10-06)
 

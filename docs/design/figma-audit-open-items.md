@@ -6,7 +6,7 @@
 
 When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
 
-**Status:** 0 High · 0 Med · **53 Low** open.
+**Status:** 0 High · 0 Med · **49 Low** open.
 
 ## 1. Links
 
@@ -70,10 +70,6 @@ Every link opens a node on the Wireflows page; none goes to the old *Meta Flow (
 | 178 | Connectors `8193:22860`/`22861`, `8256:8735`/`8736` | Delete the duplicate arrows |
 | 180 | Default Upgrade wireframe `8193:19773` | "Trial Ended" doesn't fit lapsed paid users; "are paused" vs "will pause" |
 | 181 | *Canceled State* `8193:22478` | Arrow back to Plans & Billing |
-| 186 | Integrations frame `8193:21625` | Rename the layer "Google Tag Manager" → *Integrations* |
-| 187 | APIs wireframe `8193:21761` | Title "API Settings" vs menu "API": pick one (v2: *APIs*) |
-| 188 | Account Settings wireframe `8193:19112` | Add *Save changes* |
-| 189 | Delete-account note `8256:8666` | Reword: it still reads like a to-do |
 
 ## 3. Typos
 
