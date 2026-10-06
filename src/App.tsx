@@ -96,7 +96,7 @@ export default function App() {
       <Header />
 
       {/* Main Generator Section */}
-      <main className="w-full max-w-[1148px] mx-auto px-4 sm:px-6 py-8 md:py-12 flex flex-col gap-[32px] md:gap-[40px] items-center">
+      <main className="w-full max-w-[1148px] mx-auto px-4 sm:px-6 py-8 md:pt-[56px] md:pb-12 flex flex-col gap-[32px] items-center">
         {/* Hero Section */}
         <HeroHeadline />
 

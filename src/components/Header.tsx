@@ -11,9 +11,9 @@ export const Header: React.FC<HeaderProps> = ({ onSignUpClick, onLogInClick }) =
     <header className="relative w-full border-b border-[rgba(44,46,48,0.08)] bg-white px-6 py-5 flex items-center justify-between shrink-0">
       {/* Brand */}
       <div className="flex gap-2 items-center cursor-pointer select-none z-10">
-        <BrandLogo className="size-9" />
+        <BrandLogo className="size-[32px]" />
         <span className="font-['Inter_Tight'] font-semibold text-[18px] text-[#2c2e30] tracking-tight">
-          QR.ca
+          QR.CA
         </span>
       </div>
 
@@ -25,8 +25,8 @@ export const Header: React.FC<HeaderProps> = ({ onSignUpClick, onLogInClick }) =
         <a href="#resources" className="hover:text-[#2c2e30] transition-colors">
           Resources
         </a>
-        <a href="#price" className="hover:text-[#2c2e30] transition-colors">
-          Price
+        <a href="#pricing" className="hover:text-[#2c2e30] transition-colors">
+          Pricing
         </a>
         <a href="#faq" className="hover:text-[#2c2e30] transition-colors">
           FAQ
