@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { BrandLogo, CanadaFlag, GoogleIcon } from './icons';
+import { BrandLogo, GoogleIcon } from './icons';
 
 interface SignUpModalProps {
   isOpen: boolean;
@@ -12,8 +12,8 @@ interface SignUpModalProps {
 export const SignUpModal: React.FC<SignUpModalProps> = ({
   isOpen,
   onClose,
-  title = 'Your code is ready to download and customize!',
-  description = 'Sign up to QR.ca to download your vector SVG and high-res PNG files, track your live scan analytics, and manage all your Canadian QR codes in one place.',
+  title = 'Your QR code is ready',
+  description = 'Sign up free to download it in SVG, PNG, JPG, PDF or EPS.',
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -55,10 +55,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
 
         {/* Modal Header */}
         <div className="flex flex-col items-center text-center gap-3 pt-2">
-          <div className="flex items-center gap-2">
-            <BrandLogo className="size-10" />
-            <CanadaFlag className="w-8 h-10" />
-          </div>
+          <BrandLogo className="size-10" />
           <h3 className="font-['Inter_Tight'] font-bold text-[22px] sm:text-[24px] text-[#2c2e30] leading-tight">
             {title}
           </h3>

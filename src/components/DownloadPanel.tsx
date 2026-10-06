@@ -2,7 +2,6 @@ import React from 'react';
 import QRCodeStyling from 'qr-code-styling';
 import { QrCodeView } from './QrCodeView';
 import type { ShapeType } from './ShapeTiles';
-import { GemIcon } from './icons';
 import { getDownloadPanelTheme } from '../utils/theme';
 
 interface DownloadPanelProps {
@@ -47,10 +46,10 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
 
       {/* QR Preview & Tracking section */}
       <div className="flex flex-col gap-[24px] items-center w-full" data-name="QR Preview">
-        <div className="flex flex-col gap-[20px] items-center w-full max-w-[277px] relative" data-name="Preview Content">
+        <div className="flex flex-col gap-[24px] items-center w-full max-w-[277px] relative" data-name="Preview Content">
           {/* "NO CREDIT CARD REQUIRED" Floating Badge anchored to the QR code frame */}
           <div
-            className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white border border-[rgba(44,46,48,0.16)] flex h-[24px] items-center justify-center px-[8px] py-[10px] rounded-[6px] shadow-[0px_2px_4px_rgba(0,0,0,0.04)] z-20"
+            className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white border border-[rgba(44,46,48,0.08)] flex h-[24px] items-center justify-center px-[8px] py-[10px] rounded-[6px] shadow-[0px_2px_4px_rgba(0,0,0,0.04)] z-20"
             data-name="Credit Card Notice"
           >
             <span className="font-['Inter_Tight'] font-medium text-[12px] text-[rgba(44,46,48,0.7)] text-center tracking-[0.72px] uppercase whitespace-nowrap">
@@ -60,7 +59,7 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
 
           {/* White Card framing the QR code */}
           <div
-            className="bg-white border border-[rgba(44,46,48,0.1)] rounded-[12px] size-[268px] flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-transform duration-200 hover:scale-[1.01] relative"
+            className="bg-white border border-[rgba(44,46,48,0.08)] rounded-[12px] size-[268px] flex items-center justify-center overflow-hidden shrink-0 shadow-sm transition-transform duration-200 hover:scale-[1.01] relative"
             data-name="QR Code"
           >
             <QrCodeView
@@ -74,39 +73,27 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
           </div>
 
           {/* Tracking Option Toggle */}
-          <div
+          <button
+            type="button"
             onClick={onTrackScansToggle}
-            className="flex items-center justify-between w-full px-1 py-1 cursor-pointer group hover:opacity-90 transition-opacity"
+            className="flex items-center gap-[12px] cursor-pointer group hover:opacity-90 transition-opacity"
             data-name="Tracking Option"
-            role="button"
-            tabIndex={0}
           >
-            <div className="flex items-center gap-[12px]">
-              {/* Toggle switch visual */}
-              <div className="w-[40px] h-[24px] rounded-full bg-[rgba(44,46,48,0.16)] p-[2px] flex items-center group-hover:bg-[rgba(44,46,48,0.24)] transition-colors">
-                <div className="size-[20px] rounded-full bg-white shadow-sm transition-transform" />
-              </div>
-
-              <span className="font-['Inter_Tight'] font-medium text-[16px] text-[#2c2e30] tracking-[0.32px] whitespace-nowrap">
-                Track your scans
-              </span>
-            </div>
-
-            {/* Premium Badge */}
-            <div className="bg-[#e96d98] flex gap-[4px] h-[24px] items-center px-[8px] py-[4px] rounded-[6px] shrink-0 shadow-sm">
-              <GemIcon className="size-[12px] text-white" />
-              <span className="font-['Inter_Tight'] font-medium text-[11px] text-center text-white tracking-[0.72px] uppercase whitespace-nowrap">
-                Premium
-              </span>
-            </div>
-          </div>
+            {/* Toggle switch visual */}
+            <span className="w-[40px] h-[24px] rounded-full bg-[rgba(44,46,48,0.16)] p-[3px] flex items-center group-hover:bg-[rgba(44,46,48,0.24)] transition-colors">
+              <span className="size-[18px] rounded-full bg-white shadow-sm" />
+            </span>
+            <span className="font-['Inter_Tight'] font-medium text-[16px] text-[#2c2e30] tracking-[0.32px] whitespace-nowrap">
+              Track analytics
+            </span>
+          </button>
         </div>
 
         {/* Divider */}
         <div className="bg-[rgba(44,46,48,0.08)] h-px w-full" data-name="Divider" />
 
         {/* Download Actions */}
-        <div className="flex flex-col gap-[14px] items-center w-full" data-name="Download Actions">
+        <div className="flex flex-col gap-[24px] items-center w-full" data-name="Download Actions">
           <button
             type="button"
             onClick={onDownloadClick}
@@ -122,7 +109,7 @@ export const DownloadPanel: React.FC<DownloadPanelProps> = ({
           </button>
 
           <p className="font-['Inter_Tight'] font-normal text-[14px] text-[rgba(44,46,48,0.7)] text-center tracking-[0.7px] w-full">
-            Available in SVG, PNG, JPG
+            Available in SVG, PNG, JPG, PDF, EPS
           </p>
         </div>
       </div>

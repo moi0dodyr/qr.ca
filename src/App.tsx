@@ -46,45 +46,33 @@ export default function App() {
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState('Your code is ready to download and customize!');
+  const [modalTitle, setModalTitle] = useState('Your QR code is ready');
   const [modalDescription, setModalDescription] = useState(
-    'Sign up to the platform to download your QR code in high-resolution vector and raster formats (SVG, PNG, JPG), customize styling, and manage all your Canadian QR codes.'
+    'Sign up free to download it in SVG, PNG, JPG, PDF or EPS.'
   );
 
-  const handleDownloadClick = () => {
-    setModalTitle('Your code is ready to download and customize!');
-    setModalDescription(
-      'Sign up to QR.ca to download your QR code in crisp vector and high-res raster formats (SVG, PNG, JPG), enable scan analytics, and keep your links updated anytime.'
-    );
+  const openModal = (title: string, description: string) => {
+    setModalTitle(title);
+    setModalDescription(description);
     setIsModalOpen(true);
   };
 
+  const handleDownloadClick = () => {
+    openModal('Your QR code is ready', 'Sign up free to download it in SVG, PNG, JPG, PDF or EPS.');
+  };
+
   const handleTrackScansToggle = () => {
-    setModalTitle('Unlock Dynamic Scan Tracking');
-    setModalDescription(
-      'Track scans, visitor locations, device types, and change your destination URL without re-printing. Sign up for QR.ca Premium to activate dynamic tracking!'
-    );
-    setIsModalOpen(true);
+    openModal('Track every scan', 'Sign up to see scan analytics and change where your code points without reprinting it.');
   };
 
   const handleOpenSignUpModalFromSource = (source: string) => {
     if (source === 'shape-presets') {
-      setModalTitle('Access 10+ More Custom Shapes');
-      setModalDescription(
-        'Sign up to QR.ca to unlock our full library of Canadian-designed QR module styles, custom frames, and gradient colors.'
-      );
+      openModal('Unlock more shapes', 'Sign up to get every shape, frame and color.');
     } else if (source.startsWith('logo')) {
-      setModalTitle('Add Your Custom Brand Logo');
-      setModalDescription(
-        'Upload high-resolution brand logos, vector icons, or Canadian badges directly onto your QR codes with an account.'
-      );
+      openModal('Add your logo', 'Sign up to put your logo on the code.');
     } else {
-      setModalTitle('Customize with Advanced Frames');
-      setModalDescription(
-        'Boost your scan rates with branded call-to-action frames and custom text tags by signing up.'
-      );
+      openModal('Add a frame', 'Sign up to add a frame with your own call to action.');
     }
-    setIsModalOpen(true);
   };
 
   return (
