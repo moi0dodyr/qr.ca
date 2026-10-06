@@ -21,7 +21,7 @@ Text was read from the real layer content (not layer names). Arrows were matched
 
 **67 findings: 1 High · 8 Med · 58 Low.** Numbering continues from the old audit (#123–#189).
 
-**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 43 Low.** Fixed the same day: #123, #127, #144, #156, #157, #163, #174, #175, #179, #182, #186–#189 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190), fixed the same day.
+**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 40 Low.** Fixed the same day: #123, #127, #144, #156, #157, #163, #174, #175, #179, #182, #186–#189 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190), fixed the same day.
 
 - **High (1):** the paused page still had the owner's custom message, cut on the call (#123). ✅ Fixed 2026-10-06.
 - **Regressions:** items closed earlier that aren't fixed in Figma any more: **#40** (plain *Save* path gone, #142: accepted as drawn, DR-09), **#68** and **#69** (API key name and Account ID, #172, #173: accepted as drawn, DR-08), the 2026-10-05 **links fix** for one box (#179), and partly **#27** (#157, design stage), **#57** (#158, #159), **#81** (#162), **#111** (#130).
@@ -42,6 +42,58 @@ Text was read from the real layer content (not layer names). Arrows were matched
 | 172 | APIs | ↪ Accepted, DR-08. *Name key* step gone (QR-U-40 "can be named"). Regression of #68 |
 | 173 | APIs | ↪ Accepted, DR-08. Account ID missing from the wireframe (QR-U-40). Regression of #69 |
 | 174 | Plans & Billing | ✅ Fixed. After a trial user pays, the arrow returns to *Plans & Billing (Free Trial)*; should be success → codes (QR-U-32) |
+
+## Still open (as of 2026-10-06)
+
+Only the items not yet fixed, accepted or parked: **40 Low**. Kept in sync with [`figma-audit-open-items.md`](figma-audit-open-items.md); full wording for each row is under [Findings](#findings).
+
+| # | Where | Fix |
+| --- | --- | --- |
+| **Scanners** | | |
+| 126 | Entry Point `8309:23951` | PDF / File and Restaurant menu need their own branch: the file opens on the phone (QR-U-09, QR-U-20) |
+| 128 | *Switch to French* `8309:24127`, `8309:24163` | Show the default: page opens in the phone's language; one-language pages show that language (QR-U-18) |
+| 129 | Micro-landing wireframe `8309:24045` | Remove the free-text line "Wholesale orders…": vCard has no notes field |
+| **Landing · Log in · Sign up · Welcome · Password** | | |
+| 130 | Log in background `8193:15700` | Tabs "Text", "App Store" → *Plain text*, *App store link*; header "Price" → *Pricing* (rest of #111) |
+| 131 | Landing tabs `8193:15352` | Add *PDF / File*; v2 casing *Plain text*, *App store link* |
+| 132 | *Go to my codes* `8322:33069` | Arrow or link to the Dashboard |
+| 133 | *Sign up with Google* `8193:24429` | Connect to the Sign up / Welcome flow |
+| 134 | Welcome wireframes `8193:16167`, `8193:21006` | Account menu shows the email, not "Jayson" (0007 §3) |
+| 135 | Welcome wireframes (Dashboard behind) | Filters as on the new Dashboard `8349:33812` (*Folder*, *Sort by: Newest*) |
+| 137 | Password restoration, new-password steps | *Back to Log in* on every step (QR-U-05) |
+| 139 | *Sign in* `8193:24266` vs wireframe "Log in" | Pick one label (and "I don't have an account" vs "Get started") |
+| 140 | Footer in most wireframes | Remove "Trusted by 100+ businesses across Canada" (client: no "Canadian" copy); it's clipped anyway |
+| **Creation · Bulk · Edit** | | |
+| 143 | Edit decision `8256:11714` | Add the *No* branch |
+| 145 | Bulk *Download QRs* `8193:22079` | Download after saving, from *Save and download*, not off Step 5 |
+| 146 | Bulk *Upload new CSV* `8193:22075` | Route through the plan-limit check `8256:8834` |
+| 147 | Bulk Step 5 note `8193:22129` | Drop "Name QR": a batch sets folder, tags and description only |
+| 148 | Bulk Step 4, Edit scan check | Add the fail → "continue anyway?" confirmation, as in Creation |
+| 149 | *Fix scannability* notes | Name the problem (contrast, quiet zone, data density, logo size), not just colours |
+| 150 | Edit download note `8256:11667` | Add *Min print size* |
+| 151 | Edit wireframe `8193:17991` | "Next" → *Save* (Edit isn't a stepper) |
+| 152 | Edit wireframe, note `8193:23323` | French texts only for page types (vCard, Multi-link), not Website URL |
+| 153 | Step 1 wireframe `8193:17468` | One explaining line for the Dynamic group too |
+| 154 | Step 1 wireframe `8193:17468` | Show *Cancel* in the footer |
+| 155 | Step 1 `8193:17509`, Bulk `8193:17687` wireframes | "App Store Link" → *App store link* (notes already fixed) |
+| **Dashboard · Sidebar · Archive · Analytics** | | |
+| 158 | Particular QR Analytics `22293` | Add the paused state with *Activate* (rest of #57) |
+| 159 | Its Download `22355` | Add the paused-code note, as on the Dashboard |
+| 160 | Its actions | Add *Move to Archive* |
+| 161 | Its flow | No-plan branch: Edit and Activate open the Upgrade pop-up |
+| 162 | Archive no-plan Delete *Close* `23074` | Back to Archive, not the Dashboard (rest of #81) |
+| 164 | Banner note `8256:11546` | Canceled and payment-failed banners also on the "has a plan" branch |
+| 165 | Sidebar *QR code C* `24149` | Arrow to Particular QR Analytics, like A and B |
+| 166 | Sidebar wireframe `27984` | Add the *Advanced* heading over API and Integrations |
+| 168 | Both analytics wireframes | Add *Time range* and *Location* to the filter bar |
+| 169 | Archive wireframe `17176` | "Sort by: Date" → *Newest* |
+| 171 | Archive rows `22978`, `22979` | Mark them *Dynamic*, or hide Edit / Duplicate for static codes (0007 §6) |
+| **Plans & Billing · Upgrade · Account · APIs · Integrations** | | |
+| 176 | Higher-plan *Success* → *To QR codes* `8256:8713` | Lead to the Dashboard, not Plans & Billing |
+| 177 | Higher-plan *Error* → *Close* | Back to where the user was |
+| 178 | Connectors `8193:22860`/`22861`, `8256:8735`/`8736` | Delete the duplicate arrows |
+| 180 | Default Upgrade wireframe `8193:19773` | "Trial Ended" doesn't fit lapsed paid users; "are paused" vs "will pause" |
+| 181 | *Canceled State* `8193:22478` | Arrow back to Plans & Billing |
 
 ## Findings
 
@@ -64,9 +116,9 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 | 133 | Landing: *Sign up with Google* ellipse `8193:24429` (from *Code Generated* and *Unlock Tracking pop-up*) | Dead end, with no arrow to the Welcome window | "When the visitor finishes sign-up … the code and its design are already in the new account and the welcome window offers the download" (QR-U-02). In the Sign up section, Google → *Did user make customisations on the landing?* is drawn, but the Landing ellipse doesn't connect or link to it | Low | high |
 | 134 | Welcome wireframes `8193:16167`, `8193:21006` (account menu) | User name "**Jayson**" right after sign-up | Sign-up doesn't ask for a name; "until the user adds a name … the app shows their **email**" (0007 §3; Sidebar note `8322:33712` says the same). A brand-new user has no name yet | Low | high |
 | 135 | Welcome wireframes `8193:16167`, `8193:21006` (Dashboard behind the pop-up) | "Type: All · Status: All · Tag: All · **Sort by: Date**", no Folder filter | The Dashboard has *Folder: All* and *Sort by: Newest* (#110 fixed on `8193:16712`; QR-U-22). The background copies weren't updated | Low | high |
-| 136 | Onboarding · Welcome: decision `8193:24450` | "Did user make **customisations** on the landing?" | The branch depends on whether the user **made a code** on the home page (QR-U-06 AC1–2). Someone who entered content but didn't customise should still get *Download your QR code* | Low | med |
+| 136 | ✅ **Fixed (2026-10-06):** "Did user make a code on the landing?". Onboarding · Welcome: decision `8193:24450` | "Did user make **customisations** on the landing?" | The branch depends on whether the user **made a code** on the home page (QR-U-06 AC1–2). Someone who entered content but didn't customise should still get *Download your QR code* | Low | med |
 | 137 | Password Restoration: *New Password* `8193:24358` → *Create New Password* → *Confirm Password* → *Save* | *Back to Log in* is drawn only from the email step (`8193:24339`) and the OTP step (`8193:24340`) | "Back to log in is available on every step" (QR-U-05). Close to parked #9, but #9 is parked only for wrong / expired OTP states | Low | med |
-| 138 | Log in: ellipse `8193:24268` (after *Sign in with Google*) | Labelled "**Sign up** with Google" | The Log in button is *Sign in with Google* (QR-U-04). #107 accepted the single path to the Dashboard; this row is only about the label | Low | high |
+| 138 | ✅ **Fixed (2026-10-06):** "Sign in with Google". Log in: ellipse `8193:24268` (after *Sign in with Google*) | Labelled "**Sign up** with Google" | The Log in button is *Sign in with Google* (QR-U-04). #107 accepted the single path to the Dashboard; this row is only about the label | Low | high |
 | 139 | Log in: flow box *Sign in* `8193:24266` vs wireframe `8193:15700` | Box "Sign in"; the wireframe button says "**Log in**" (and "Don't have an account? Get started" against the box "I don't have an account") | v2 lists "Sign in, Forgot password, Sign in with Google, I don't have an account" (QR-U-04). Choose one label | Low | med |
 | 140 | Landing `8193:15352`, Log in `8193:15700`, Password `8193:16093`, Sign up `8193:16116`, Welcome `8193:16167`, `8193:21006` | "Trusted by 100+ businesses **across Canada**" | Client principle 4: "Don't lean on 'Canadian' in copy … no 'Canadian' wording in CTAs, headlines or general copy" (client-feedback.md 2026-10-06). In most frames the line sits at y≈996 in a 990 px frame, so it's clipped and not visible: remove it rather than restyle | Low | med |
 | 141 | ✅ **Fixed (2026-10-06):** section renamed *Micro-landing example*. Scanners Flow section name `8309:24044` | "Micro-landing␣␣example" (two spaces) | Typo | Low | high |
@@ -88,7 +140,7 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 | 152 | Edit wireframe `8193:17991` (Website URL) and Creation note `8193:23323` on Step 2 for every type | "Multi-language support" appears on a **Website URL** code. "French support" is attached to Step 2 for all types | Only page texts are entered in EN and FR: "The page texts of Multi-link, vCard … are entered in English and French" (*step 2*, *step 3*, QR-U-18). A URL has no text to translate | Low | med |
 | 153 | Creation Step 1 wireframe `8193:17468` | Static has the line "The content is encoded in the code itself…". Dynamic has only the badge "Trackable", with no line | "the types are shown in two groups **with one line explaining each group**" (*step 1*, QR-U-07). Dynamic: editable, tracked | Low | high |
 | 154 | Creation Step 1 wireframe `8193:17468` | Footer shows "Back" and "Next Step". There's no Cancel, but the flow draws *Cancel* `8193:23238` from this wireframe (`8193:23239`) | "A Cancel button is available on every step" (QR-U-15). #43 accepted Cancel drawn once in the flow; the wireframe should show it too | Low | med |
-| 155 | Naming: type note `8193:23287`, Bulk note `8193:22086`, Step 1 / Bulk wireframes | "Multi-link Page", "App Store Link", "Plain Text", "Restaurant Menu (PDF only)" in notes vs "Multi-link page", "Plain text", "Restaurant menu" in the wireframe and Edit `8256:11714` | v2 names: "Multi-link page", "App store link", "Plain text", "Restaurant menu (PDF)" (QR-U-07). Case only, and inconsistent inside Figma | Low | med |
+| 155 | ⚠️ **Partly fixed (2026-10-06):** notes `8193:23287`, `8193:22086` now use v2 casing; the Step 1 and Bulk wireframes still say "App Store Link" (`8193:17509`, `8193:17687`). Naming: type note `8193:23287`, Bulk note `8193:22086`, Step 1 / Bulk wireframes | "Multi-link Page", "App Store Link", "Plain Text", "Restaurant Menu (PDF only)" in notes vs "Multi-link page", "Plain text", "Restaurant menu" in the wireframe and Edit `8256:11714` | v2 names: "Multi-link page", "App store link", "Plain text", "Restaurant menu (PDF)" (QR-U-07). Case only, and inconsistent inside Figma | Low | med |
 
 ### Dashboard · Sidebar · Archive · Analytics
 
@@ -105,7 +157,7 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 | 164 | Dashboard note `8256:11546` (Account state Banner `8256:11543`) | The note lists *Canceled, until period end* ("codes keep working") and *Payment failed, retrying*. It hangs only off the **no-subscription** branch (`23901` ❌ No) | These two states still have a plan, so in this flow they take the ✅ Yes branch (wireframe `16712`), which has no banner. 0004 / 0007 put every non-trial banner at the top of the Dashboard, so the Yes branch needs the hook too (QR-U-34 AC3, QR-U-35) | Low | med |
 | 165 | Sidebar `24149` *QR code C* | Dead end. Codes A and B lead to *Particular QR Analytics* (`24217`, `24227`), but C has no arrow out | Every item should lead somewhere | Low | high |
 | 166 | Sidebar wireframe `27984` | *Analytics, Integrations, API* sit at the top with no *Advanced* heading. The flow has *Advanced* `24134` → API, Integrations | "Advanced: API, Integrations" (QR-U-42) | Low | high |
-| 167 | Particular QR Analytics wireframe `18085`; Analytics wireframe `18453` | The widget is labelled "Unique Scanners" (twice in each wireframe). The flow boxes say "Unique Scans" (`22296`, `22887`) | "Unique scans (one visitor per code per day)" (QR-U-28) | Low | high |
+| 167 | ✅ **Fixed (2026-10-06):** "Unique scans" in both wireframes. Particular QR Analytics wireframe `18085`; Analytics wireframe `18453` | The widget is labelled "Unique Scanners" (twice in each wireframe). The flow boxes say "Unique Scans" (`22296`, `22887`) | "Unique scans (one visitor per code per day)" (QR-U-28) | Low | high |
 | 168 | Particular QR Analytics wireframe `18085`; Analytics wireframe `18453` | Filter bar: "Period: Month / Dates: …" (all-codes also "Folder: All / Code: All"). Country and City pickers sit only inside the *Scans by Location* widget. No **Time range** filter | Filters: Period, Date range, Time range, Location, and "every widget follows the filters" (QR-U-28, QR-U-29). The notes `22313` and `22902` already list them | Low | high |
 | 169 | Archive wireframe `17176` | "Sort by: Date" | Dashboard `16712` was changed to "Sort by: Newest" (#110). Sort options are newest, name, most scanned (QR-U-22). Archive should match | Low | med |
 | 170 | ✅ **Fixed (2026-10-06):** "that is archived". Archive note `22925` | "…every QR code that **being archived** becomes paused except static codes." | Typo: "that is archived" | Low | high |

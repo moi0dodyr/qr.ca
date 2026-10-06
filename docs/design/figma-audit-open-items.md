@@ -6,7 +6,7 @@
 
 When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
 
-**Status:** 0 High · 0 Med · **43 Low** open.
+**Status:** 0 High · 0 Med · **40 Low** open.
 
 ## 1. Links
 
@@ -15,6 +15,8 @@ When you fix something, tell Claude: it checks Figma, removes the row here and m
 A scan of all 127 link boxes on the page found no broken link and no link to another page. The 29 boxes without a link are steps drawn inside their own flow (confirmation pop-ups, *Download pop-up*, *Edit folder pop-up*, *Terms and Conditions Page* and similar), so they don't need one.
 
 ## 2. Open items (all Low)
+
+**Text Claude can't edit:** wireframe text set in *Inter Tight* can't be changed through the Figma connector (the font isn't available there). These renames need a manual edit: #130 (`8193:15709` Price → *Pricing*, `8315:32710` Text → *Plain text*, `8315:32718` App Store → *App store link*), #131 casing (`8193:15413` *Plain text*, `8193:15421` *App store link*), #135 / #169 Sort by: Date → *Newest* (`8193:16464`, `8193:21303`, `8193:20070`, `8193:20741`, `8193:17329`), #151 (`8193:18017` Next → *Save*), #155 (`8193:17509`, `8193:17687` → *App store link*).
 
 | # | Where | Fix |
 | --- | --- | --- |
@@ -29,9 +31,7 @@ A scan of all 127 link boxes on the page found no broken link and no link to ano
 | 133 | *Sign up with Google* `8193:24429` | Connect to the Sign up / Welcome flow |
 | 134 | Welcome wireframes `8193:16167`, `8193:21006` | Account menu shows the email, not "Jayson" (0007 §3) |
 | 135 | Welcome wireframes (Dashboard behind) | Filters as on the new Dashboard `8349:33812` (*Folder*, *Sort by: Newest*) |
-| 136 | Decision `8193:24450` | "Did user make **a code** on the landing?" instead of "customisations" |
 | 137 | Password restoration, new-password steps | *Back to Log in* on every step (QR-U-05) |
-| 138 | Log in ellipse `8193:24268` | "Sign **in** with Google" |
 | 139 | *Sign in* `8193:24266` vs wireframe "Log in" | Pick one label (and "I don't have an account" vs "Get started") |
 | 140 | Footer in most wireframes | Remove "Trusted by 100+ businesses across Canada" (client: no "Canadian" copy); it's clipped anyway |
 | **Creation · Bulk · Edit** | | |
@@ -46,7 +46,7 @@ A scan of all 127 link boxes on the page found no broken link and no link to ano
 | 152 | Edit wireframe, note `8193:23323` | French texts only for page types (vCard, Multi-link), not Website URL |
 | 153 | Step 1 wireframe `8193:17468` | One explaining line for the Dynamic group too |
 | 154 | Step 1 wireframe `8193:17468` | Show *Cancel* in the footer |
-| 155 | Type notes vs wireframes | Same casing everywhere: *Multi-link page*, *App store link*, *Plain text*, *Restaurant menu* |
+| 155 | Step 1 `8193:17509`, Bulk `8193:17687` wireframes | "App Store Link" → *App store link* (notes already fixed) |
 | **Dashboard · Sidebar · Archive · Analytics** | | |
 | 158 | Particular QR Analytics `22293` | Add the paused state with *Activate* (rest of #57) |
 | 159 | Its Download `22355` | Add the paused-code note, as on the Dashboard |
@@ -56,7 +56,6 @@ A scan of all 127 link boxes on the page found no broken link and no link to ano
 | 164 | Banner note `8256:11546` | Canceled and payment-failed banners also on the "has a plan" branch |
 | 165 | Sidebar *QR code C* `24149` | Arrow to Particular QR Analytics, like A and B |
 | 166 | Sidebar wireframe `27984` | Add the *Advanced* heading over API and Integrations |
-| 167 | Both analytics wireframes | "Unique Scanners" → *Unique scans* |
 | 168 | Both analytics wireframes | Add *Time range* and *Location* to the filter bar |
 | 169 | Archive wireframe `17176` | "Sort by: Date" → *Newest* |
 | 171 | Archive rows `22978`, `22979` | Mark them *Dynamic*, or hide Edit / Duplicate for static codes (0007 §6) |
