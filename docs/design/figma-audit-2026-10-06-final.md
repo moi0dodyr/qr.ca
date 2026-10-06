@@ -21,7 +21,7 @@ Text was read from the real layer content (not layer names). Arrows were matched
 
 **67 findings: 1 High · 8 Med · 58 Low.** Numbering continues from the old audit (#123–#189).
 
-**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 44 Low.** Fixed the same day: #123, #127, #144, #156, #157, #163, #174, #175, #179, #182, #186–#189 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190).
+**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 43 Low.** Fixed the same day: #123, #127, #144, #156, #157, #163, #174, #175, #179, #182, #186–#189 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190), fixed the same day.
 
 - **High (1):** the paused page still had the owner's custom message, cut on the call (#123). ✅ Fixed 2026-10-06.
 - **Regressions:** items closed earlier that aren't fixed in Figma any more: **#40** (plain *Save* path gone, #142: accepted as drawn, DR-09), **#68** and **#69** (API key name and Account ID, #172, #173: accepted as drawn, DR-08), the 2026-10-05 **links fix** for one box (#179), and partly **#27** (#157, design stage), **#57** (#158, #159), **#81** (#162), **#111** (#130).
@@ -138,7 +138,7 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 
 | # | Where | Figma now | Should be | Sev | Conf. |
 | --- | --- | --- | --- | --- | --- |
-| 190 | Wireframes with the Dashboard behind a pop-up: Upgrade `8193:19776`, `8193:20447`; Welcome `8193:16170`, `8193:21009` | Heading "Uncategorized QR codes" | *QR codes*, as on the new Dashboard `8349:33812` (#156) | Low | high |
+| 190 | ✅ **Fixed (2026-10-06):** all four read *QR codes*. Wireframes with the Dashboard behind a pop-up: Upgrade `8193:19776`, `8193:20447`; Welcome `8193:16170`, `8193:21009` | Heading "Uncategorized QR codes" | *QR codes*, as on the new Dashboard `8349:33812` (#156) | Low | high |
 
 ## Requests to change the docs
 

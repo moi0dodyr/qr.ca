@@ -6,7 +6,7 @@
 
 When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
 
-**Status:** 0 High · 0 Med · **44 Low** open.
+**Status:** 0 High · 0 Med · **43 Low** open.
 
 ## 1. Links
 
@@ -29,7 +29,6 @@ A scan of all 127 link boxes on the page found no broken link and no link to ano
 | 133 | *Sign up with Google* `8193:24429` | Connect to the Sign up / Welcome flow |
 | 134 | Welcome wireframes `8193:16167`, `8193:21006` | Account menu shows the email, not "Jayson" (0007 §3) |
 | 135 | Welcome wireframes (Dashboard behind) | Filters as on the new Dashboard `8349:33812` (*Folder*, *Sort by: Newest*) |
-| 190 | Upgrade `8193:19776`, `8193:20447`; Welcome `8193:16170`, `8193:21009` | Heading "Uncategorized QR codes" → *QR codes*, as on the new Dashboard |
 | 136 | Decision `8193:24450` | "Did user make **a code** on the landing?" instead of "customisations" |
 | 137 | Password restoration, new-password steps | *Back to Log in* on every step (QR-U-05) |
 | 138 | Log in ellipse `8193:24268` | "Sign **in** with Google" |
