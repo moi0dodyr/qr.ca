@@ -1,6 +1,6 @@
 # 0001 — The repo is a front-end prototype; BA documents are kept as read-only upstream copies
 
-**Date:** 2026-10-01 · **Status:** Accepted · **Decided by:** Oleg
+**Date:** 2026-10-01 · **Status:** Accepted (which upstream version wins: see [0005](0005-adopt-srs-v2.md)) · **Decided by:** Oleg
 
 ## Context
 

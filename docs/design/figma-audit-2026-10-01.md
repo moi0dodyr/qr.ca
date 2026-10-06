@@ -4,11 +4,13 @@
 **Checked against:** everything in `docs/srs/upstream/` (SRS v1.0, Features & Flows v1.0) and `docs/srs/domain-model.md`
 **Status:** ✅ **Complete** as of 2026-10-02. The 2026-10-01 pass stopped at the Figma rate limit; the rest was checked on 2026-10-02 (#68–89, plus corrections to #21 and #49–51). See [Coverage](#coverage).
 **Round 3 (2026-10-05):** re-checked on the new **Wireflows (WIP)** page, which has wireframes. See [Round 3](#round-3-wireflows-page-with-wireframes-2026-10-05). It is the current state; the sections below it are history.
+**Re-targeted to SRS v2.0 (2026-10-06):** v2.0 is now the source of truth ([0005](../decisions/0005-adopt-srs-v2.md)). See [SRS v2.0 answers](#srs-v20-answers-2026-10-06). Rows below that cite v1 wording are history.
+**v2 audit (2026-10-06):** new items #103–#118, see [SRS v2.0 audit](#srs-v20-audit-2026-10-06).
 **Only what's left to fix:** [`figma-audit-open-items.md`](figma-audit-open-items.md).
 
 Severity: **High** = contradicts a requirement or a required flow is missing · **Med** = a required state or detail is missing · **Low** = copy, naming or a dead-end arrow.
 
-The SRS wins over Figma (A-15). Known findings FD-01…FD-09 live in [`README.md`](README.md#figma-vs-srs). Their status is re-checked here; they are not listed again as new. Arrows were traced from connector coordinates in the metadata.
+The SRS wins over Figma (A-15); since 2026-10-06 that means SRS v2.0. Known findings FD-01…FD-09 live in [`README.md`](README.md#figma-vs-srs). Their status is re-checked here; they are not listed again as new. Arrows were traced from connector coordinates in the metadata.
 
 ## Round 3: Wireflows page with wireframes (2026-10-05)
 
@@ -52,10 +54,11 @@ These are places where Figma does better than the SRS. Upstream files are read-o
 
 | # | Story | Now in the SRS | Proposed change | Why | From | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| DR-01 | QR-U-30 (F-32) | The trial banner shows days left and an *Upgrade* button. It "states a date, not only a count" | The banner shows a **live countdown in days and hours** ("Codes will be paused in: 13d 20h"), **dynamic codes used vs the limit** ("1/250") and ***Add payment***, which opens the Upgrade pop-up (QR-U-32). The end date is shown on the Welcome pop-up (QR-U-06) and in the Upgrade pop-up, not in the banner | A countdown is clearer at a glance than a date; the end date already appears where the owner decides. The usage count shows how close they are to the plan limit (DS-09). "Add payment" matches the optional card in the trial | Audit #24, Sidebar wireframe `8193:27984` | To send |
-| DR-02 | QR-U-31 | Without a subscription the owner "can see all their codes and statistics, cannot create new dynamic codes". Nothing about editing | Without an active subscription, **Edit is locked** (it opens the Upgrade pop-up). Codes and statistics stay visible | Editing a paused code has no effect for scanners until the plan is active, and the lock is a clear reason to upgrade | Audit #79, Archive `8193:23098`, Dashboard no-subscription branch | To send |
-| DR-04 | QR-U-07 (SRS-Q-03, Q-W6) | Static list: Website URL, vCard, Email, SMS, Phone call, Plain text, Wi-Fi. vCard vs Contact "to confirm with Oleg" | Add **Contact** as its own static type: a basic card with name, phone and email. vCard stays the full card (occupation, company, several numbers, website, address, photo), static and dynamic | Oleg confirmed both are needed ([0003](../decisions/0003-static-contact-and-vcard-both-kept.md)). A short card keeps a static code less dense | Audit #35, type note `8193:23287`, Landing `8193:15352` | To send |
-| DR-03 | A-13, QR-U-31 | Download of paused codes is allowed, with a note | — | — | Audit #79 | Withdrawn: Figma now follows A-13 |
+| DR-01 | QR-U-30 (F-32) | The trial banner shows days left and an *Upgrade* button. It "states a date, not only a count" | The banner shows a **live countdown in days and hours** ("Codes will be paused in: 13d 20h"), **dynamic codes used vs the limit** ("1/250") and ***Add payment***, which opens the Upgrade pop-up (QR-U-32). The end date is shown on the Welcome pop-up (QR-U-06) and in the Upgrade pop-up, not in the banner | A countdown is clearer at a glance than a date; the end date already appears where the owner decides. The usage count shows how close they are to the plan limit (DS-09). "Add payment" matches the optional card in the trial | Audit #24, Sidebar wireframe `8193:27984` | To send. **v2:** the banner shows days left, the end date, what happens to codes, and Upgrade. Still no countdown, usage count or *Add payment* |
+| DR-02 | QR-U-31 | Without a subscription the owner "can see all their codes and statistics, cannot create new dynamic codes". Nothing about editing | Without an active subscription, **Edit is locked** (it opens the Upgrade pop-up). Codes and statistics stay visible | Editing a paused code has no effect for scanners until the plan is active, and the lock is a clear reason to upgrade | Audit #79, Archive `8193:23098`, Dashboard no-subscription branch | Withdrawn (2026-10-06): v2 *work without an active plan* locks Edit |
+| DR-04 | QR-U-07 (SRS-Q-03, Q-W6) | Static list: Website URL, vCard, Email, SMS, Phone call, Plain text, Wi-Fi. vCard vs Contact "to confirm with Oleg" | Add **Contact** as its own static type: a basic card with name, phone and email. vCard stays the full card (occupation, company, several numbers, website, address, photo), static and dynamic | Oleg confirmed both are needed ([0003](../decisions/0003-static-contact-and-vcard-both-kept.md)). A short card keeps a static code less dense | Audit #35, type note `8193:23287`, Landing `8193:15352` | Withdrawn (2026-10-06): v2 has one static *Contact (vCard)*; Oleg follows it ([0006](../decisions/0006-static-contact-is-vcard.md)) |
+| DR-05 | QR-U-42 AC1, AC2 | AC2: "the sidebar shows the matching banner (trial countdown QR-U-30, or *codes paused*)". AC1: the account menu has Settings, Plans & Billing, **Upgrade**, Log out | Only the **trial countdown and trial banner** sit in the Sidebar. Every other account-state banner (codes paused, waiting for email confirmation, canceled until period end, payment failed, suspended) sits at the **top of the Dashboard**. The **Upgrade** item in the account menu is shown on trial and without a subscription, not to subscribed owners | The trial countdown is the client's "bottom left" ask (C-1.3) and stays there. The other banners need a message and an action (*Resend*, *Update card*, *Contact support*), which reads better in the main area. A subscribed owner has nothing to upgrade to while there's one paid plan (SRS-Q-08) | Audit #25, #28, Dashboard note `8256:11547`, account menu `8193:24139`, [0004](../decisions/0004-account-banners-on-dashboard.md) | To send. **v2** (*[User] - Navigation*) still keeps "Your QR codes are paused" in the sidebar and Upgrade always in the account menu |
+| DR-03 | A-13, QR-U-31 | Download of paused codes is allowed, with a note | — | — | Audit #79 | Withdrawn: Figma now follows A-13. For the Archive, v2 locks Download without a plan: new item #102 |
 
 ### Still fixed
 
@@ -94,14 +97,14 @@ These are places where Figma does better than the SRS. Upstream files are read-o
 | 22 | ✅ | The Webhooks item is gone |
 | 23 | ✅ | The Sidebar now has *Google Tag Manager* and *API* under *Advanced* `8193:24134`. The missing GA4 / Meta Pixel on the GTM screen is FD-07 |
 | 24 | ↪ Figma kept, SRS change requested ([DR-01](#requests-to-change-the-docs)) | Oleg (2026-10-05): the banner in the Sidebar wireframe `8193:27984` works better than QR-U-30. It shows a live countdown ("Codes will be paused in: 13d 20h"), how many dynamic codes are used ("1/250") and *Add payment*. The end date is already on Welcome and in the Upgrade pop-up. The flow boxes now match the wireframe: *Codes used* `8193:24124` and *Add payment* `8193:24178` (fixed 2026-10-05) |
-| 25 | ❌ | The Sidebar has three variants: trial, subscribed and no subscription (`8193:24241`, `8193:24243`). §12.2 has four more account states. Each needs its own banner, and maybe a locked menu:<br>1. **Waiting for email confirmation** (after *Edit Email*, QR-U-36 AC2): banner "Confirm your new email: [address]" with *Resend*. The old email stays in use until confirmed. (At sign-up this state never reaches the Sidebar: the *Confirm your email* step blocks entry, DS-07.)<br>2. **Canceled, until period end** (QR-U-34 AC3): codes keep working; banner "Your plan ends on [date]. No further charge." with *Choose a plan*. Account menu as for subscribed.<br>3. **Payment failed, retrying** (QR-U-35): codes keep working; banner "Payment failed. Update your card by [date] or your codes pause." with *Update card* → *Manage Billing*. Success → back to subscribed; retry period ends → no active subscription.<br>4. **Suspended by an admin** (§12.2, QR-A): codes are disabled; banner "Your account is suspended" with *Contact support*. The SRS doesn't say what else stays open; a sensible minimum is read-only codes and stats, Log out and Contact support |
-| 26 | ⚠️ | *Navigation* `8193:24132` now spells out All QR codes, folders, Archive, Analytics and Advanced. What's locked in each account state still isn't shown |
+| 25 | ↪ Accepted with a change, SRS change requested ([DR-05](#requests-to-change-the-docs)) | Oleg (2026-10-05): the account-state banners go on the **Dashboard**, not the Sidebar. Only the trial countdown and the trial banner stay in the Sidebar. Note `8256:11547` on the Dashboard (no-subscription, no-trial branch) lists the four banners: email confirmation, canceled, payment failed, suspended. QR-U-42 AC2 puts the banner in the Sidebar, so it's sent as DR-05 |
+| 26 | ✅ Accepted (2026-10-05) | Oleg: *Navigation* `8193:24132` shows every item for an owner with the most access. Locks show where the owner meets them: the Upgrade pop-up from a locked feature (QR-U-32) and Edit locked without a subscription (DR-02) |
 | 27 | ⚠️ | Creating a folder is drawn (`8193:24146` → name → pick codes → Create). Opening, renaming and deleting aren't. The *Create Folder pop-up* window `8193:24014` has no link |
-| 28 | ❌ | The subscribed account menu (`8193:24139`) has no Upgrade item |
+| 28 | ↪ Accepted, SRS change requested ([DR-05](#requests-to-change-the-docs)) | Oleg: a subscribed owner already has a plan, so the account menu `8193:24139` doesn't prompt them to upgrade. QR-U-42 AC1 lists Upgrade in the menu without saying for which state, so DR-05 asks to limit it to trial and no subscription. If SRS-Q-08 brings higher tiers, moving up goes through *Plans & Billing* |
 | 84 | ⚠️ | The row in the wireframe `8193:16712` shows status, name, short link, type, tag, date and scans. Still missing: **static or dynamic** and the *not healthy* label |
 | 85 | ✅ | The wireframe has Type, Status, Tag and Sort by. Folders are in the Sidebar. Small gap: the sort options (newest, name, most scanned) aren't shown |
-| 86 | ❌ | No empty state |
-| 87 | ❌ | Pause and Activate are offered for every code; no static branch |
+| 86 | ⏸ Design stage (Oleg, 2026-10-05) | The empty state that leads to *Create QR code* (QR-U-22 AC5) comes at the design stage. Still required for the build |
+| 87 | ✅ Accepted (2026-10-05) | Checked in Figma: all four Dashboard rows are dynamic *Website* codes ("Will be paused in 13 d"). No static code is drawn, so offering Pause and Activate is right. A static row would hide them (QR-U-24); that's covered by #83 and #84 |
 
 **QR code creation**
 
@@ -112,7 +115,7 @@ These are places where Figma does better than the SRS. Upstream files are read-o
 | 32 | ⏸ Deferred (Oleg, 2026-10-05) | Creation, Edit and Bulk all have *Scannability detector* → *Fix scannability* → *Good scannability status* now (`8256:8899`, `8256:8921`, `8256:8877`, `8241:8171`). The *not healthy* label on the Dashboard isn't needed in Figma for now. It's still required for the build (QR-U-12, DS-05: a code saved or downloaded after a failed check carries the label), so it comes back when the Dashboard row is designed |
 | 33 | ❌ | Nothing is drawn for **time-based redirects** (QR-U-43, V1). *Schedule publication* (a start date) is not MVP. What to draw instead:<br>• In Publication Settings (Creation Step 4 `8193:23229`/`23230` and Edit `8193:22207`), a **Schedule** item for dynamic Website URL, App Store Link and hosted-page codes only.<br>• Schedule = a list of **time windows**. Each window has days of the week, a start and end time, and its own destination. *Add window* / remove.<br>• A **default destination** used outside every window, plus the time zone (the account's by default, editable).<br>• Error on save when windows overlap, naming which ones.<br>• A note that a paused or archived code ignores the schedule. Example: a restaurant with one code that opens the breakfast, lunch and dinner menus |
 | 34 | ⚠️ | Gone from Creation and Bulk. Still in the Edit note `8193:22234` ("Set up Password") |
-| 35 | ⚠️ | The static list in the wireframe has vCard only and no Links Page ✓. The note still has static Contact. The Landing tabs `8193:15352` offer both *vCard* and *Contact* (Q-W6) |
+| 35 | ✅ Fixed (2026-10-05) | Static *Contact* "Adds contact to your contacts" `8256:11645` is now in the Step 1 wireframe, next to static vCard ([0003](../decisions/0003-static-contact-and-vcard-both-kept.md)). The same row also adds a static *Linkpage* `8256:11635`; whether static Links Page exists is still open (Q-W6), see FD-01 |
 | 36 | ✅ | The wireframe explains static codes: "works without QR.CA, can't be edited after printing, no scan statistics" |
 | 37 | ❌ | Step 2 is still one *Enter content* box `8193:23252`, with no wireframe |
 | 38 | ❌ | Same as FD-09 |
@@ -133,10 +136,10 @@ These are places where Figma does better than the SRS. Upstream files are read-o
 | 48 | ❌ | No cancel, CSV error or progress |
 | 88 | ✅ Fixed (2026-10-05) | Bulk *Scannability detector* `8256:8877` → *Fix scannability* `8256:8879` → *Good scannability status* `8256:8878`, with notes. Small gap: the design is shared, but content length differs per row (data density), so a long URL can fail on one row only. A per-row result on Step 3 would cover it. Not needed for the happy path |
 | 89 | ❌ | The download still reads as one code |
-| 49 | ❌ | Save `8193:22214` → generic *Success State* `8193:22208` → Dashboard. QR-U-23 needs **two outcomes**, so replace *Success State* with a decision "Did the look change?":<br>• **No (content or settings only):** a pop-up "Saved. No need to re-download: your printed code already opens the new content." → Dashboard.<br>• **Yes (QR Customization changed):** *Download QR pop-up* with the new file and a warning: "Codes you've already printed keep the old look, but they still work." → Download / Later → Dashboard |
-| 50 | ❌ | *Micro-Landing Customization* `8193:22209` is still shown for every type |
-| 51 | ⚠️ | Scannability is fixed: *Fix scannability* `8241:8171` → *Good scannability status* `8241:8178`, note `8241:8185`, and the wireframe shows Good / Warning / Poor. **Still missing: file replace** for PDF / File and Restaurant Menu codes (QR-U-09, QR-U-20 AC2). Add *Replace file* next to *Edit content* `8193:22215` → upload a new PDF → states for uploading, wrong type and too large → Save. Scanners get the new file on the next scan, and the printed code doesn't change. The file size limit is still open (SRS-Q-11) |
-| 83 | ❌ | One Edit flow for every code, with no static branch |
+| 49 | ✅ Fixed (2026-10-05) | Save `8193:22214` → *Did the look change?* `8256:11658`. **No** → *Success State* `8193:22208` → Dashboard. **Yes** → *Download pop-up* `8256:11685` → *Download QR* with PNG, SVG, PDF, JPG, EPS (note `8256:11667`) → *QR is being downloaded*, or *Close* → Dashboard. The messages ("no need to re-download", "printed codes keep the old look but still work", QR-U-23 AC4–5) come with the copy at the design stage |
+| 50 | ✅ Fixed (2026-10-05) | Decision *vCard or Links Page* `8256:11714` → Yes → *Micro-Landing Customization* `8193:22209` (A-1, QR-U-23 AC1) |
+| 51 | ⏸ Design stage (Oleg, 2026-10-05) | Scannability is fixed (`8241:8171` → `8241:8178`). **File replace** for PDF / File and Restaurant Menu codes comes at the design stage: *Replace file* next to *Edit content* → upload → uploading, wrong type and too large states → Save; scanners get the new file on the next scan (QR-U-09, QR-U-20 AC2). Still required for the build. The size limit waits on SRS-Q-11 |
+| 83 | ⏸ Design stage (Oleg, 2026-10-05) | The wireframes draw only dynamic codes, so one Edit flow is right for now. How a static code is edited (Edit hidden, or only name and folder) comes at the design stage. Still required for the build (QR-U-07, QR-U-21, F-65) |
 
 **Analytics · Plans & Billing**
 
@@ -145,10 +148,10 @@ These are places where Figma does better than the SRS. Upstream files are read-o
 | 56 | ❌ | Filters → *System updates data* only (`8193:22908`, `22316`) |
 | 57 | ❌ | Only Pause, no Activate; Close `8193:22405`/`22407` → Dashboard; no download format |
 | 58 | ❌ | Note `8193:22880` still says "Org Analytics" |
-| 59 | ❌ | Two Plans & Billing states are missing:<br>• **Canceled, until period end** (QR-U-34 AC3): instead of *Active Plan Details*, "Canceled. Your plan ends on [date]. No further charge." Codes work until that date. Buttons: *Choose a plan* and *Orders History*. After the date it becomes the no-subscription branch `8193:22444`.<br>• **Payment failed, retrying** (QR-U-35): a red banner "Your payment on [date] failed. We'll retry until [date]." with *Update card* → *Manage Billing* → success (back to normal) or error. If the retry period ends unpaid → no subscription. The owner also gets an email and the Sidebar banner (#25). The retry length is TBD |
+| 59 | ⏸ Design stage (Oleg, 2026-10-05) | The *Canceled, until period end* (QR-U-34 AC3) and *Payment failed, retrying* (QR-U-35) states of Plans & Billing come at the design stage. Their Dashboard banners are already in note `8256:11547` ([0004](../decisions/0004-account-banners-on-dashboard.md)). Still required for the build; the retry length is TBD |
 | 60 | ❌ | Trial note `8193:22505` still lists Auto renewal and Next Invoice |
 | 61 | ⏸ Deferred: waiting for the client's plans and prices (SRS-Q-08), like #2 | *Available Plans* (`8193:22466`, `22467`, `22468`) is still a single box. What it should show (QR-U-33 AC1): **three paid tiers** side by side (B-2), each with a name, a **price in CAD**, a monthly / yearly switch, what's included (code limit, API yes/no, etc.) and "+ GST / HST / QST by province". The client's proposed ladder (C-1.2): $20 / month or $120 / year · about $180 / year · $50 / month. Names and limits are still open (SRS-Q-08), so placeholders are fine, as in #2. See #93 for the yearly-discount conflict |
-| 62 | ❌ | Downgrade still uses the same card path, with no message |
+| 62 | ✅ Fixed (2026-10-05) | *Is selected plan higher?* `8292:11725`. Yes → *Recurly Payment*. No (downgrade) → *Confirmation pop-up* `8292:11744` with the note "Your live codes stay on" `8293:11767` (QR-U-33, BRL-12) |
 | 63 | ⚠️ | Fixed: *Download all receipts* `8241:8459` and *Download receipt* `8241:8466` → toast, and the billing address in the wireframe `8196:32753`. **Still missing:** *Manage Billing* (`8193:22502`, `8193:22501`) goes to the Stripe ellipse and never comes back. QR-U-33 AC4: the owner updates the **card and billing address** → success toast ("Payment details updated") or error ("Card declined, try another card") → back to Plans & Billing |
 | 64 | ✅ | Trial *Select Plan* → *Stripe Payment* `8193:22626` now links to the shared payment flow with success and error (once the link is retargeted) |
 | 65 | ❌ | *Select Reason* `8193:22488` still comes before Cancel; *Canceled State* `8193:22478` has no end date. The wireframe copy "Your QR codes will lose support" doesn't say the end date or "no further charge" (QR-U-34 AC3) |
@@ -264,11 +267,70 @@ Checked in Figma after each answer.
 - **#96 ✅** Log in `8193:16044` now also says "SVG, PNG, JPG, EPS, PDF". All round-3 findings (#91–101) are closed.
 - **New:** four link windows without a link: `8256:11367`, `8256:11385`, `8256:11402`, `8256:11413`.
 
+### Designer's answers, round 3 (2026-10-05)
+
+Checked in Figma after each answer.
+
+- **#25** banners moved: account-state banners go on the Dashboard (note `8256:11547`); only the trial countdown and trial banner stay in the Sidebar. Sent as DR-05.
+- **#26** accepted: Navigation shows the full set of items.
+- **#28** accepted: no Upgrade for subscribed owners. Sent as DR-05.
+- **#86** moved to the design stage.
+- **#87** accepted: every code in the Dashboard flow is dynamic.
+- **#35 ✅** static Contact `8256:11645` added to Step 1. A static *Linkpage* `8256:11635` came with it (Q-W6 still open).
+- **#49 ✅** *Did the look change?* `8256:11658`: No → Success State → Dashboard; Yes → Download pop-up → Download or Close. The message copy waits for the design stage.
+- **#50 ✅** *vCard or Links Page* `8256:11714` gates Micro-Landing Customization.
+- **#51** file replace moved to the design stage.
+- **#83** moved to the design stage: no static codes are drawn in the wireframes.
+- **#62 ✅** *Is selected plan higher?* `8292:11725`: No → confirmation pop-up `8292:11744`, note "Your live codes stay on".
+- **#59** canceled and payment-failed states of Plans & Billing moved to the design stage.
+
 ### Links fixed (2026-10-05)
 
 At Oleg's request, Claude wrote to Figma through the MCP (`use_figma`). It changed only the link targets, no text or layout. 84 link boxes now open their flow section on the Wireflows page instead of the old User Flow, or instead of a wireframe for the 6 Oleg had already fixed and the 2 new Archive windows. Afterwards, every link in the section points inside Wireflows. The undo point is the file's version history from before 2026-10-05.
 
 Then 7 boxes whose links had been removed after the first check were relinked to their sections: `8193:24303`, `24313` → Dashboard, `24281`, `24426` → Sign up, `24291` → Password Restoration, `24415` → Log in, `22443` → Plans & Billing. Still without a link: `8241:8127`, `8193:24014`, `8256:11367`, `11385`, `11402` and `11413`. `8193:22540` is now a *Recurly* flow step, not a link box. `8193:22327` and `22576` were deleted.
+
+### SRS v2.0 answers (2026-10-06)
+
+Oleg's answers to the [v2 review](../srs/v2-review-2026-10-05.md):
+
+- **Adopt v2.0:** yes, it's the source of truth ([0005](../decisions/0005-adopt-srs-v2.md)).
+- **Contact vs vCard:** merge as v2 says ([0006](../decisions/0006-static-contact-is-vcard.md)). #35's static *Contact* `8256:11645` and the static vCard become one *Contact (vCard)*. DR-04 is withdrawn.
+- **Time-based redirect:** its own dynamic type is Oleg's call, as v2 says. FD-01 and FD-06 are rewritten in the [open items](figma-audit-open-items.md). Removing the type from V1 is under discussion today, so FD-06 is on hold.
+- **Archive Download:** follow v2's Archive story. New item:
+
+| # | Where | Now | Should be | Sev |
+| --- | --- | --- | --- | --- |
+| 102 | Archive, no subscription: *Download* `8193:22994` → *QR is being downloaded* `8256:8594` → note `8256:8626` | Download works without a plan | Opens the Upgrade pop-up, like Edit, Duplicate and Activate (v2 *move a code to Archive and restore it*). Dashboard Download keeps the A-13 note | Med |
+
+Also from v2: the static *Linkpage* `8256:11635` goes (no static Multi-link), DR-02 is withdrawn, and #83 is decided (static codes edit name, folder and tags only; still parked for the design stage).
+
+### SRS v2.0 audit (2026-10-06)
+
+The whole Wireflows section `8193:22054` (17 flow sections, every screen, flow box, note and arrow) was exported through the Figma connector and checked against every v2 Backlog page that has a Figma screen. Items already open, parked or accepted above aren't repeated. Pages v2 itself marks "not drawn in Figma" (scanner side, hosted pages, review page and feedback, failed payment, few-scans guidance, live map, template gallery) are listed once under *Not drawn* below.
+
+| # | Where | Now | v2 says | Sev |
+| --- | --- | --- | --- | --- |
+| 103 | Bulk Step 1 `8193:17655` (static *Contact* `8256:11468`, *vCard* `8256:11505`, *Wi-Fi*); Bulk note `8193:22086` | Static group offers Plain text, Contact, Email, SMS, Phone call, vCard, Wi-Fi | Bulk types: Website, App store link, Email, SMS, Phone call, Plain text. Page types and contact cards aren't in bulk; Wi-Fi isn't listed (*[User] - Bulk creation - upload a spreadsheet*, QR-U-17) | High |
+| 104 | Dashboard, no-plan branch: *Duplicate* `8193:23650` → *Default Upgrade pop-up* `8193:23739` | Duplicate is locked | Without a plan, Analytics, Download, Move, **Duplicate** and Delete still work (*[User] - Dashboard - see the list of codes*, QR-U-22). Only the Archive locks Duplicate (#102) | Med |
+| 105 | Sign up `8193:16116`, flow box *Enter Name* `8193:24560` | Asks for Name | Email, Password, Confirm password, Terms checkbox. No name; it's set later in Account Settings (*[User] - Authorization - sign up with email*, QR-U-03). ⏸ **On hold (Oleg, 2026-10-06):** to discuss with the BA. Nothing in v2 collects the name, yet *Delete account* asks the user to type it (QR-U-37) | Med |
+| 106 | *Error: email already registered* `8193:24596` | Dead end | Say so and offer *Log in* and *Forgot password*, revealing nothing else about the account (QR-U-03) | Low |
+| 107 | Google: Sign up `8193:24578` → Welcome; Log in `8193:24268` → Dashboard | One path each | Either button: a new Google account → trial + Welcome; an existing one → Dashboard (QR-U-03, QR-U-04) | Low |
+| 108 | Analytics filters: per-code note `8193:22313` (Period, Date range); all-codes note `8193:22902` (Folder, QR code, Period, Date range, Location) | Missing filters | Per code: Period, Date range, **Time range**, **Location**. All codes: Folder, Code, Period, Date range, **Time range**, Location. *Scans by device* covers device, **operating system** and browser (*[User] - Statistics*, QR-U-28, QR-U-29) | Med |
+| 109 | Sidebar *Advanced* → *GTM* `8193:24171`; screen *Google Tag Manager* `8193:21625` | Called GTM / Google Tag Manager | One **Integrations** screen with GTM, GA4 and Meta Pixel (*[User] - Navigation*, *[User] - Integrations*, QR-U-41). Fields are FD-07; this is the name | Low |
+| 110 | Dashboard `8193:16712` filters | Type, Status, Tag; *Sort by: Date* | Filters: type, status, **folder**, tag. Sort: newest, name, most scanned (QR-U-22) | Low |
+| 111 | Landing `8193:15352` (and Log in background `8193:15700`); structure note `8256:10778` | Tabs: Website, vCard, Links Page, Text, App Store, Restaurant menu. No signed-in header. Sections: Partners, no Pricing | Same types as creation, with v2 names (Multi-link page, Plain text, App store link). Signed-in header shows *Go to my codes*. Proposed sections include **Pricing** (plans in CAD) (*[User] - Home-page generator*, QR-U-01) | Low |
+| 112 | Plans & Billing (active subscription): *Manage Billing* `8193:22501` → *Recurly* `8193:22540` → *Plans & Billing (Free Trial)* `8256:11393` | Returns to the trial version; no result shown | Back to *Plans & Billing (active subscription)*, with a success or error message after the card or address update (QR-U-33). Reopens #63 for this branch | Low |
+| 113 | Upgrade pop-ups `8193:19773`, `8193:20444`: "No new dynamic codes" | Lists only new dynamic codes as blocked | Without a plan, creating, editing, bulk creation and activating are blocked; Analytics, Download, Move, Duplicate and Delete work (*work without an active plan*, QR-U-31) | Low |
+| 114 | Welcome (made a code) `8193:21006` | *Download SVG* and *Customize* | *Download QR code*, the trial notice and Close (*[User] - Onboarding and trial - see the welcome window*, QR-U-06). ⚠️ The client asked for one CTA and trial info only in the sidebar ([client feedback](client-feedback.md)); v2 also asks for the trial notice and *Add payment details* here. **Conflict to resolve with the client and the BA** | Low |
+| 115 | vCard and *Contact (vCard)* content forms | Not drawn (#37 parked them for the design stage). Our task 06 brief assumed several phone numbers | v2 fields: First name (required), Last name, Company, Job title, **Phone (one)**, Email, Website, Address, Photo / logo. Static *Contact (vCard)* has the same fields. Mockups *Concept* `6062:3722` still has separate *vCard* `6062:4161` and *Contact* `6062:4188` tabs ([0006](../decisions/0006-static-contact-is-vcard.md)) | Med |
+| 116 | Creation *Download QR* `8193:23265`, `8193:23266` → *QR is being downloaded* | Ends there; no format choice, no save, no return | *Save and download* creates the code, then the download dialog with PNG, JPG, SVG, EPS, PDF and the minimum print size (*step 7*, QR-U-13, QR-U-14) | Low |
+| 117 | Bulk *Save* `8193:22077` → *Success Toast* `8193:22138` | Plain toast | Codes are created in the background with progress; the message states how many (QR-U-17) | Low |
+| 118 | *User Log out* `8193:24114`–`24116` | No destination | Session ends and the **home page** opens (*sign out*, QR-U-04) | Low |
+
+**Not drawn (v2 knows; parked for the design stage):** scanner pages (*Scan a code*, *Code not available*, *Hosted pages*, *Review page*), review feedback and rating distribution on the code's analytics, the unsafe-link error (covered by #37), failed payment (#59), few-scans guidance (#52), live map and template gallery (both "to confirm"), phone layouts and the collapsed sidebar (Global rules, *Navigation*).
+
+**Checked and matching v2:** Log in, password reset (except #9), email confirmation, the Dashboard row actions and their confirmations, Pause and Activate, Delete with Undo, Move to Archive, Archive → Activate → pick a folder, Create Folder, the limit and trial checks before Create and Bulk, Bulk steps 2–4 and the row check, the scannability check and *Continue anyway*, Cancel creation, Edit (blocks, *Did the look change?*, Discard or Close), the Upgrade pop-ups (trial and no plan, Keep free trial / Not now, success and error), plan change and downgrade, Cancel plan with the reason and one discount offer, Orders history, Account Settings (name, email, password, delete account), the APIs screen (Account ID; keys are #68), Statistics widgets.
 
 ### Coverage
 

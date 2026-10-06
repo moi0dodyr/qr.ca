@@ -1,6 +1,6 @@
 # 0003 — Static *Contact* and *vCard* are two separate types
 
-**Date:** 2026-10-05 · **Status:** Accepted · **Decided by:** Oleg
+**Date:** 2026-10-05 · **Status:** Superseded by [0006](0006-static-contact-is-vcard.md) · **Decided by:** Oleg
 
 ## Context
 

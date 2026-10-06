@@ -1,22 +1,23 @@
 # Domain model for the prototype
 
-These are the rules the prototype's **mock data and screen states** must follow. The list is condensed from SRS v1.0 Part 2c §12.2 and the stories it names. This is **not** an architecture or a database schema; those belong to Denys. If anything here disagrees with upstream, upstream wins.
+These are the rules the prototype's **mock data and screen states** must follow. The list is condensed from SRS v2.0 / Product Backlog v2 ([0005](../decisions/0005-adopt-srs-v2.md)), mainly *[System] - Code states*, *[User] - Code creation* and *[User] - Plans and billing*, with v1 IDs in brackets. This is **not** an architecture or a database schema; those belong to Denys. If anything here disagrees with upstream, upstream wins.
 
-## Code types (reference list: QR-U-07, A-15)
+## Code types (reference list: v2 *[User] - Code creation - step 1*; QR-U-07)
 
 | Type | Dynamic | Static | Has a hosted page | Notes |
 | --- | --- | --- | --- | --- |
 | Website URL | ✅ | ✅ | — | Valid http(s); screened before save (QR-A-04) |
 | PDF / File | ✅ | — | PDF opens directly with a QR.CA footer | Limits TBD (SRS-Q-11) |
-| Multi-Link / Links Page | ✅ | ? (Q-W6) | ✅ micro-landing | Label + URL per link, reorderable |
-| vCard | ✅ | ✅ | ✅ micro-landing when dynamic | Full card: name, occupation, company, several numbers, email, website, address, photo. Name required; `.vcf` download |
-| Contact | — | ✅ | — | Basic card: name, phone, email ([0003](../decisions/0003-static-contact-and-vcard-both-kept.md); not yet in upstream, DR-04) |
-| App Store | ✅ | — | — | iOS and/or Android + **required** fallback (QR-U-19) |
-| Restaurant Menu | ✅ | — | PDF + footer | Display only (DS-04) |
-| Review / feedback | ✅ | — | Optional 1–5 rating page | Google link always shown (QR-U-44) |
+| Multi-link page | ✅ | — | ✅ micro-landing | Label + URL per link, reorderable |
+| vCard | ✅ | — | ✅ micro-landing | First name, last name, company, job title, phone, email, website, address, photo / logo. First name required; `.vcf` download |
+| Contact (vCard) | — | ✅ | — | Same fields as vCard, encoded in the code itself; long content makes the code denser ([0006](../decisions/0006-static-contact-is-vcard.md)) |
+| App store link | ✅ | — | — | iOS and/or Android + **required** fallback (QR-U-19) |
+| Restaurant menu (PDF) | ✅ | — | PDF + footer | Display only (DS-04) |
+| Review | ✅ | — | Optional 1–5 rating page | Google link always shown (QR-U-44) |
+| Time-based redirect | ✅ | — | — | Time periods, each with its own URL, plus a default URL (QR-U-43). Its own type in v2, Oleg's call. ⚠️ Removing it from V1 is under discussion (2026-10-06) |
 | Email, SMS, Phone call, Plain text, Wi-Fi | — | ✅ | — | Encoded in the code itself; can't be edited, no statistics |
 
-Only Multi-Link and vCard get the page builder (A-1). Bulk creation covers only the non-page types (QR-U-17).
+Only Multi-link page and dynamic vCard get the page builder (A-1). Static codes skip step 3, have no statistics, and Edit only changes their name, folder and tags (QR-U-23). Bulk creation covers only the non-page types (QR-U-17).
 
 ## Code status
 
@@ -52,7 +53,7 @@ subscribed → payment failed (retry) → subscribed | no active subscription
 any → suspended (admin)
 ```
 
-The sidebar banner follows the account state: trial countdown (QR-U-30), *codes paused*, failed payment (QR-U-35), or waiting for email confirmation.
+Each account state has its own banner. The trial countdown and trial banner (QR-U-30) sit in the sidebar. Every other banner sits at the top of the Dashboard: *codes paused*, waiting for email confirmation (QR-U-36), canceled until period end (QR-U-34), failed payment (QR-U-35) and suspended. QR-U-42 AC2 still says sidebar; the change is requested as DR-05 ([0004](../decisions/0004-account-banners-on-dashboard.md)).
 
 ## Rules that affect what screens show
 
@@ -62,5 +63,6 @@ The sidebar banner follows the account state: trial countdown (QR-U-30), *codes 
 - An identifier is never reused (BRL-01).
 - A unique scan is one visitor fingerprint per code per day. Location goes down to city level at most (BRL-22, BRL-26).
 - Prices are in CAD, with GST / HST / QST by province. Monthly billing is available on every paid plan (BRL-35, BRL-36).
-- Downloads come as PNG, JPG, SVG, EPS or PDF, never with a watermark (A-2, A-4). A paused code can still be downloaded, with a note (A-13).
+- Downloads come as PNG, JPG, SVG, EPS or PDF, never with a watermark (A-2, A-4). Without an active plan, a paused code can still be downloaded from the Dashboard, with a note that scanners see the "not available" page (A-13). **In the Archive**, Download opens the upgrade window, like Edit, Duplicate and Activate ([0005](../decisions/0005-adopt-srs-v2.md)).
+- Without an active plan, Create, Edit, Bulk and Activate open the upgrade window. Analytics, Download, Move, Duplicate and Delete still work, except in the Archive (above) (v2 *work without an active plan*; QR-U-31).
 - Error correction is automatic and the level is shown; there's no selector (A-7).

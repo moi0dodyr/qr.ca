@@ -7,6 +7,8 @@
 | **QR.ca – Wireflows** | `heli5YKyvwao7H6XFJQNiY` | Owner-side screens and flows (WIP). The SRS cites its node IDs | [User Flow canvas `8013:3323`](https://www.figma.com/design/heli5YKyvwao7H6XFJQNiY/QR.ca-%25E2%2580%2593-Wireflows?node-id=8013-3323) |
 | **QR.ca – Mockups** | `5NuyPHjiXxrvLJGuJZItCf` | Visual design of the home page; the source for the current prototype | [Home `6062:2295`](https://www.figma.com/design/5NuyPHjiXxrvLJGuJZItCf/QR.ca-%25E2%2580%2593-Mockups?node-id=6062-2295) |
 
+**Client feedback:** standing UI and copy principles from the client are in [client-feedback.md](./client-feedback.md). Check new work against them.
+
 The Figma desktop MCP reads whichever file is open in Figma desktop. Open the right file before asking Claude to inspect a node.
 
 ## Wireflows node map
@@ -38,7 +40,7 @@ Checked against the live file on 2026-10-01. Every section below sits inside the
 
 ## Figma vs SRS
 
-These are places where the Wireflows don't match SRS v1.0. The SRS wins (A-15). They're listed here for Oleg to update the canvas, not for the prototype to copy.
+These are places where the Wireflows don't match the SRS. The SRS wins (A-15); since 2026-10-06 that's SRS v2.0 ([0005](../decisions/0005-adopt-srs-v2.md)), and the current wording of each FD item is in [`figma-audit-open-items.md`](figma-audit-open-items.md). They're listed here for Oleg to update the canvas, not for the prototype to copy.
 
 | # | Finding | Figma | SRS | Ref |
 | --- | --- | --- | --- | --- |

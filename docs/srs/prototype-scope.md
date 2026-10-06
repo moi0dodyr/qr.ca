@@ -10,7 +10,7 @@ That means:
 - **No backend.** Accounts, the redirect service, billing (Recurly, Stripe), email (Customer.io), analytics (Amplitude), safety checks and the admin console are **faked or shown as static states**.
 - **Real where it's cheap and matters to the design.** That covers QR encoding and styling, and payload formats (vCard, Wi-Fi, tel:, URL) that a phone can actually scan.
 - **Fake data is labelled.** Anything that would come from a server lives in an obvious mock module, so nobody mistakes it for working logic.
-- **SRS rules still apply to what's on screen.** Labels, states, limits and copy should match SRS v1.0, even when the behaviour behind them is faked.
+- **SRS rules still apply to what's on screen.** Labels, states, limits and copy should match SRS v2.0 ([0005](../decisions/0005-adopt-srs-v2.md)), even when the behaviour behind them is faked.
 
 ## Coverage
 

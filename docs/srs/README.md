@@ -14,7 +14,7 @@ If an upstream document and a working document disagree, upstream wins. Record t
 | [`domain-model.md`](./domain-model.md) | The rules the prototype's mock data must follow: types, statuses, account states, precedence |
 | [`prototype-scope.md`](./prototype-scope.md) | Which stories and flows this prototype covers, and what it fakes |
 | [`traceability.md`](./traceability.md) | For each feature: SRS story → Figma node → prototype code → status |
-| [`prototype-gaps.md`](./prototype-gaps.md) | Where the current prototype contradicts SRS v1.0 or is missing something it needs |
+| [`prototype-gaps.md`](./prototype-gaps.md) | Where the current prototype contradicts the SRS (v2.0 since [0005](../decisions/0005-adopt-srs-v2.md)) or is missing something it needs |
 | [`tasks/`](./tasks/) | One brief per change. **No multi-file change starts without a confirmed brief** |
 | [`../decisions/`](../decisions/) | Why we chose what we chose, including the reason for any change in requirements |
 | [`../design/`](../design/) | Figma files, node map, design tokens |
@@ -35,5 +35,10 @@ Never push without asking.
 | # | Task | Traces to | Status |
 | --- | --- | --- | --- |
 | 01 | [Context layer setup](./tasks/01-context-layer-setup.md) | — | Done |
+| 02 | [Prototype exploration: Step 1 type picker](./tasks/02-proto-type-picker.md) | QR-U-07, F-02, F-65 | In progress |
+| 03 | [Prototype exploration: Step 2 content (Website, Links Page)](./tasks/03-proto-content-step.md) | QR-U-08, F-02, F-46 | In progress |
+| 04 | [Prototype exploration: Upgrade pop-up](./tasks/04-proto-upgrade-popup.md) | QR-U-32, F-34 | In progress |
+| 05 | [Prototype exploration: Plans & Billing page](./tasks/05-proto-plans-billing.md) | QR-U-33, F-35 | In progress |
+| 06 | [Prototype exploration: dynamic vCard hosted page](./tasks/06-proto-vcard-page.md) | QR-U-08, QR-U-10, F-22 | In progress |
 
 Prototype tasks 01–15 from before this pipeline existed are in [`../archive/prd/`](../archive/prd/README.md), all completed.
