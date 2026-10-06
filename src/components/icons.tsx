@@ -42,61 +42,78 @@ export const CanadaFlag: React.FC<{ className?: string; color?: string }> = ({
 
 export const MapleLeafIcon = CanadaFlag;
 
-// 1. Globe Filled Icon (Website Tab)
-export const GlobeFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.07a14.09 14.09 0 0 1 1.91 3.93h-3.82A14.09 14.09 0 0 1 12 4.07zM4.26 14a7.84 7.84 0 0 1 0-4h3.38a16.7 16.7 0 0 0-.14 2 16.7 16.7 0 0 0 .14 2zm.81 2h2.95a15.65 15.65 0 0 0 1.38 3.56A8.03 8.03 0 0 1 5.07 16zm2.95-8H5.07a8.03 8.03 0 0 1 3.53-3.56A15.65 15.65 0 0 0 8.02 8zm3.98 11.93A14.09 14.09 0 0 1 10.09 16h3.82a14.09 14.09 0 0 1-1.91 3.93zM9.64 14a14.7 14.7 0 0 1-.14-2c0-.68.05-1.35.14-2h4.72c.09.65.14 1.32.14 2s-.05 1.35-.14 2zm4.96 5.56A15.65 15.65 0 0 0 15.98 16h2.95a8.03 8.03 0 0 1-3.53 3.56zM16.36 14a16.7 16.7 0 0 0 .14-2 16.7 16.7 0 0 0-.14-2h3.38a7.84 7.84 0 0 1 0 4z" />
-  </svg>
-);
-export const GlobeIcon = GlobeFilledIcon;
+// Outline type icons (Mockups Concept v.2, 6119:34). 16 px, 1.2 stroke.
+type OutlineIconProps = { className?: string; color?: string };
 
-// 2. Identification Card Filled Icon (vCard Tab)
-export const IdCardFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-11 5a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm3 8H6v-1c0-1.33 2-2 3-2s3 .67 3 2zm6-2h-4v-1.5h4zm0-3h-4V10.5h4zm0-3h-4V7.5h4z" />
-  </svg>
-);
-export const IdCardIcon = IdCardFilledIcon;
+const outlineStroke = (color: string) => ({
+  stroke: color,
+  strokeWidth: 1.2,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+});
 
-// 3. Link Filled Icon (Links Page Tab)
-export const LinkFillIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M13.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L18.586 10l-4.293-4.293-1 1a1 1 0 0 1-1.414-1.414l1.414-1.414v-.586zm-2.586 7.414a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414L10.707 12.12l-4.293 4.293 4.293 4.293 1.414-1.414a1 1 0 0 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0l1.472 1.472z" />
+export const GlobeOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} {...outlineStroke(color)}>
+    <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" />
+    <path d="M2.34167 6H13.6582" />
+    <path d="M2.34191 10H13.6584" />
+    <path d="M8 13.8389C9.38071 13.8389 10.5 11.2248 10.5 8C10.5 4.77524 9.38071 2.16106 8 2.16106C6.61929 2.16106 5.5 4.77524 5.5 8C5.5 11.2248 6.61929 13.8389 8 13.8389Z" />
   </svg>
 );
-export const LinkFilledIcon = LinkFillIcon;
 
-// 4. Note Filled Icon (Text Tab)
-export const NoteFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+export const IdCardOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} {...outlineStroke(color)}>
+    <path d="M9.5 7H12" />
+    <path d="M9.5 9H12" />
+    <path d="M5.75627 9C6.5847 9 7.25627 8.32843 7.25627 7.5C7.25627 6.67157 6.5847 6 5.75627 6C4.92785 6 4.25627 6.67157 4.25627 7.5C4.25627 8.32843 4.92785 9 5.75627 9Z" />
+    <path d="M3.8193 10.5C3.93027 10.0706 4.18073 9.69036 4.53133 9.41885C4.88192 9.14735 5.31278 9.00001 5.75622 9C6.19965 8.99998 6.63052 9.14729 6.98113 9.41877C7.33175 9.69025 7.58223 10.0705 7.69323 10.4998" />
+    <path d="M13.5 3H2.5C2.22386 3 2 3.22386 2 3.5V12.5C2 12.7761 2.22386 13 2.5 13H13.5C13.7761 13 14 12.7761 14 12.5V3.5C14 3.22386 13.7761 3 13.5 3Z" />
   </svg>
 );
-export const NoteIcon = NoteFilledIcon;
 
-// 5. User Filled Icon (Contact Tab)
-export const UserFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+// Figma's Link-fill-22 is a filled glyph, not a stroked one.
+export const LinkOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill={color} className={className}>
+    <path d="M13.1265 2.87347C12.517 2.26398 11.6903 1.92157 10.8284 1.92157C9.96642 1.92157 9.13976 2.26398 8.53026 2.87347L7.29283 4.1109C7.24634 4.15732 7.20945 4.21245 7.18428 4.27313C7.1591 4.33381 7.14613 4.39886 7.14611 4.46455C7.14609 4.53025 7.15901 4.59531 7.18414 4.65601C7.20927 4.71671 7.24611 4.77186 7.29257 4.81831C7.33902 4.86477 7.39417 4.90161 7.45487 4.92674C7.51557 4.95187 7.58063 4.96479 7.64633 4.96477C7.71202 4.96475 7.77707 4.95178 7.83775 4.9266C7.89843 4.90143 7.95356 4.86454 7.99998 4.81805L9.23741 3.58063C9.44633 3.3717 9.69436 3.20596 9.96734 3.09289C10.2403 2.97982 10.5329 2.92162 10.8284 2.92161C11.1238 2.92161 11.4164 2.97981 11.6894 3.09287C11.9624 3.20594 12.2104 3.37167 12.4193 3.5806C12.6283 3.78952 12.794 4.03755 12.9071 4.31053C13.0201 4.5835 13.0783 4.87608 13.0783 5.17155C13.0783 5.46701 13.0201 5.75959 12.9071 6.03257C12.794 6.30555 12.6283 6.55358 12.4194 6.76251L10.6517 8.53033C10.2294 8.95167 9.65719 9.1883 9.06065 9.1883C8.46411 9.1883 7.89194 8.95167 7.46965 8.53033C7.37585 8.43667 7.2487 8.38409 7.11615 8.38413C6.98359 8.38418 6.85648 8.43686 6.76275 8.53059C6.66902 8.62432 6.61634 8.75143 6.6163 8.88398C6.61625 9.01654 6.66883 9.14369 6.76249 9.23749C7.3725 9.84604 8.19897 10.1878 9.06062 10.1878C9.92227 10.1878 10.7487 9.84604 11.3587 9.23749L13.1265 7.46966C13.736 6.86015 14.0783 6.03351 14.0783 5.17157C14.0783 4.30963 13.736 3.48298 13.1265 2.87347Z" />
+    <path d="M8.00001 11.1819L6.76259 12.4194C6.55366 12.6283 6.30563 12.794 6.03265 12.9071C5.75968 13.0202 5.4671 13.0784 5.17163 13.0784C4.87617 13.0784 4.58359 13.0202 4.31061 12.9071C4.03763 12.7941 3.7896 12.6283 3.58067 12.4194C3.37174 12.2105 3.20601 11.9624 3.09293 11.6895C2.97986 11.4165 2.92166 11.1239 2.92166 10.8285C2.92166 10.533 2.97985 10.2404 3.09292 9.96743C3.20599 9.69445 3.37172 9.44642 3.58064 9.23749L5.34834 7.46967C5.77061 7.04829 6.34279 6.81163 6.93934 6.81163C7.53589 6.81163 8.10808 7.04829 8.53035 7.46967C8.57677 7.51615 8.63189 7.55304 8.69258 7.57821C8.75326 7.60339 8.8183 7.61636 8.884 7.61638C8.9497 7.61641 9.01475 7.60348 9.07545 7.57835C9.13615 7.55322 9.19131 7.51638 9.23776 7.46993C9.28421 7.42347 9.32106 7.36832 9.34619 7.30762C9.37132 7.24692 9.38424 7.18186 9.38422 7.11617C9.38419 7.05047 9.37122 6.98542 9.34605 6.92474C9.32087 6.86406 9.28399 6.80893 9.2375 6.76251C8.6275 6.15396 7.80103 5.8122 6.93938 5.8122C6.07773 5.8122 5.25125 6.15396 4.64125 6.76251L2.87349 8.53034C2.26461 9.13996 1.92273 9.96643 1.92299 10.828C1.92326 11.6897 2.26566 12.5159 2.87492 13.1252C3.48418 13.7344 4.31043 14.0768 5.17204 14.0771C6.03366 14.0773 6.86012 13.7354 7.46974 13.1265L8.70717 11.8891C8.80083 11.7953 8.85342 11.6682 8.85337 11.5356C8.85332 11.403 8.80064 11.2759 8.70691 11.1822C8.61318 11.0885 8.48607 11.0358 8.35352 11.0357C8.22096 11.0357 8.09381 11.0883 8.00002 11.1819H8.00001Z" />
   </svg>
 );
-export const UserIcon = UserFilledIcon;
 
-// 6. Fork & Knife Filled Icon (Restaurant Menu Tab)
-export const ForkKnifeFilledIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill={color} className={className}>
-    <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm7-7c-2.21 0-4 1.79-4 4v7h2.5V22h2.5V2h-1z" />
+export const NoteOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} {...outlineStroke(color)}>
+    <path d="M6 6H10" />
+    <path d="M6 8H10" />
+    <path d="M6 10H8" />
+    <path d="M9.79289 13.5H3C2.86739 13.5 2.74021 13.4473 2.64645 13.3536C2.55268 13.2598 2.5 13.1326 2.5 13V3C2.5 2.86739 2.55268 2.74021 2.64645 2.64645C2.74021 2.55268 2.86739 2.5 3 2.5H13C13.1326 2.5 13.2598 2.55268 13.3536 2.64645C13.4473 2.74021 13.5 2.86739 13.5 3V9.79289C13.5 9.85855 13.4871 9.92357 13.4619 9.98423C13.4368 10.0449 13.4 10.1 13.3536 10.1464L10.1464 13.3536C10.1 13.4 10.0449 13.4368 9.98423 13.4619C9.92357 13.4871 9.85855 13.5 9.79289 13.5V13.5Z" />
+    <path d="M13.4548 9.9995H10V13.4545" />
   </svg>
 );
-export const ForkKnifeIcon = ForkKnifeFilledIcon;
 
-// 7. Chevron Down / More Icon
-export const ChevronDownIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-4 h-4", color = "currentColor" }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <polyline points="6 9 12 15 18 9" />
+export const StorefrontOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} {...outlineStroke(color)}>
+    <path d="M3 8.72427V13C3 13.1326 3.05268 13.2598 3.14645 13.3536C3.24021 13.4473 3.36739 13.5 3.5 13.5H12.5C12.6326 13.5 12.7598 13.4473 12.8536 13.3536C12.9473 13.2598 13 13.1326 13 13V8.72437" />
+    <path d="M3.37715 2.5H12.6228C12.7315 2.5 12.8372 2.53539 12.9239 2.60083C13.0107 2.66626 13.0738 2.75816 13.1036 2.86264L14 6H2L2.89639 2.86264C2.92624 2.75816 2.98931 2.66626 3.07605 2.60083C3.1628 2.53539 3.2685 2.5 3.37715 2.5Z" />
+    <path d="M6 6V7C6 7.53043 5.78929 8.03914 5.41421 8.41421C5.03914 8.78929 4.53043 9 4 9C3.46957 9 2.96086 8.78929 2.58579 8.41421C2.21071 8.03914 2 7.53043 2 7V6" />
+    <path d="M10 6V7C10 7.53043 9.78929 8.03914 9.41421 8.41421C9.03914 8.78929 8.53043 9 8 9C7.46957 9 6.96086 8.78929 6.58579 8.41421C6.21071 8.03914 6 7.53043 6 7V6" />
+    <path d="M14 6V7C14 7.53043 13.7893 8.03914 13.4142 8.41421C13.0391 8.78929 12.5304 9 12 9C11.4696 9 10.9609 8.78929 10.5858 8.41421C10.2107 8.03914 10 7.53043 10 7V6" />
   </svg>
 );
-export const MoreFilledIcon = ChevronDownIcon;
+
+export const ForkKnifeOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} {...outlineStroke(color)}>
+    <path d="M5.25 2V4.5" />
+    <path d="M5.25 7.25V14" />
+    <path d="M7 2L7.5 5C7.5 5.59674 7.26295 6.16903 6.84099 6.59099C6.41903 7.01295 5.84674 7.25 5.25 7.25C4.65326 7.25 4.08097 7.01295 3.65901 6.59099C3.23705 6.16903 3 5.59674 3 5L3.5 2" />
+    <path d="M12.75 10H9.25C9.25 10 10 3 12.75 2V14" />
+  </svg>
+);
+
+// "More" chevron, drawn inside the 32 px circle in Figma (6119:95).
+export const ChevronOutlineIcon: React.FC<OutlineIconProps> = ({ className = "size-4", color = "currentColor" }) => (
+  <svg viewBox="0 0 16 16" fill="none" stroke={color} strokeWidth={1.2} className={className}>
+    <path d="M4 6L7.29289 9.29289C7.68342 9.68342 8.31658 9.68342 8.70711 9.29289L12 6" />
+  </svg>
+);
 
 // Sketch / Gem Diamond Icon for Premium badge
 export const GemIcon: React.FC<{ className?: string; color?: string }> = ({ className = "w-3 h-3", color = "currentColor" }) => (

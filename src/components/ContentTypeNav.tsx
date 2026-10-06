@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  GlobeFilledIcon,
-  IdCardFilledIcon,
-  LinkFilledIcon,
-  NoteFilledIcon,
-  UserFilledIcon,
-  ForkKnifeFilledIcon,
-  MoreFilledIcon,
+  GlobeOutlineIcon,
+  IdCardOutlineIcon,
+  LinkOutlineIcon,
+  NoteOutlineIcon,
+  StorefrontOutlineIcon,
+  ForkKnifeOutlineIcon,
+  ChevronOutlineIcon,
 } from './icons';
 
 import { type ContentTabType, tabColors } from '../utils/theme';
@@ -24,49 +24,49 @@ const tabs: TabItem[] = [
     id: 'website',
     label: 'Website',
     icon: (isActive) => (
-      <GlobeFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <GlobeOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'vcard',
     label: 'vCard',
     icon: (isActive) => (
-      <IdCardFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <IdCardOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'links',
-    label: 'Links Page',
+    label: 'Multi-link page',
     icon: (isActive) => (
-      <LinkFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <LinkOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'text',
-    label: 'Text',
+    label: 'Plain text',
     icon: (isActive) => (
-      <NoteFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <NoteOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'contact',
-    label: 'Contact',
+    label: 'App store link',
     icon: (isActive) => (
-      <UserFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <StorefrontOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'menu',
     label: 'Restaurant menu',
     icon: (isActive) => (
-      <ForkKnifeFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <ForkKnifeOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
   {
     id: 'more',
     label: 'More',
     icon: (isActive) => (
-      <MoreFilledIcon className="w-4 h-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
+      <ChevronOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />
     ),
   },
 ];
@@ -81,7 +81,7 @@ export const ContentTypeNav: React.FC<ContentTypeNavProps> = ({
   onSelectTab,
 }) => {
   return (
-    <div className="w-full bg-white border-b border-[rgba(44,46,48,0.1)] flex items-center justify-between overflow-x-auto scrollbar-none select-none">
+    <div className="w-full bg-white border-b border-[rgba(44,46,48,0.08)] flex items-center justify-between overflow-x-auto scrollbar-none select-none">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         const colorHex = tabColors[tab.id];
