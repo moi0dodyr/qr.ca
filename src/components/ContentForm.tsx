@@ -5,6 +5,13 @@ import { VCardFormSection } from './VCardFormSection';
 import type { VCardData } from '../utils/vcard';
 import { LinksFormSection } from './LinksFormSection';
 import type { LinksPageData } from '../utils/links';
+import type { AppStoreLinkData } from '../utils/appStore';
+
+const APP_STORE_FIELDS: { key: keyof AppStoreLinkData; label: string; placeholder: string }[] = [
+  { key: 'appStoreUrl', label: 'App Store URL', placeholder: 'https://apps.apple.com/app/…' },
+  { key: 'googlePlayUrl', label: 'Google Play URL', placeholder: 'https://play.google.com/store/apps/…' },
+  { key: 'fallbackUrl', label: 'Fallback URL', placeholder: 'https://www.example.com/' },
+];
 
 export interface ContentFormProps {
   websiteUrl: string;
@@ -15,8 +22,8 @@ export interface ContentFormProps {
   onLinksDataChange: (val: LinksPageData) => void;
   textContent: string;
   onTextContentChange: (val: string) => void;
-  contactNumber: string;
-  onContactNumberChange: (val: string) => void;
+  appStoreData: AppStoreLinkData;
+  onAppStoreDataChange: (val: AppStoreLinkData) => void;
   menuUrl: string;
   onMenuUrlChange: (val: string) => void;
   selectedShape: ShapeType;
@@ -38,8 +45,8 @@ export const ContentForm: React.FC<ContentFormProps> = ({
   onLinksDataChange,
   textContent,
   onTextContentChange,
-  contactNumber,
-  onContactNumberChange,
+  appStoreData,
+  onAppStoreDataChange,
   menuUrl,
   onMenuUrlChange,
   selectedShape,
@@ -119,16 +126,29 @@ export const ContentForm: React.FC<ContentFormProps> = ({
           </div>
         )}
 
-        {activeContentTab === 'contact' && (
-          <div className="flex flex-col gap-3 w-full">
-            <label className="font-['Inter_Tight'] text-[14px] text-[#2c2e30] tracking-[0.7px]">Direct Contact Card</label>
-            <input
-              type="text"
-              value={contactNumber}
-              onChange={(e) => onContactNumberChange(e.target.value)}
-              placeholder="+1 (800) 555-QRCA"
-              className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-4 rounded-[12px] text-[16px] text-[#2c2e30] focus:outline-none focus:border-[#00a7f5]"
-            />
+        {activeContentTab === 'appstore' && (
+          <div className="flex flex-col gap-[16px] w-full" data-name="App Store Fields">
+            {APP_STORE_FIELDS.map((field) => (
+              <div key={field.key} className="flex flex-col gap-[4px] w-full" data-name="URL Field">
+                <label
+                  htmlFor={`appstore-${field.key}`}
+                  className="font-['Inter_Tight'] font-normal text-[14px] text-[#2c2e30] tracking-[0.7px]"
+                >
+                  {field.label}
+                </label>
+                <input
+                  id={`appstore-${field.key}`}
+                  type="url"
+                  value={appStoreData[field.key]}
+                  onChange={(e) => onAppStoreDataChange({ ...appStoreData, [field.key]: e.target.value })}
+                  placeholder={field.placeholder}
+                  className="bg-white border border-[rgba(44,46,48,0.16)] h-[44px] px-[16px] py-[10px] rounded-[12px] font-['Inter_Tight'] font-normal text-[16px] text-[#2c2e30] tracking-[0.32px] w-full focus:outline-none focus:border-[#00a7f5] focus:ring-2 focus:ring-[#00a7f5]/20 transition-all placeholder:text-neutral-400"
+                />
+              </div>
+            ))}
+            <p className="font-['Inter_Tight'] font-normal text-[14px] text-[rgba(44,46,48,0.7)] tracking-[0.7px]">
+              Add at least one store link. The fallback opens on other devices.
+            </p>
           </div>
         )}
 
@@ -147,7 +167,7 @@ export const ContentForm: React.FC<ContentFormProps> = ({
 
         {activeContentTab === 'more' && (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-            {['WiFi Network', 'Calendar Event', 'SMS Message', 'Google Maps', 'App Store Link', 'Email Template'].map((item) => (
+            {['WiFi Network', 'Calendar Event', 'SMS Message', 'Google Maps', 'Contact (vCard)', 'Email Template'].map((item) => (
               <div
                 key={item}
                 className="bg-white border border-[rgba(44,46,48,0.1)] rounded-[10px] p-3 text-center text-[13px] font-medium text-[#2c2e30] hover:border-[#00a7f5] cursor-pointer transition-all"

@@ -3,7 +3,7 @@ export type ContentTabType =
   | 'vcard'
   | 'links'
   | 'text'
-  | 'contact'
+  | 'appstore'
   | 'menu'
   | 'more';
 
@@ -12,7 +12,7 @@ export const tabColors: Record<ContentTabType, string> = {
   vcard: '#C778D9',
   links: '#9F87F7',
   text: '#5F9BFE',
-  contact: '#00BA7F',
+  appstore: '#00BA7F',
   menu: '#D68A00',
   more: '#00A7F5',
 };

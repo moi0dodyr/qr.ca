@@ -49,7 +49,7 @@ const tabs: TabItem[] = [
     ),
   },
   {
-    id: 'contact',
+    id: 'appstore',
     label: 'App store link',
     icon: (isActive) => (
       <StorefrontOutlineIcon className="size-4" color={isActive ? '#ffffff' : 'rgba(44, 46, 48, 0.7)'} />

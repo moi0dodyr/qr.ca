@@ -9,6 +9,7 @@ import type { ShapeType } from './components/ShapeTiles';
 import { tabColors } from './utils/theme';
 import { initialVCardData, generateVCardString, type VCardData } from './utils/vcard';
 import { initialLinksPageData, generateLinksPagePayload, type LinksPageData } from './utils/links';
+import { initialAppStoreLinkData, generateAppStorePayload, type AppStoreLinkData } from './utils/appStore';
 
 export default function App() {
   // Content type states
@@ -16,7 +17,7 @@ export default function App() {
   const [vCardData, setVCardData] = useState<VCardData>(initialVCardData);
   const [linksData, setLinksData] = useState<LinksPageData>(initialLinksPageData);
   const [textContent, setTextContent] = useState('Welcome to our flagship Toronto store! Scan for special in-store perks.');
-  const [contactNumber, setContactNumber] = useState('+1 (800) 555-QRCA');
+  const [appStoreData, setAppStoreData] = useState<AppStoreLinkData>(initialAppStoreLinkData);
   const [menuUrl, setMenuUrl] = useState('https://menu.qr.ca/bistro-toronto');
 
   const [selectedShape, setSelectedShape] = useState<ShapeType>('square');
@@ -34,18 +35,14 @@ export default function App() {
         return generateLinksPagePayload(linksData);
       case 'text':
         return textContent || ' ';
-      case 'contact':
-        return contactNumber.trim()
-          ? contactNumber.startsWith('tel:')
-            ? contactNumber
-            : `tel:${contactNumber.trim()}`
-          : '+1 (800) 555-QRCA';
+      case 'appstore':
+        return generateAppStorePayload(appStoreData);
       case 'menu':
         return menuUrl.trim() || 'https://menu.qr.ca';
       default:
         return websiteUrl.trim() || 'https://www.acme.com/';
     }
-  }, [activeContentTab, websiteUrl, vCardData, linksData, textContent, contactNumber, menuUrl]);
+  }, [activeContentTab, websiteUrl, vCardData, linksData, textContent, appStoreData, menuUrl]);
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -122,8 +119,8 @@ export default function App() {
               onLinksDataChange={setLinksData}
               textContent={textContent}
               onTextContentChange={setTextContent}
-              contactNumber={contactNumber}
-              onContactNumberChange={setContactNumber}
+              appStoreData={appStoreData}
+              onAppStoreDataChange={setAppStoreData}
               menuUrl={menuUrl}
               onMenuUrlChange={setMenuUrl}
               selectedShape={selectedShape}
