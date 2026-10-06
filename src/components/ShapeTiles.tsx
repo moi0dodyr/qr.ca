@@ -255,7 +255,7 @@ export const ShapeTiles: React.FC<ShapeTilesProps> = ({
         </p>
         <div className="absolute flex h-[92.209px] items-center justify-center left-[-25.5px] top-[-20.5px] w-[105.028px] pointer-events-none select-none" data-node-id="6063:4914">
           <div className="-rotate-[40deg] flex-none">
-            <div className="bg-[#d68a00] flex h-[18px] items-center px-[6px] py-[4px] relative rounded-[6px] w-[122px]" data-name="More Shapes Badge">
+            <div className="bg-[#e96d98] flex h-[18px] items-center px-[6px] py-[4px] relative rounded-[6px] w-[122px]" data-name="More Shapes Badge">
               <p className="flex-1 font-['Inter_Tight'] font-medium text-[12px] text-center text-white tracking-[0.72px] uppercase leading-none whitespace-nowrap" data-node-id="6063:4915">
                 +10 more
               </p>

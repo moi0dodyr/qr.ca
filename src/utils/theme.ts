@@ -8,13 +8,13 @@ export type ContentTabType =
   | 'more';
 
 export const tabColors: Record<ContentTabType, string> = {
-  website: '#00A7F5',
+  website: '#9F87F7', // lavender, Concept v.2 6119:35
   vcard: '#C778D9',
-  links: '#9F87F7',
+  links: '#00A7F5', // swapped with website
   text: '#5F9BFE',
   appstore: '#00BA7F',
   menu: '#D68A00',
-  more: '#00A7F5',
+  more: '#2C2E30',
 };
 
 export function hexToRgba(hex: string, alpha: number): string {

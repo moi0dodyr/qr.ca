@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShapeTiles, type ShapeType } from './ShapeTiles';
 import type { ContentTabType } from './ContentTypeNav';
+import { tabColors } from '../utils/theme';
 import { VCardFormSection } from './VCardFormSection';
 import type { VCardData } from '../utils/vcard';
 import { LinksFormSection } from './LinksFormSection';
@@ -200,7 +201,10 @@ export const ContentForm: React.FC<ContentFormProps> = ({
         <div className="flex flex-col gap-[16px] w-full">
           <div className="border-b border-[rgba(44,46,48,0.08)] flex gap-[24px] items-center w-full select-none" data-name="Design Tabs">
             {/* Shape Tab: Active */}
-            <div className="border-b-2 border-[#00a7f5] h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[#2c2e30] tracking-[0.32px] shrink-0">
+            <div
+              style={{ borderBottomColor: tabColors[activeContentTab] }}
+              className="border-b-2 h-[44px] flex items-center justify-center font-['Inter_Tight'] font-medium text-[16px] text-[#2c2e30] tracking-[0.32px] shrink-0"
+            >
               Shape
             </div>
 
