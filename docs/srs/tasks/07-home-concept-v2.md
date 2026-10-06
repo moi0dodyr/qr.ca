@@ -2,9 +2,9 @@
 
 | | |
 | --- | --- |
-| **Status** | Draft |
+| **Status** | In progress |
 | **Created** | 2026-10-06 |
-| **Confirmed by** | — |
+| **Confirmed by** | Oleg, 2026-10-06 |
 | **Traces to** | F-01 · QR-U-01 · QR-U-07 · QR-U-08 · Figma Mockups *Concept v.2* `6119:5` → *Terminal* `6119:6` · gaps PG-03, PG-05, PG-07, PG-08, PG-15 |
 
 ## Problem
@@ -17,11 +17,11 @@ Oleg updated the home page concept in Figma (Mockups, *Concept v.2* `6119:6`, no
 | Hero headline | "The first 🇨🇦 Canadian-native QR Code Generator" | "Create, customize and track QR codes" (no flag, no "Canadian") |
 | Hero subtitle | "Generate branded QR codes in seconds, share them…" | "Add your content, customize the design, and download. Track every scan when you need to." |
 | Type tabs | Website · vCard · Links Page · Text · **Contact** · Restaurant menu · More | Website · vCard · **Multi-link page** · **Plain text** · **App store link** · Restaurant menu · More |
-| Tab icons | Filled icons; active circle filled with the tab's own colour | Outline icons (globe, ID card, link, note, storefront, fork-knife, chevron for More); active circle and underline in a soft lavender |
-| Accent colour | Changes per tab (blue, pink, violet, …) | One lavender accent (only *Website* is drawn) |
-| Step 2 tabs | Active underline blue | Active underline lavender |
+| Tab icons | Filled icons | Outline icons (globe, ID card, link, note, storefront, fork-knife, chevron for More) |
+| Website accent | Blue `#00A7F5` | Lavender `#9F87F7` (only *Website* is drawn; other tabs keep their own colours) |
+| Step 2 tabs | Active underline always blue | Active underline in the Website lavender |
 | "+10 more" ribbon | Amber | Pink |
-| Step 3 panel | Tinted with the tab colour | Lavender tint, lavender Download button |
+| Step 3 panel | Tinted with the tab colour | Same idea; for Website it's lavender |
 | Tracking toggle | "Track your scans" + pink **Premium** badge, left-aligned | "Track analytics", no badge, centred under the code |
 | Formats line | "Available in SVG, PNG, JPG" | "Available in SVG, PNG, JPG, PDF, EPS" |
 
@@ -33,16 +33,15 @@ Oleg updated the home page concept in Figma (Mockups, *Concept v.2* `6119:6`, no
 
 ## Agreed decisions
 
-Proposed by Claude; Oleg confirms or changes them (see Open questions).
-
 1. Figma `6119:6` is the visual source for the home page. Exact sizes and colours come from `get_design_context` on that node, not from the screenshot.
 2. Tabs become: Website, vCard, Multi-link page, Plain text, App store link, Restaurant menu, More. The *Contact* (`tel:`) tab and its form are removed.
-3. **App store link** gets the v2 form (*[User] - Code creation - step 2*): App Store URL, Google Play URL, Fallback URL. On the home page it stays a demo (0002): the preview encodes the first filled store link, falling back to the Fallback URL. A real dynamic code would point to our redirect service instead. Logged as a gap.
-4. One lavender accent for every type, replacing the per-tab colours (`tabColors`), as only one state is drawn and the note describes one "cool-toned" look.
+3. **App store link** gets the v2 form (*[User] - Code creation - step 2*): App Store URL, Google Play URL, Fallback URL. On the home page it stays a demo (0002): the preview encodes the Fallback URL, or the first filled store link if it's empty. A real dynamic code would encode our redirect link, which picks the store by device. Logged as a gap. (Oleg left this to Claude.)
+4. Each type keeps its own accent colour, which still switches with the tab (Oleg). **Website becomes lavender `#9F87F7`.** That's Multi-link page's current colour, so the two swap: Multi-link page takes Website's old blue `#00A7F5`. *App store link* inherits the old Contact green `#00BA7F`. The Step 2 tab underline follows the active tab's accent too (Figma draws it lavender on Website).
 5. "Track analytics" keeps today's behaviour (opens the sign-up pop-up), just without the Premium badge.
 6. The Figma formats line has a stray space ("JPG ,"). The prototype uses "SVG, PNG, JPG, PDF, EPS".
 7. Copy in the sign-up pop-up that says "Canadian" or "Premium" is shortened to follow the client principles (no "Canadian", short copy). This isn't in the Figma frame but the same feedback applies.
-8. Figma only shows desktop. On phones (375 px) the tab strip scrolls sideways inside itself (as today), and the panels stack.
+8. Static *Contact (vCard)* has no home-page tab for now; it belongs under *More*, which stays non-functional (PG-03, PG-11). (Oleg left this to Claude.)
+9. Figma only shows desktop. On phones (375 px) the tab strip scrolls sideways inside itself (as today), and the panels stack.
 
 ## Implementation stages
 
@@ -51,7 +50,7 @@ Each stage is one commit, and each must leave `npm run lint` and `npm run build`
 1. **Stage 1: Header and hero.** Brand name, logo size, "Pricing"; new headline and subtitle, Canada flag removed from the hero. (files: `Header.tsx`, `HeroHeadline.tsx`)
 2. **Stage 2: Type tabs.** New labels and order, outline icons, lavender active state; rename the `contact` type to `appstore` in `ContentTabType`. (files: `ContentTypeNav.tsx`, `icons.tsx`, `utils/theme.ts`, `App.tsx`)
 3. **Stage 3: App store link form.** Three URL fields replace the phone field; a pure encoder picks the payload. (files: `ContentForm.tsx`, new `utils/appStore.ts`, `App.tsx`)
-4. **Stage 4: One accent colour.** Lavender for the Step 2 tab underline, Step 3 panel tint and Download button; pink "+10 more" ribbon. (files: `utils/theme.ts`, `ContentForm.tsx`, `ShapeTiles.tsx`, `DownloadPanel.tsx`)
+4. **Stage 4: Accent colours.** Website lavender, Multi-link page blue; Step 2 tab underline follows the accent; pink "+10 more" ribbon. (files: `utils/theme.ts`, `ContentForm.tsx`, `ShapeTiles.tsx`, `DownloadPanel.tsx`)
 5. **Stage 5: Download panel and pop-up copy.** "Track analytics" centred, no Premium badge; formats line; pop-up copy without "Canadian" / "Premium". (files: `DownloadPanel.tsx`, `App.tsx`)
 6. **Stage 6: Close the docs.** `traceability.md` (F-01 → `6119:6`), `prototype-gaps.md` (PG-03, PG-05, PG-07, PG-08 updated; new gap for the App store link payload), `docs/design/README.md` (Mockups node map gets *Concept v.2*), brief set to Done.
 
@@ -69,20 +68,23 @@ After Stage 6 I'll ask before pushing; the push is what updates the deployed pro
 - [ ] At 1440 px the home page matches `6119:6` side by side: header, hero copy, tab labels / icons / active state, Step 1–3 panels, colours and copy.
 - [ ] No "Canadian" anywhere on the home page or in the sign-up pop-up.
 - [ ] *App store link* shows App Store URL, Google Play URL and Fallback URL, and the preview code changes as they're typed.
-- [ ] Switching tabs no longer changes the accent colour.
+- [ ] Website is lavender `#9F87F7`; switching tabs still switches the accent, and no two tabs share a colour.
 - [ ] "Track analytics" opens the sign-up pop-up; there's no Premium badge.
 - [ ] Phone (375 px) and desktop (1440 px) checked, with no horizontal scroll
 - [ ] `npm run lint` and `npm run build` pass
 
 ## Open questions
 
-- **Accent colour (decision 4):** one lavender for every type, or keep a colour per type and just make Website lavender? Recommendation: one colour.
-- **App store link preview (decision 3):** OK to encode the store link directly as a demo, or would you rather show a mock short link (labelled "mock")?
-- **Pop-up copy (decision 7):** include it here, or leave the pop-up for a later task?
-- **Static Contact (vCard):** it no longer has a tab on the home page. Should it sit under *More* later, or is that fine as is?
+Answered by Oleg on 2026-10-06:
+
+- Accent colour: keep switching colours per type; make Website lavender (decision 4).
+- App store link preview: Claude's call (decision 3).
+- Pop-up copy: fix it here (decision 7).
+- Static Contact (vCard): Claude's call (decision 8).
 
 ## Progress log
 
 | Date | Stage | Commit | Note |
 | --- | --- | --- | --- |
-| 2026-10-06 | Brief | — | Drafted from Figma `6119:6`, waiting for Oleg |
+| 2026-10-06 | Brief | — | Drafted from Figma `6119:6` |
+| 2026-10-06 | Brief | — | Confirmed by Oleg with answers to the open questions |
