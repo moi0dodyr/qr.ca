@@ -26,8 +26,8 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype 
 
 | Feature | Story | Figma | Prototype code | Status | Gaps |
 | --- | --- | --- | --- | --- | --- |
-| F-01 Home-page generator | QR-U-01 | `8045:3711` · *(M)* `6062:2295` | `src/App.tsx`, `ContentTypeNav`, `ContentForm`, `DownloadPanel`, `QrCodeView` | ◐ | PG-02, PG-03, PG-04, PG-13 |
-| F-01 Sign-up to download | QR-U-02 | `8045:3711` | `SignUpModal` | ◐ | PG-07, PG-12 |
+| F-01 Home-page generator | QR-U-01 | `8045:3711` · *(M)* *Concept v.2* `6119:6` | `src/App.tsx`, `ContentTypeNav`, `ContentForm`, `DownloadPanel`, `QrCodeView`, `utils/appStore.ts` ([task 07](tasks/07-home-concept-v2.md)) | ◐ | PG-02, PG-03, PG-04, PG-13, PG-16 |
+| F-01 Sign-up to download | QR-U-02 | `8045:3711` | `SignUpModal` | ◐ | PG-12 |
 | F-02 Core dynamic types | QR-U-07, QR-U-08 | `8045:2816` | `utils/links.ts` (Multi-Link), `utils/vcard.ts` | ◐ | PG-03, PG-06 |
 | F-03 Restaurant menu (PDF) | QR-U-20 | `8045:2816` | `ContentForm` (`menu` tab, URL) | ◐ | PG-01 |
 | F-04 Wi-Fi (static) | QR-U-21 | `8045:2816` | — | ⬜ | |

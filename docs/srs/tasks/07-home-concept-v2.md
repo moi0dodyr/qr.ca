@@ -2,7 +2,7 @@
 
 | | |
 | --- | --- |
-| **Status** | In progress |
+| **Status** | Done |
 | **Created** | 2026-10-06 |
 | **Confirmed by** | Oleg, 2026-10-06 |
 | **Traces to** | F-01 · QR-U-01 · QR-U-07 · QR-U-08 · Figma Mockups *Concept v.2* `6119:5` → *Terminal* `6119:6` · gaps PG-03, PG-05, PG-07, PG-08, PG-15 |
@@ -65,13 +65,13 @@ After Stage 6 I'll ask before pushing; the push is what updates the deployed pro
 
 ## Acceptance criteria
 
-- [ ] At 1440 px the home page matches `6119:6` side by side: header, hero copy, tab labels / icons / active state, Step 1–3 panels, colours and copy.
-- [ ] No "Canadian" anywhere on the home page or in the sign-up pop-up.
-- [ ] *App store link* shows App Store URL, Google Play URL and Fallback URL, and the preview code changes as they're typed.
-- [ ] Website is lavender `#9F87F7`; switching tabs still switches the accent, and no two tabs share a colour.
-- [ ] "Track analytics" opens the sign-up pop-up; there's no Premium badge.
-- [ ] Phone (375 px) and desktop (1440 px) checked, with no horizontal scroll
-- [ ] `npm run lint` and `npm run build` pass
+- [x] At 1440 px the home page matches `6119:6` side by side: header, hero copy, tab labels / icons / active state, Step 1–3 panels, colours and copy.
+- [x] No "Canadian" anywhere on the home page or in the sign-up pop-up.
+- [x] *App store link* shows App Store URL, Google Play URL and Fallback URL, and the preview code changes as they're typed.
+- [x] Website is lavender `#9F87F7`; switching tabs still switches the accent, and no two tabs share a colour.
+- [x] "Track analytics" opens the sign-up pop-up; there's no Premium badge.
+- [x] Phone (375 px, checked in a 375 px frame) and desktop (1440 px) checked, with no horizontal scroll
+- [x] `npm run lint` and `npm run build` pass
 
 ## Open questions
 
@@ -82,9 +82,25 @@ Answered by Oleg on 2026-10-06:
 - Pop-up copy: fix it here (decision 7).
 - Static Contact (vCard): Claude's call (decision 8).
 
+## Noticed, not changed
+
+Things that differ from `6119:6` but were already like this and are outside this brief:
+
+- The selected shape tile shows a "SQUARE" caption; Figma has none.
+- The shape grid has 8 shapes plus *Unlock more*; Figma has 9 plus *Unlock more*.
+- On *Multi-link page*, one link input is slightly wider than its row at 375 px (the page itself doesn't scroll sideways).
+- The sign-up buttons still use `alert()` (PG-12).
+
 ## Progress log
 
 | Date | Stage | Commit | Note |
 | --- | --- | --- | --- |
 | 2026-10-06 | Brief | — | Drafted from Figma `6119:6` |
 | 2026-10-06 | Brief | — | Confirmed by Oleg with answers to the open questions |
+| 2026-10-06 | Brief | `5a7c5ab` | Brief committed |
+| 2026-10-06 | 1 | `c94a834` | Header and hero |
+| 2026-10-06 | 2 | `c58be85` | Type tabs, outline icons from Figma |
+| 2026-10-06 | 3 | `ba115ed` | App store link form and `utils/appStore.ts`; Contact (vCard) listed under More |
+| 2026-10-06 | 4 | `6784e1f` | Website lavender, swapped with Multi-link page; More is slate |
+| 2026-10-06 | 5 | `1b1a7a6` | Track analytics, formats, pop-up copy; also the page title and the flag in the pop-up |
+| 2026-10-06 | 6 | (this commit) | Traceability, gaps (PG-16 added), design node map; brief Done |

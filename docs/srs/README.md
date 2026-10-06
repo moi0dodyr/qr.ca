@@ -40,6 +40,6 @@ Never push without asking.
 | 04 | [Prototype exploration: Upgrade pop-up](./tasks/04-proto-upgrade-popup.md) | QR-U-32, F-34 | In progress |
 | 05 | [Prototype exploration: Plans & Billing page](./tasks/05-proto-plans-billing.md) | QR-U-33, F-35 | In progress |
 | 06 | [Prototype exploration: dynamic vCard hosted page](./tasks/06-proto-vcard-page.md) | QR-U-08, QR-U-10, F-22 | In progress |
-| 07 | [Home page: match Mockups *Concept v.2*](./tasks/07-home-concept-v2.md) | F-01, QR-U-01, QR-U-07 | In progress |
+| 07 | [Home page: match Mockups *Concept v.2*](./tasks/07-home-concept-v2.md) | F-01, QR-U-01, QR-U-07 | Done |
 
 Prototype tasks 01–15 from before this pipeline existed are in [`../archive/prd/`](../archive/prd/README.md), all completed.

@@ -5,7 +5,7 @@
 | File | Key | Use | Link |
 | --- | --- | --- | --- |
 | **QR.ca – Wireflows** | `heli5YKyvwao7H6XFJQNiY` | Owner-side screens and flows (WIP). The SRS cites its node IDs | [User Flow canvas `8013:3323`](https://www.figma.com/design/heli5YKyvwao7H6XFJQNiY/QR.ca-%25E2%2580%2593-Wireflows?node-id=8013-3323) |
-| **QR.ca – Mockups** | `5NuyPHjiXxrvLJGuJZItCf` | Visual design of the home page; the source for the current prototype | [Home `6062:2295`](https://www.figma.com/design/5NuyPHjiXxrvLJGuJZItCf/QR.ca-%25E2%2580%2593-Mockups?node-id=6062-2295) |
+| **QR.ca – Mockups** | `5NuyPHjiXxrvLJGuJZItCf` | Visual design of the home page; the source for the current prototype | [*Concept v.2* `6119:6`](https://www.figma.com/design/5NuyPHjiXxrvLJGuJZItCf/QR.ca-%25E2%2580%2593-Mockups?node-id=6119-6) (current) · [Home `6062:2295`](https://www.figma.com/design/5NuyPHjiXxrvLJGuJZItCf/QR.ca-%25E2%2580%2593-Mockups?node-id=6062-2295) (old) |
 
 **Client feedback:** standing UI and copy principles from the client are in [client-feedback.md](./client-feedback.md). Check new work against them.
 
@@ -54,10 +54,14 @@ These are places where the Wireflows don't match the SRS. The SRS wins (A-15); s
 | FD-08 | The Webhooks screen is gone | `8045:3388` deleted | Later (post-sync decision) | F-48 · consistent, no action |
 | FD-09 | Smart Rules / Geolocation URL notes in creation | Note `8040:1619` | Location routing is post-MVP | §13 `DYN-09` · ✅ fixed 2026-10-06 |
 
-## Mockups node map (used by the archived tasks)
+## Mockups node map
 
 | Node | Element |
 | --- | --- |
+| `6119:5` | *Concept v.2* section ("Light Gradient View"), the current home page ([task 07](../srs/tasks/07-home-concept-v2.md)) |
+| `6119:6` | Home page frame, desktop (*Terminal*) |
+| `6119:34` | Type tabs, outline icons |
+| `6119:314` | Download panel (Website lavender `#9F87F7`) |
 | `6062:2295` | Home page frame |
 | `6062:2412` | Step 2 shape tiles (`6062:2414`, `2854`–`2861`) |
 | `6062:2669` | "No credit card required" badge over the QR card |
@@ -73,4 +77,4 @@ The source is `src/index.css` (`@theme`) and `src/utils/theme.ts`.
 | `brand-blue` | `#00a7f5` | Primary accent, Website tab |
 | `brand-coral` | `#ef6f68` | Accent |
 | `premium-pink` | `#e96d98` | Premium / upsell accents |
-| Tab accents | website `#00A7F5` · vcard `#C778D9` · links `#9F87F7` · text `#5F9BFE` · contact `#00BA7F` · menu `#D68A00` | `tabColors`; the Step 3 panel is tinted from the active tab with `getDownloadPanelTheme` |
+| Tab accents | website `#9F87F7` · vcard `#C778D9` · links `#00A7F5` · text `#5F9BFE` · appstore `#00BA7F` · menu `#D68A00` · more `#2C2E30` | `tabColors`; the Step 3 panel is tinted from the active tab with `getDownloadPanelTheme` |
