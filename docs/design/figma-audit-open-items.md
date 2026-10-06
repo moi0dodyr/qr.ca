@@ -6,16 +6,13 @@
 
 When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
 
-**Status:** 0 High · 0 Med · **49 Low** open.
+**Status:** 0 High · 0 Med · **44 Low** open.
 
 ## 1. Links
 
-Every link opens a node on the Wireflows page; none goes to the old *Meta Flow (WIP)* page. Still to do:
+✅ **Done (2026-10-06).** Claude added the missing links and fixed the broken one through the Figma connector: *Paused Page* `8309:24145` → its section (#127); *Upgrade on higher level pop-up* in Bulk `8256:8849` and Dashboard `8256:8809` → Upgrade pop-up (#144, #163); *QR codes (Dashboard)* in Upgrade `8193:22840` and Plans & Billing `8256:11402`, `8256:11413` → Dashboard (#179, #182); *Plans & Billing (Free Trial)* `8256:11367` and *(active subscription)* `8256:11385` → Plans & Billing.
 
-- **Broken:** *Paused Page* `8309:24145` points to a deleted node (#127).
-- **No link, should open the Upgrade pop-up:** Bulk `8256:8849` (#144), Dashboard `8256:8809` (#163).
-- **No link, should open the Dashboard:** Upgrade pop-up `8193:22840` (#179), Plans & Billing `8256:11402`, `8256:11413` (#182).
-- Never had a link (fine as they are): *Unlock Tracking pop-up* `8241:8127`, *Create Folder pop-up* `8193:24014`, Plans & Billing `8256:11367`, `8256:11385`.
+A scan of all 127 link boxes on the page found no broken link and no link to another page. The 29 boxes without a link are steps drawn inside their own flow (confirmation pop-ups, *Download pop-up*, *Edit folder pop-up*, *Terms and Conditions Page* and similar), so they don't need one.
 
 ## 2. Open items (all Low)
 
