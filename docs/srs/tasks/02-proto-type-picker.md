@@ -9,7 +9,7 @@
 
 ## Problem
 
-The owner-side creation wizard doesn't exist yet. Its first step has to offer eight dynamic and seven static types (v2 *Code creation - step 1*, QR-U-07; seven dynamic if time-based redirect is dropped). It also has to say, at the moment the owner chooses, that a static code works without QR.CA but can't be edited after printing and has no scan statistics. Website and vCard exist as both dynamic and static, so the screen has to handle the same purpose appearing twice.
+The owner-side creation wizard doesn't exist yet. Its first step has to offer six dynamic and seven static types (v2 *Code creation - step 1*, QR-U-07, without Review and Time-based redirect, which were cut on 2026-10-06, [0007](../../decisions/0007-call-2026-10-06-scope-cuts.md)). It also has to say, at the moment the owner chooses, that a static code works without QR.CA but can't be edited after printing and has no scan statistics. Website and vCard exist as both dynamic and static, so the screen has to handle the same purpose appearing twice.
 
 How to lay this out hasn't been decided: by kind first, by purpose first, or through a question. This is a throwaway exploration to settle that before the real step is built.
 
@@ -41,7 +41,7 @@ How to lay this out hasn't been decided: by kind first, by purpose first, or thr
 
 ## Acceptance criteria
 
-- [ ] Every entry of the v2 list is reachable in every variant, with v2 names: dynamic Website, PDF / File, Restaurant menu (PDF), Multi-link page, vCard, App store link, Review, Time-based redirect (⚠️ may be dropped from V1, discussion 2026-10-06); static Website, Contact (vCard), Email, SMS, Phone call, Plain text, Wi-Fi.
+- [ ] Every entry of the v2 list is reachable in every variant, with v2 names: dynamic Website, PDF / File, Restaurant menu (PDF), Multi-link page, vCard, App store link (Review and Time-based redirect are out, [0007](../../decisions/0007-call-2026-10-06-scope-cuts.md)); static Website, Contact (vCard), Email, SMS, Phone call, Plain text, Wi-Fi.
 - [ ] Each variant states the static limits at the moment of choosing (works without QR.CA, can't be edited, no statistics).
 - [ ] Picking a type and pressing Next Step opens the Step 2 placeholder, and the placeholder names the chosen type and kind. Next Step is disabled until a type is chosen.
 - [ ] Picker: keys 1–3 and ←/→ switch variants, `?v=` persists the choice, the console is clean.
@@ -59,3 +59,4 @@ How to lay this out hasn't been decided: by kind first, by purpose first, or thr
 | 2026-10-01 | Brief | — | Draft written |
 | 2026-10-01 | 1 | — | Harness and 3 variants built and checked headless at 375/1440, EN/FR. `src/proto/` is excluded in local `.git/info/exclude`, so stage 1 is not committed; only `src/main.tsx` mount block is tracked |
 | 2026-10-06 | — | — | Re-targeted to SRS v2.0 ([0005](../../decisions/0005-adopt-srs-v2.md)): v2 names, *Contact (vCard)*, and Time-based redirect pending today's discussion. The stage-1 prototype still uses the v1 labels and needs the change |
+| 2026-10-06 | — | — | Call outcome [0007](../../decisions/0007-call-2026-10-06-scope-cuts.md): Review and Time-based redirect removed from the list (6 dynamic, 7 static) |

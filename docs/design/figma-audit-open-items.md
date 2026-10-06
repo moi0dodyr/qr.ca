@@ -1,90 +1,84 @@
 # Figma Wireflows: what's left to fix
 
-**Short version of** [`figma-audit-2026-10-01.md`](figma-audit-2026-10-01.md), as of **2026-10-06**: round 3 of answers, re-targeted to SRS v2.0 and a full v2 audit (#102–#118) ([0005](../decisions/0005-adopt-srs-v2.md)). It lists only what still needs a change in Figma. Fixed, accepted and closed items are left out; the full history, with every status and reason, stays in the original.
+**Short version of** the [final audit of 2026-10-06](figma-audit-2026-10-06-final.md) (#123–#189), after Oleg's review the same day. Older history (#1–#122, FD-01…FD-09, DR-01…DR-06) is in [`figma-audit-2026-10-01.md`](figma-audit-2026-10-01.md). It lists only what still needs a change in Figma; fixed, accepted and parked items are left out. Full wording, quotes and requirement references for each row are in the final audit.
 
-**File:** QR.ca – Wireflows `heli5YKyvwao7H6XFJQNiY`, page **↳ Wireflows (WIP)** `8134:9062`, section **Wireflows** `8193:22054`. Every node ID here is on that page.
+**File:** QR.ca – Wireflows `heli5YKyvwao7H6XFJQNiY`, page **↳ Wireflows (WIP)** `8134:9062`, sections **Wireflows** `8193:22054` and **Scanners Flow** `8309:24256`. Every node ID here is on that page.
 
-When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the original.
+When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
+
+**Status:** 0 High · 0 Med · **52 Low** open.
 
 ## 1. Links
 
-✅ **Done on 2026-10-05.** Claude re-pointed all 84 links, and relinked 7 boxes that had lost their link (Log in `8193:24303`, `24313`, `24281`, `24291`, Landing `24415`, `24426`, Plans & Billing `22443`) through the Figma MCP, at Oleg's request. Each one now opens its **flow section** on the Wireflows page, for example *QR codes (Dashboard)* → Dashboard `8193:23387`. Boxes for a single step open that box: *Navigation* `8193:24132`, *Recurly Payment* `8193:22539` and *Checking inbox* `8193:24579`. No link in the section points outside Wireflows anymore.
+Every link opens a node on the Wireflows page; none goes to the old *Meta Flow (WIP)* page. Still to do:
 
-Still without a link (they never had one): *Unlock Tracking pop-up* `8241:8127`, *Create Folder pop-up* `8193:24014`, and the Plans & Billing windows `8256:11367`, `8256:11385`, `8256:11402`, `8256:11413`.
+- **Broken:** *Paused Page* `8309:24145` points to a deleted node (#127).
+- **No link, should open the Upgrade pop-up:** Bulk `8256:8849` (#144), Dashboard `8256:8809` (#163).
+- **No link, should open the Dashboard:** Upgrade pop-up `8193:22840` (#179), Plans & Billing `8256:11402`, `8256:11413` (#182).
+- Never had a link (fine as they are): *Unlock Tracking pop-up* `8241:8127`, *Create Folder pop-up* `8193:24014`, Plans & Billing `8256:11367`, `8256:11385`.
 
-## 2. Open items
+## 2. Open items (all Low)
 
-✅ fixed parts are left out; each row says only what's still missing.
+| # | Where | Fix |
+| --- | --- | --- |
+| **Scanners** | | |
+| 126 | Entry Point `8309:23951` | PDF / File and Restaurant menu need their own branch: the file opens on the phone (QR-U-09, QR-U-20) |
+| 128 | *Switch to French* `8309:24127`, `8309:24163` | Show the default: page opens in the phone's language; one-language pages show that language (QR-U-18) |
+| 129 | Micro-landing wireframe `8309:24045` | Remove the free-text line "Wholesale orders…": vCard has no notes field |
+| **Landing · Log in · Sign up · Welcome · Password** | | |
+| 130 | Log in background `8193:15700` | Tabs "Text", "App Store" → *Plain text*, *App store link*; header "Price" → *Pricing* (rest of #111) |
+| 131 | Landing tabs `8193:15352` | Add *PDF / File*; v2 casing *Plain text*, *App store link* |
+| 132 | *Go to my codes* `8322:33069` | Arrow or link to the Dashboard |
+| 133 | *Sign up with Google* `8193:24429` | Connect to the Sign up / Welcome flow |
+| 134 | Welcome wireframes `8193:16167`, `8193:21006` | Account menu shows the email, not "Jayson" (0007 §3) |
+| 135 | Welcome wireframes (Dashboard behind) | *Folder: All*, *Sort by: Newest* as on the Dashboard |
+| 136 | Decision `8193:24450` | "Did user make **a code** on the landing?" instead of "customisations" |
+| 137 | Password restoration, new-password steps | *Back to Log in* on every step (QR-U-05) |
+| 138 | Log in ellipse `8193:24268` | "Sign **in** with Google" |
+| 139 | *Sign in* `8193:24266` vs wireframe "Log in" | Pick one label (and "I don't have an account" vs "Get started") |
+| 140 | Footer in most wireframes | Remove "Trusted by 100+ businesses across Canada" (client: no "Canadian" copy); it's clipped anyway |
+| **Creation · Bulk · Edit** | | |
+| 143 | Edit decision `8256:11714` | Add the *No* branch |
+| 145 | Bulk *Download QRs* `8193:22079` | Download after saving, from *Save and download*, not off Step 5 |
+| 146 | Bulk *Upload new CSV* `8193:22075` | Route through the plan-limit check `8256:8834` |
+| 147 | Bulk Step 5 note `8193:22129` | Drop "Name QR": a batch sets folder, tags and description only |
+| 148 | Bulk Step 4, Edit scan check | Add the fail → "continue anyway?" confirmation, as in Creation |
+| 149 | *Fix scannability* notes | Name the problem (contrast, quiet zone, data density, logo size), not just colours |
+| 150 | Edit download note `8256:11667` | Add *Min print size* |
+| 151 | Edit wireframe `8193:17991` | "Next" → *Save* (Edit isn't a stepper) |
+| 152 | Edit wireframe, note `8193:23323` | French texts only for page types (vCard, Multi-link), not Website URL |
+| 153 | Step 1 wireframe `8193:17468` | One explaining line for the Dynamic group too |
+| 154 | Step 1 wireframe `8193:17468` | Show *Cancel* in the footer |
+| 155 | Type notes vs wireframes | Same casing everywhere: *Multi-link page*, *App store link*, *Plain text*, *Restaurant menu* |
+| **Dashboard · Sidebar · Archive · Analytics** | | |
+| 158 | Particular QR Analytics `22293` | Add the paused state with *Activate* (rest of #57) |
+| 159 | Its Download `22355` | Add the paused-code note, as on the Dashboard |
+| 160 | Its actions | Add *Move to Archive* |
+| 161 | Its flow | No-plan branch: Edit and Activate open the Upgrade pop-up |
+| 162 | Archive no-plan Delete *Close* `23074` | Back to Archive, not the Dashboard (rest of #81) |
+| 164 | Banner note `8256:11546` | Canceled and payment-failed banners also on the "has a plan" branch |
+| 165 | Sidebar *QR code C* `24149` | Arrow to Particular QR Analytics, like A and B |
+| 166 | Sidebar wireframe `27984` | Add the *Advanced* heading over API and Integrations |
+| 167 | Both analytics wireframes | "Unique Scanners" → *Unique scans* |
+| 168 | Both analytics wireframes | Add *Time range* and *Location* to the filter bar |
+| 169 | Archive wireframe `17176` | "Sort by: Date" → *Newest* |
+| 171 | Archive rows `22978`, `22979` | Mark them *Dynamic*, or hide Edit / Duplicate for static codes (0007 §6) |
+| **Plans & Billing · Upgrade · Account · APIs · Integrations** | | |
+| 176 | Higher-plan *Success* → *To QR codes* `8256:8713` | Lead to the Dashboard, not Plans & Billing |
+| 177 | Higher-plan *Error* → *Close* | Back to where the user was |
+| 178 | Connectors `8193:22860`/`22861`, `8256:8735`/`8736` | Delete the duplicate arrows |
+| 180 | Default Upgrade wireframe `8193:19773` | "Trial Ended" doesn't fit lapsed paid users; "are paused" vs "will pause" |
+| 181 | *Canceled State* `8193:22478` | Arrow back to Plans & Billing |
+| 186 | Integrations frame `8193:21625` | Rename the layer "Google Tag Manager" → *Integrations* |
+| 187 | APIs wireframe `8193:21761` | Title "API Settings" vs menu "API": pick one (v2: *APIs*) |
+| 188 | Account Settings wireframe `8193:19112` | Add *Save changes* |
+| 189 | Delete-account note `8256:8666` | Reword: it still reads like a to-do |
 
-**Type list and notes (FD items)**
+## 3. Typos
 
-| # | Still missing |
-| --- | --- |
-| FD-01, FD-02, FD-03, 29 | Align the Step 1 wireframe `8193:17468` to the v2 list (*[User] - Code creation - step 1*; QR-U-07; [0005](../decisions/0005-adopt-srs-v2.md)).<br>**Dynamic:** Website, PDF / File, Restaurant menu (PDF), Multi-link page, vCard, App store link, Review, Time-based redirect.<br>**Static:** Website, Contact (vCard), Email, SMS, Phone call, Plain text, Wi-Fi.<br>Changes: take **Wi-Fi, Plain text, Email, SMS and Phone call out of dynamic *More Types***. **Add Phone call to Static.** **Merge static *vCard* and *Contact* `8256:11645` into one *Contact (vCard)*** ([0006](../decisions/0006-static-contact-is-vcard.md)). **Remove the static *Linkpage* `8256:11635`** (v2 has no static Multi-link). Rename "Linkpage" to "Multi-link page" and "Google Reviews" to "Review". Add a *Time-based redirect* tile (see FD-06). Then copy the same list into the type note `8193:23287` (still has "Mobile App" and the old columns) and fix "Mobile App" in the Bulk note `8193:22086` |
-| FD-06, 33 | ⏸ **On hold:** removing time-based redirect from V1 is under discussion (2026-10-06). If it stays, draw it as **its own dynamic type** (v2 *step 2: set up a time-based redirect*, QR-U-43; Oleg 2026-10-05), not a Schedule option on other types:<br>• A *Time-based redirect* tile in Step 1 `8193:17468`.<br>• Step 2: a list of **periods**, each with days of the week, start and end time and a URL. *Add period* / remove.<br>• A required **default URL** for any time outside the periods, and the **time zone** (the account's by default, editable on this step).<br>• An error on save when periods overlap, naming them.<br>• A note that a paused or archived code ignores the periods.<br>• Edit: the periods can be changed later.<br>Either way, *Schedule publication* (notes `8193:23348`, `23361`, Bulk `22129`, Edit `22234`) is not MVP and comes out |
-| FD-07 | The GTM wireframe `8193:21625` has GTM only. Add GA4 and Meta Pixel fields to the same screen (QR-U-41, A-9) |
-| FD-09, 38 | Note `8193:23323`: remove "Smart Rules" and "Geolocation URL" (post-MVP). Keep French support |
+None left (fixed 2026-10-06: #141, #170, #183–#185).
 
-**Sidebar · Dashboard**
-
-| # | Still missing |
-| --- | --- |
-| 27 | Folders: opening, renaming and deleting aren't drawn (deleting a folder never deletes its codes, FL-07). The *Create Folder pop-up* window `8193:24014` has no link |
-| 84 | The Dashboard row `8193:16712` doesn't say whether a code is **static or dynamic** (QR-U-22 AC1) |
-| 102 | **Archive without a plan:** *Download* `8193:22994` goes to *QR is being downloaded* `8256:8594`. Per v2 (*move a code to Archive*, [0005](../decisions/0005-adopt-srs-v2.md)) it should open the Upgrade pop-up, like Edit, Duplicate and Activate. Download from the Dashboard rows keeps the "not available" note (A-13) |
-
-**Account Settings · APIs · GTM**
-
-| # | Still missing |
-| --- | --- |
-| 68 | API key management (QR-U-40 AC1):<br>• *Create API key* → name it (e.g. "Shopify store") → the full key is shown **once**, with Copy and "You won't see this key again".<br>• A list of keys: name, masked key, created, last used, *Revoke* → confirmation → toast |
-| 71 | Password Save `8193:22695` → toast only:<br>• Toast: "Password changed. You've been signed out on other devices." (QR-U-36 AC3)<br>• A decision "Signed up with Google?" before *Edit Password* → Yes: "You sign in with Google" or *Set a password* (AC4; which one is TBD) |
-
-## 3. New findings (2026-10-06, SRS v2.0 audit)
-
-From the [v2 audit](figma-audit-2026-10-01.md#srs-v20-audit-2026-10-06) of the whole Wireflows section. Each row says what to change and which v2 story asks for it.
-
-**Creation · Bulk · types**
-
-| # | Still missing |
-| --- | --- |
-| 115 | **vCard fields: one phone.** v2: First name (required), Last name, Company, Job title, **Phone (one)**, Email, Website, Address, Photo / logo. Static *Contact (vCard)* uses the same fields. No vCard form is drawn yet (Step 2 is one *Enter content* box, #37), so apply this when you draw it. Also merge the Mockups *Concept* `6062:3722` tabs *vCard* `6062:4161` and *Contact* `6062:4188` ([0006](../decisions/0006-static-contact-is-vcard.md)) |
-| 103 | Bulk Step 1 `8193:17655` and the Bulk note `8193:22086`: types are **Website, App store link, Email, SMS, Phone call, Plain text** only. Remove static *Contact* `8256:11468`, *vCard* `8256:11505` and *Wi-Fi* (*[User] - Bulk creation*, QR-U-17) |
-| 116 | Creation *Download QR* `8193:23265`, `8193:23266`: make it **Save and download**: the code is saved, then the download dialog with PNG, JPG, SVG, EPS, PDF and the minimum print size, then the Dashboard (QR-U-13, QR-U-14) |
-| 117 | Bulk *Save* `8193:22077` → toast `8193:22138`: show progress while codes are created, and the toast states how many were created (QR-U-17) |
-
-**Onboarding · Log in · Landing**
-
-| # | Still missing |
-| --- | --- |
-| 105 | ⏸ **On hold:** to discuss with the BA (Oleg, 2026-10-06). v2 sign-up drops **Name** (Email, Password, Confirm password, Terms; QR-U-03), but nothing else in v2 collects it: it's only editable later in Account Settings (QR-U-36), and *Delete account* asks the user to type their full name (QR-U-37). Question for the BA: where does the name come from if sign-up doesn't ask for it? Until then, keep the **Name** field and the *Enter Name* box `8193:24560` in Sign up `8193:16116` |
-| 106 | *Error: email already registered* `8193:24596`: offer *Log in* and *Forgot password* (QR-U-03) |
-| 107 | Google, both buttons: an existing account → Dashboard; a new account → trial + Welcome. Today Sign up `8193:24578` only goes to Welcome and Log in `8193:24268` only to the Dashboard (QR-U-03, QR-U-04) |
-| 114 | Welcome (made a code) `8193:21006`: v2 wants *Download QR code*, the trial notice and Close, not *Download SVG* / *Customize*. ⚠️ v2 also wants the trial notice and *Add payment details* in this window, but the client asked for one CTA and the trial info only in the sidebar. Needs a call with the client and the BA before you change it |
-| 111 | Landing `8193:15352`: tab names as in creation (Multi-link page, Plain text, App store link); a signed-in header with *Go to my codes*; add **Pricing** to the structure note `8256:10778` (QR-U-01) |
-| 118 | *User Log out* `8193:24114`–`24116`: lead to the **home page** (QR-U-04) |
-
-**Sidebar · Dashboard · Analytics**
-
-| # | Still missing |
-| --- | --- |
-| 104 | Dashboard no-plan branch: *Duplicate* `8193:23650` should **work** (v2 *Dashboard*, QR-U-22). Today it opens the Upgrade pop-up `8193:23739`. In the Archive it stays locked (#102) |
-| 110 | Dashboard filters `8193:16712`: add **Folder**; sort by newest, name, most scanned (QR-U-22) |
-| 108 | Analytics filters: per code `8193:22313` add **Time range** and **Location**; all codes `8193:22902` add **Time range**. *Scans by device* shows device, operating system and browser (QR-U-28, QR-U-29) |
-| 109 | Rename *GTM* / *Google Tag Manager* (`8193:24171`, `8193:21625`) to **Integrations**, together with FD-07 (QR-U-41) |
-
-**Plans & Billing · Upgrade**
-
-| # | Still missing |
-| --- | --- |
-| 112 | *Manage Billing* for an active subscription `8193:22501` → *Recurly* `8193:22540` returns to *Plans & Billing (Free Trial)* `8256:11393`. It should return to the active-subscription screen, with a success or error message (QR-U-33) |
-| 113 | Upgrade pop-ups `8193:19773`, `8193:20444`: "No new dynamic codes" undersells it. Without a plan, creating, editing, bulk creation and activating are blocked (QR-U-31) |
-
-## 4. Typos
-
-None left.
-
-## 5. Parked: nothing to do in Figma for now
+## 4. Parked: nothing to do in Figma for now
 
 These aren't open issues. Each one waits for someone else, or comes back at the design stage.
 
@@ -92,12 +86,15 @@ These aren't open issues. Each one waits for someone else, or comes back at the 
 | --- | --- |
 | #2, #61 Plans, prices and tiers | The client (SRS-Q-08) |
 | #18 Codes pause after the trial | The client (SRS-Q-01) |
-| #75 API screen for a plan without API access, and for "usage limit reached" | The client: which plans include the API, and what the usage limit is (SRS-Q-08). The wireframe `8193:21761` already shows *Rate limit* and *Monthly usage limit* as placeholders |
-| #32 *Not healthy* label on the Dashboard | Design stage (Oleg). Still required for the build (QR-U-12, DS-05) |
-| Pages v2 marks "not drawn": scanner pages, hosted pages, review page and feedback, live map, template gallery, phone layouts | Design stage. Still required for the build (v2 *Scan a code*, *Code not available*, *Hosted pages*, *Review page*, *Review feedback*, Global rules) |
+| #75 API screen for a plan without API access | The client: which plans include the API (SRS-Q-08). The "usage limit reached" state is gone: the key has no limit of its own ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
+| Pages v2 marks "not drawn": scanner pages, hosted pages, live map, template gallery, phone layouts | Design stage. Still required for the build (v2 *Scan a code*, *Code not available* without an owner's message, *Hosted pages*, Global rules). The review page and feedback are out with the Review type ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
 | #52, #55, #82, #86 Empty states for analytics, Archive and the Dashboard | Design stage (Oleg). The Dashboard one leads to *Create QR code* (QR-U-22 AC5) |
+| #106 *Email already registered*: offer *Log in* and *Forgot password* (QR-U-03) | Design stage (Oleg, 2026-10-06) |
 | #9 Wrong / expired OTP states | Design stage (Oleg) |
 | #59 Plans & Billing when canceled (until period end) and when a payment failed | Design stage (Oleg). Still required for the build (QR-U-34 AC3, QR-U-35); the Dashboard banners are in note `8256:11547`. The retry length is TBD |
-| #83 Editing a static code: hide Edit, or limit it to name and folder | Design stage (Oleg). The wireframes draw only dynamic codes. Still required for the build (QR-U-07, QR-U-21, F-65) |
 | #51 *Replace file* for PDF / File and Restaurant Menu codes in Edit | Design stage (Oleg). Still required for the build (QR-U-09, QR-U-20 AC2); the size limit waits on SRS-Q-11 |
-| **DR-01** (#24 trial banner) · **DR-05** (#25 account-state banners on the Dashboard, #28 no Upgrade for subscribed owners). DR-02 and DR-04 are withdrawn ([0005](../decisions/0005-adopt-srs-v2.md)) | The SRS owner: change requests to send, text in the [original](figma-audit-2026-10-01.md#requests-to-change-the-docs) |
+| **DR-01** (#24 trial banner) · **DR-05**, #28 part only (no Upgrade for subscribed owners; the banner part was agreed on the call) · **DR-06** (#114 Welcome window: no trial notice, buttons as drawn; covers both windows `8193:21006` and `8193:16167`). DR-02 and DR-04 are withdrawn ([0005](../decisions/0005-adopt-srs-v2.md)) | The SRS owner: change requests to send, text in the [original](figma-audit-2026-10-01.md#requests-to-change-the-docs) |
+| *Delete account* asks the user to type their full name (QR-U-37), but the name is now optional | The BA: what the confirmation asks for instead, e.g. the email ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
+| #124, #125 Scanner pages for deleted / disabled / not-found codes; App store link routing by phone (QR-U-39, QR-U-19) | Design stage (Oleg, 2026-10-06) |
+| #157 Opening a folder to see its codes (QR-U-26) | Design stage (Oleg, 2026-10-06) |
+| **DR-07** (#156 *Uncategorized* instead of *All QR codes*) · **DR-08** (#172, #173 no key name, no Account ID) · **DR-09** (#142 one *Save* that opens the download dialog) | The SRS owner: change requests to send, text in the [final audit](figma-audit-2026-10-06-final.md#requests-to-change-the-docs) |

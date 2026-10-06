@@ -33,26 +33,26 @@ Checked against the live file on 2026-10-01. Every section below sits inside the
 | `8045:3051` | Plans & Billing (`8134:8998` retention discount accepted) | QR-U-33, QR-U-34 | FL-10 |
 | `8045:3122` | Account Settings | QR-U-36, QR-U-37 | FL-11 |
 | `8045:3377` | APIs | QR-U-40 | — |
-| `8045:3399` | GTM | QR-U-41 | — |
+| `8045:3399` | GTM (to be renamed Integrations) | QR-U-41 | — |
 | `8013:2866` | Note: type list (Static / Dynamic columns) inside QR code creation | QR-U-07 | FL-03 |
 
-**Not drawn** (C-4 / SR-03): FL-12 (everything the scanner sees: hosted pages and "not live" pages), FL-13 (the admin console), the time-based schedule editor (QR-U-43), the Review type and its rating page (QR-U-44), failed-payment states (QR-U-35), download format choice (QR-U-14) and invoice / downgrade (QR-U-33).
+**Not drawn** (C-4 / SR-03): FL-12 (everything the scanner sees: hosted pages and "not live" pages), FL-13 (the admin console), failed-payment states (QR-U-35), download format choice (QR-U-14) and invoice / downgrade (QR-U-33).
 
 ## Figma vs SRS
 
-These are places where the Wireflows don't match the SRS. The SRS wins (A-15); since 2026-10-06 that's SRS v2.0 ([0005](../decisions/0005-adopt-srs-v2.md)), and the current wording of each FD item is in [`figma-audit-open-items.md`](figma-audit-open-items.md). They're listed here for Oleg to update the canvas, not for the prototype to copy.
+These are places where the Wireflows don't match the SRS. The SRS wins (A-15); since 2026-10-06 that's SRS v2.0 ([0005](../decisions/0005-adopt-srs-v2.md)), and every FD item was re-checked in the [final audit of 2026-10-06](figma-audit-2026-10-06-final.md); what's still left to change in Figma is in [`figma-audit-open-items.md`](figma-audit-open-items.md). They're listed here for Oleg to update the canvas, not for the prototype to copy.
 
 | # | Finding | Figma | SRS | Ref |
 | --- | --- | --- | --- | --- |
-| FD-01 | Type list is wider than V1 | Type note `8013:2866` also lists Map Location, Coupon Code, Facebook Page, Image, and dynamic Email / SMS / Call | Not V1 | QR-U-07, F-05, SR-02 |
-| FD-02 | Review type is missing | Not in the type list | Dynamic V1 type | QR-U-44, F-61 |
-| FD-03 | App Store type is named "Mobile App" | `8013:2880` | "App Store Link" | QR-U-07 |
-| FD-04 | Typo in the type list | "Conatct" (`8013:2892`, `8014:3641`) | Contact | — |
-| FD-05 | The node for static codes cited by F-65 doesn't exist | `8079:3007` is not in the file (deleted or moved?) | F-65 cites it | F-65 |
-| FD-06 | Only *Schedule publication* is drawn, not time-based redirects | `8040:1504` and others | Schedule publication is not MVP; time windows are V1 | QR-U-13, QR-U-43 |
-| FD-07 | The GTM screen has no GA4 or Meta Pixel fields | `8045:3399` GTM only | All three on one screen | QR-U-41, A-9 |
+| FD-01 | Type list is wider than V1 | Type note `8013:2866` also lists Map Location, Coupon Code, Facebook Page, Image, and dynamic Email / SMS / Call | Not V1 | QR-U-07, F-05, SR-02 · ✅ fixed 2026-10-06 |
+| FD-02 | Review type is missing | Not in the type list | Dynamic V1 type | QR-U-44, F-61 · closed: Review is out of V1 ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
+| FD-03 | App Store type is named "Mobile App" | `8013:2880` | "App Store Link" | QR-U-07 · ✅ fixed 2026-10-06 |
+| FD-04 | Typo in the type list | "Conatct" (`8013:2892`, `8014:3641`) | Contact | ✅ fixed 2026-10-02 |
+| FD-05 | The node for static codes cited by F-65 doesn't exist | `8079:3007` is not in the file (deleted or moved?) | F-65 cites it | F-65 · ✅ resolved: it's the *Basic Assumptions* frame on *Meta Flow (WIP)* |
+| FD-06 | Only *Schedule publication* is drawn, not time-based redirects | `8040:1504` and others | Schedule publication is not MVP; time windows are V1 | QR-U-13, QR-U-43 · closed: time-based redirect is out of V1 ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
+| FD-07 | The GTM screen has no GA4 or Meta Pixel fields | `8045:3399` GTM only | All three on one screen, named Integrations ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) | QR-U-41, A-9 · ✅ fixed 2026-10-06 |
 | FD-08 | The Webhooks screen is gone | `8045:3388` deleted | Later (post-sync decision) | F-48 · consistent, no action |
-| FD-09 | Smart Rules / Geolocation URL notes in creation | Note `8040:1619` | Location routing is post-MVP | §13 `DYN-09` |
+| FD-09 | Smart Rules / Geolocation URL notes in creation | Note `8040:1619` | Location routing is post-MVP | §13 `DYN-09` · ✅ fixed 2026-10-06 |
 
 ## Mockups node map (used by the archived tasks)
 

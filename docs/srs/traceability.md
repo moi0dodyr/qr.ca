@@ -2,7 +2,7 @@
 
 Requirement → design → code. Update a row whenever a task touches it.
 
-Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype. Figma nodes are from the **Wireflows** file unless marked *(M)* for **Mockups**, and were checked against the file on 2026-10-01. See [`../design/README.md`](../design/README.md).
+Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype · ✖ cut from V1. Figma nodes are from the **Wireflows** file unless marked *(M)* for **Mockups**, and were checked against the file on 2026-10-01. See [`../design/README.md`](../design/README.md).
 
 ## User flows
 
@@ -10,7 +10,7 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 | --- | --- | --- | --- | --- |
 | FL-01 | First visit to first code | QR-U-01, 02, 03, 06 | `8045:3711`, `8055:3551` | ◐ Home page only, demo (0002) |
 | FL-02 | Sign up, log in, recover a password | QR-U-03, 04, 05 | `8055:3551`, `8055:3363`, `8067:2887` | ⬜ |
-| FL-03 | Create a code | QR-U-07…21, 43, 44 | `8045:2816` | ⬜ |
+| FL-03 | Create a code | QR-U-07…21 (43, 44 cut, 0007) | `8045:2816` | ⬜ |
 | FL-04 | Create many codes at once | QR-U-17 | `8045:2390` | ⬜ |
 | FL-05 | Change a printed code | QR-U-23 | `8045:2391` | ⬜ |
 | FL-06 | Pause, reactivate, copy or delete | QR-U-24, 25, 27 | `8045:3708`, `8053:2392` | ⬜ |
@@ -71,8 +71,8 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 | F-21 App-store routing | QR-U-19 | — | — | ⬜ |
 | F-22 Hosted pages (Multi-Link, vCard, PDF footer) | QR-U-38, QR-U-10 | — | — | ⬜ |
 | F-23 "Not live" pages (paused, unpaid, deleted, disabled, not found) | QR-U-39 | — | — | ⬜ |
-| F-60 Time-based redirects (schedule editor) | QR-U-43 | — | — | ⬜ |
-| F-61 Review / feedback funnel | QR-U-44 | — (FD-02) | — | ⬜ |
+| F-60 Time-based redirects (schedule editor) | QR-U-43 | — | — | ✖ Out of V1 ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
+| F-61 Review / feedback funnel | QR-U-44 | — | — | ✖ Out of V1 ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
 
 ## M4 · Scan statistics
 
@@ -92,15 +92,15 @@ Status: ✅ built · ◐ partial · ⬜ not started · — out of the prototype.
 | F-35 Plans & Billing | QR-U-33 | `8045:3051` | — | ⬜ |
 | F-36 Cancel plan + one retention offer | QR-U-34 | `8045:3051` | — | ⬜ |
 | F-37 Failed payment | QR-U-35 | — (not drawn) | — | ⬜ |
-| F-38 Profile, email, password | QR-U-36 | `8045:3122` | — | ⬜ |
+| F-38 Profile, password (no email change, [0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) | QR-U-36 | `8045:3122` | — | ⬜ |
 | F-39 Delete account | QR-U-37 | `8045:3122` | — | ⬜ |
 
 ## M6 · Integrations (owner-facing screens only)
 
 | Feature | Story | Figma | Prototype code | Status |
 | --- | --- | --- | --- | --- |
-| F-40 Owner API keys screen | QR-U-40 | `8045:3377` | — | ⬜ |
-| F-41, F-42 GTM / GA4 / Meta Pixel fields | QR-U-41 | `8045:3399` (GTM only, FD-07) | — | ⬜ |
+| F-40 Owner API key screen (one key, no usage limit, [0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) | QR-U-40 | `8045:3377` | — | ⬜ |
+| F-41, F-42 Integrations: GTM, Google Analytics, Meta Pixel IDs | QR-U-41 | `8045:3399` (GTM only, FD-07 / #109) | — | ⬜ |
 | F-43…F-47 Recurly, Customer.io, Amplitude, safety check, platform events | — | — | — (backend) | — |
 
 ## M7 · Admin console (not drawn)

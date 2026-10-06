@@ -12,3 +12,4 @@ Name files `NNNN-short-name.md`. Each record has: date, status (Accepted / Super
 | [0004](./0004-account-banners-on-dashboard.md) | Account-state banners sit on the Dashboard; only the trial banner stays in the sidebar | 2026-10-05 | Accepted |
 | [0005](./0005-adopt-srs-v2.md) | SRS v2.0 and Product Backlog v2 are the source of truth | 2026-10-06 | Accepted |
 | [0006](./0006-static-contact-is-vcard.md) | Static *Contact* is the vCard: one "Contact (vCard)" type | 2026-10-06 | Accepted |
+| [0007](./0007-call-2026-10-06-scope-cuts.md) | Call of 2026-10-06: Review, Time-based redirect, email change, paused-page message and *not healthy* cut; no name at sign-up; Integrations; one API key; static codes not editable | 2026-10-06 | Accepted |

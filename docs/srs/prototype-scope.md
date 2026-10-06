@@ -25,9 +25,9 @@ Legend: ✅ built · ◐ partly built · ⬜ planned for the prototype · — ou
 | E0 · Owner web app shell | QR-U-42 | ⬜ | Sidebar and its account-state variants |
 | E5 · Scan statistics | QR-U-28, QR-U-29 | ⬜ | Mock scan data; includes the empty state (F-27) |
 | E6 · Trial banner, upgrade, plans, cancel, failed payment | QR-U-30…35 | ⬜ | Fake billing. The trial-end wording waits on SRS-Q-01 |
-| E7 · Account settings, delete account | QR-U-36, QR-U-37 | ⬜ | |
+| E7 · Account settings, delete account | QR-U-36, QR-U-37 | ⬜ | No email change ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
 | E8 · Scanner side: hosted pages and "not live" pages | QR-U-38, QR-U-39 | ⬜ later | **Deferred** to a later design stage ([0002](../decisions/0002-home-page-demo-only-scanner-pages-later.md)). Not drawn in Figma (SR-03, C-4) |
-| E9 · Schedule editor, review funnel, API keys, tags | QR-U-40, QR-U-41, QR-U-43, QR-U-44 | ⬜ | The schedule editor and the review page are not drawn (C-4) |
+| E9 · API key, Integrations, tags | QR-U-40, QR-U-41 | ⬜ | One API key at a time, no usage limit. Integrations: GTM, Google Analytics, Meta Pixel IDs. The schedule editor and review funnel (QR-U-43, QR-U-44) are out of V1 ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
 | Admin console | QR-A-01…06 | — | Not drawn in Figma (C-4) |
 
 Admin, billing internals, the redirect and every integration stay out: they are backend or architecture work.
