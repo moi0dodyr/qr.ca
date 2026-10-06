@@ -21,7 +21,7 @@ Text was read from the real layer content (not layer names). Arrows were matched
 
 **67 findings: 1 High · 8 Med · 58 Low.** Numbering continues from the old audit (#123–#189).
 
-**After review with Oleg (2026-10-06):** #124, #125 and #157 move to the design stage. #156, #172 and #173 are accepted as drawn and go to the SRS owner as DR-07 and DR-08. **Still open: 0 High, 0 Med, 52 Low.** Fixed the same day: #123, #174, #175 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09).
+**After review with Oleg (2026-10-06):** #124 and #125 move to the design stage. #172 and #173 are accepted as drawn (DR-08). #156 and #157 were fixed with a new Dashboard wireframe; DR-07 is narrowed to the missing *All QR codes* sidebar item. **Still open: 0 High, 0 Med, 53 Low.** Fixed the same day: #123, #156, #157, #174, #175 and the typos #141, #170, #183–#185. #142 accepted as drawn (DR-09). One Low added after the Dashboard change (#190).
 
 - **High (1):** the paused page still had the owner's custom message, cut on the call (#123). ✅ Fixed 2026-10-06.
 - **Regressions:** items closed earlier that aren't fixed in Figma any more: **#40** (plain *Save* path gone, #142: accepted as drawn, DR-09), **#68** and **#69** (API key name and Account ID, #172, #173: accepted as drawn, DR-08), the 2026-10-05 **links fix** for one box (#179), and partly **#27** (#157, design stage), **#57** (#158, #159), **#81** (#162), **#111** (#130).
@@ -37,8 +37,8 @@ Text was read from the real layer content (not layer names). Arrows were matched
 | 124 | Scanners | ⏸ Design stage. Only one "not active" outcome; v2 also needs deleted, disabled-by-team and not-found pages (QR-U-39) |
 | 125 | Scanners | ⏸ Design stage. App store link codes don't route iPhone / Android / fallback (QR-U-19) |
 | 142 | Creation | ↪ Accepted, DR-09. No plain *Save* → success → Dashboard; only *Save and download* (QR-U-13). Regression of #40 |
-| 156 | Sidebar | ↪ Accepted, DR-07. Wireframe has no *All QR codes* item; Dashboard heading says "Uncategorized QR codes" (QR-U-42) |
-| 157 | Sidebar | ⏸ Design stage. Opening a folder to see its codes isn't drawn (QR-U-26). Rest of #27 |
+| 156 | Sidebar | ✅ Fixed (narrowed DR-07). Dashboard is now *QR codes* with a Folder filter; *Uncategorized* is one folder |
+| 157 | Sidebar | ✅ Fixed. Opening a folder shows only its codes (new Dashboard `8349:33812`) |
 | 172 | APIs | ↪ Accepted, DR-08. *Name key* step gone (QR-U-40 "can be named"). Regression of #68 |
 | 173 | APIs | ↪ Accepted, DR-08. Account ID missing from the wireframe (QR-U-40). Regression of #69 |
 | 174 | Plans & Billing | ✅ Fixed. After a trial user pays, the arrow returns to *Plans & Billing (Free Trial)*; should be success → codes (QR-U-32) |
@@ -94,8 +94,8 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 
 | # | Where | Figma now | Should be | Sev | Conf. |
 | --- | --- | --- | --- | --- | --- |
-| 156 | ↪ **Accepted, SRS change requested ([DR-07](#requests-to-change-the-docs))** (Oleg, 2026-10-06): *Uncategorized* is more correct. Sidebar wireframe `27984` (same sidebar in Dashboard `16712`, Archive `17176`, both Analytics wireframes); Dashboard wireframe heading `16712` | No *All QR codes* item. The list starts at "Uncategorized" (codes without a folder), then "Folder 1". The Dashboard heading is "Uncategorized QR codes". The flow boxes say "All QR codes (you are here)" `24133`, and note `8322:33495` says codes "go back to All QR codes" | The sidebar shows "All QR codes (the dashboard)" (*Navigation*, QR-U-42). Activate from Archive returns to a folder, "default: All QR codes" (QR-U-27) | Med | high |
-| 157 | ⏸ **Design stage (Oleg, 2026-10-06).** Sidebar `24121` *Folder* | *Folder* leads only to *Edit folder* `8322:33403` (rename, pick codes, delete). Nothing shows opening a folder and seeing its codes | "When the user opens a folder, then only its codes are listed, with the same actions as the dashboard" (*organise codes in folders*, QR-U-26, F-17). Part of the original #27 | Med | high |
+| 156 | ✅ **Fixed (2026-10-06):** new Dashboard wireframe `8349:33812` is titled *QR codes*, with *Folder: Uncategorized* in the filter bar and an *Uncategorized* group; the Folder filter gets an *All* option; old wireframe `8193:16712` deleted; box `8193:24133` "QR codes (you are here)" and note `8322:33495` updated. No *All QR codes* sidebar item: narrowed [DR-07](#requests-to-change-the-docs). Sidebar wireframe `27984` (same sidebar in Dashboard `16712`, Archive `17176`, both Analytics wireframes); Dashboard wireframe heading `16712` | No *All QR codes* item. The list starts at "Uncategorized" (codes without a folder), then "Folder 1". The Dashboard heading is "Uncategorized QR codes". The flow boxes say "All QR codes (you are here)" `24133`, and note `8322:33495` says codes "go back to All QR codes" | The sidebar shows "All QR codes (the dashboard)" (*Navigation*, QR-U-42). Activate from Archive returns to a folder, "default: All QR codes" (QR-U-27) | Med | high |
+| 157 | ✅ **Fixed (2026-10-06):** the new Dashboard wireframe `8349:33812` shows a folder opened from the sidebar (*Uncategorized* selected, only its codes listed, same actions). Sidebar `24121` *Folder* | *Folder* leads only to *Edit folder* `8322:33403` (rename, pick codes, delete). Nothing shows opening a folder and seeing its codes | "When the user opens a folder, then only its codes are listed, with the same actions as the dashboard" (*organise codes in folders*, QR-U-26, F-17). Part of the original #27 | Med | high |
 | 158 | Particular QR Analytics `22293` "QR code details (active)" | Only the active state is drawn: Edit, Download, Move to Folder, Duplicate, **Pause**, Delete. There's no paused state and no **Activate** | "A code is either Active or Paused"; Activate and confirm reopens it (QR-U-24, DS-02). This was part of #57 | Low | high |
 | 159 | Particular QR Analytics `22355` → `8256:11356` → `22411` | Download → Select Format → "QR is being downloaded", with no note | The Dashboard and Archive downloads of a paused code carry "Scanners see a 'not available' page…" (`8256:8642`, `8256:8652`, `8256:8632`). A paused code downloaded here should say the same (A-13, *work without an active plan*, QR-U-31). Part of #57 | Low | med |
 | 160 | Particular QR Analytics `22293` actions | No *Move to Archive* among the actions | The page shows "the code's details and actions at the top" (QR-U-28). The Dashboard row offers Move to Archive (QR-U-22, QR-U-27) | Low | med |
@@ -134,18 +134,24 @@ Severity: **High** = contradicts a requirement or a decision · **Med** = a requ
 | 188 | Account Settings wireframe `8193:19112` | "First Name · Last Name · Jayson · White". No *Save changes* button in the frame | "First name, Last name; **Save changes** shows a success message" (QR-U-36 *edit the name*). The flow has it (`8193:22697`); the wireframe doesn't | Low | med |
 | 189 | Account Settings, note `8256:8666` | "**Must also say** what happens to printed codes ('no longer available' page), and that the subscription is cancelled" | Fixed in the wireframe (#72). The note still reads like the old audit's to-do and could be read as still open | Low | med |
 
+### Added after Oleg's Dashboard change (2026-10-06)
+
+| # | Where | Figma now | Should be | Sev | Conf. |
+| --- | --- | --- | --- | --- | --- |
+| 190 | Wireframes with the Dashboard behind a pop-up: Upgrade `8193:19776`, `8193:20447`; Welcome `8193:16170`, `8193:21009` | Heading "Uncategorized QR codes" | *QR codes*, as on the new Dashboard `8349:33812` (#156) | Low | high |
+
 ## Requests to change the docs
 
 Figma follows Oleg's decision here; the SRS is read-only, so each goes to the SRS owner. Until answered, the SRS still wins (A-15).
 
 | # | Story | Now in the SRS | Proposed change | Why | From | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| DR-07 | QR-U-42, QR-U-27 | The sidebar shows "All QR codes (the dashboard)". Activate from Archive picks a folder, "default: All QR codes" | The first sidebar item is **Uncategorized**: codes without a folder. The Dashboard heading says "Uncategorized QR codes". Activate from Archive defaults to Uncategorized | Oleg (2026-10-06): *Uncategorized* is the more correct name | #156, Sidebar wireframe `8193:27984`, Dashboard `8193:16712` | To send |
+| DR-07 | QR-U-42, QR-U-27 | The sidebar shows "All QR codes (the dashboard)". Activate from Archive picks a folder, "default: All QR codes" | The sidebar has **no *All QR codes* item**. The Dashboard is the *QR codes* page with a **Folder filter** (*All*, *Uncategorized*, each folder); clicking a folder in the sidebar opens the page filtered to it. *Uncategorized* holds codes without a folder (also the default when activating from Archive) | Oleg (2026-10-06): *Uncategorized* is the more correct name for codes without a folder; the filter covers "all codes" | #156, Dashboard `8349:33812`, Sidebar `8193:27984` | To send (narrowed 2026-10-06) |
 | DR-08 | QR-U-40 | The APIs screen shows the Account ID with Copy. A new key "is shown once, can be named, and can be revoked" | No Account ID on the screen. The key isn't named: *Create API key* → *Copy* → *Save* (one key at a time, [0007](../decisions/0007-call-2026-10-06-scope-cuts.md) §7) | Oleg (2026-10-06): Figma is correct as drawn | #172, #173 (reopen #68, #69), APIs `8193:21761`, `8322:33560` | To send |
 | DR-09 | QR-U-13, QR-U-14 | Step 7 has two actions: *Save* creates the code, shows a success message and returns to the dashboard; *Save and download* creates it and opens the download dialog | One action, **Save**: it creates the code and always opens the download dialog (formats, minimum print size); closing it or downloading returns to the dashboard | Oleg's decision (2026-10-06). It also fits the client's "one CTA" principle ([client feedback](client-feedback.md)) | #142 (reopens #40), Creation `8193:23248`, `8193:23249` | To send |
 
 ## Fixed items: verified again
 
 - **Still fixed:** FD-01, FD-03, FD-07/#109, FD-08/#22, FD-09/#38, #3, #6, #8 (throttling still not drawn), #12, #13, #17, #19, #20, #23, #24, #29, #31, #34, #35, #36, #39, #41, #42, #44, #45, #46, #47/#103, #49, #50, #56, #58, #60, #62, #63, #64, #65, #66, #67/#101, #71, #72, #74, #77, #79, #80, #88, #89, #90, #91, #92, #93, #94, #96, #97, #98, #99, #100, #102, #104, #105, #108 (notes), #110, #112 (success only), #116, #117, #118, #119, #120, #121, #122, and the typos listed as fixed.
-- **Not fixed any more / partly:** #27 → #157 · #40 → #142 (accepted as drawn: DR-09) · #57 → #158, #159 · #68 → #172 · #69 → #173, #175 (#172, #173 accepted as drawn: DR-08) · #81 → #162 · #111 → #130 · links fix → #179.
+- **Not fixed any more / partly:** #27 → #157 (fixed 2026-10-06) · #40 → #142 (accepted as drawn: DR-09) · #57 → #158, #159 · #68 → #172 · #69 → #173, #175 (#172, #173 accepted as drawn: DR-08) · #81 → #162 · #111 → #130 · links fix → #179.
 - **Superseded, not a regression:** #4 and #5 (DR-06 removed the trial notice and *Add payment details* from Welcome). DR-06 cites only `8193:21006`; the no-code Welcome `8193:16167` has dropped the trial notice too, so DR-06 should name both windows.

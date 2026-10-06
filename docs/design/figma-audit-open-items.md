@@ -6,7 +6,7 @@
 
 When you fix something, tell Claude: it checks Figma, removes the row here and marks it fixed in the final audit.
 
-**Status:** 0 High · 0 Med · **52 Low** open.
+**Status:** 0 High · 0 Med · **53 Low** open.
 
 ## 1. Links
 
@@ -31,7 +31,8 @@ Every link opens a node on the Wireflows page; none goes to the old *Meta Flow (
 | 132 | *Go to my codes* `8322:33069` | Arrow or link to the Dashboard |
 | 133 | *Sign up with Google* `8193:24429` | Connect to the Sign up / Welcome flow |
 | 134 | Welcome wireframes `8193:16167`, `8193:21006` | Account menu shows the email, not "Jayson" (0007 §3) |
-| 135 | Welcome wireframes (Dashboard behind) | *Folder: All*, *Sort by: Newest* as on the Dashboard |
+| 135 | Welcome wireframes (Dashboard behind) | Filters as on the new Dashboard `8349:33812` (*Folder*, *Sort by: Newest*) |
+| 190 | Upgrade `8193:19776`, `8193:20447`; Welcome `8193:16170`, `8193:21009` | Heading "Uncategorized QR codes" → *QR codes*, as on the new Dashboard |
 | 136 | Decision `8193:24450` | "Did user make **a code** on the landing?" instead of "customisations" |
 | 137 | Password restoration, new-password steps | *Back to Log in* on every step (QR-U-05) |
 | 138 | Log in ellipse `8193:24268` | "Sign **in** with Google" |
@@ -96,5 +97,4 @@ These aren't open issues. Each one waits for someone else, or comes back at the 
 | **DR-01** (#24 trial banner) · **DR-05**, #28 part only (no Upgrade for subscribed owners; the banner part was agreed on the call) · **DR-06** (#114 Welcome window: no trial notice, buttons as drawn; covers both windows `8193:21006` and `8193:16167`). DR-02 and DR-04 are withdrawn ([0005](../decisions/0005-adopt-srs-v2.md)) | The SRS owner: change requests to send, text in the [original](figma-audit-2026-10-01.md#requests-to-change-the-docs) |
 | *Delete account* asks the user to type their full name (QR-U-37), but the name is now optional | The BA: what the confirmation asks for instead, e.g. the email ([0007](../decisions/0007-call-2026-10-06-scope-cuts.md)) |
 | #124, #125 Scanner pages for deleted / disabled / not-found codes; App store link routing by phone (QR-U-39, QR-U-19) | Design stage (Oleg, 2026-10-06) |
-| #157 Opening a folder to see its codes (QR-U-26) | Design stage (Oleg, 2026-10-06) |
-| **DR-07** (#156 *Uncategorized* instead of *All QR codes*) · **DR-08** (#172, #173 no key name, no Account ID) · **DR-09** (#142 one *Save* that opens the download dialog) | The SRS owner: change requests to send, text in the [final audit](figma-audit-2026-10-06-final.md#requests-to-change-the-docs) |
+| **DR-07** (#156 no *All QR codes* sidebar item; the Folder filter covers it) · **DR-08** (#172, #173 no key name, no Account ID) · **DR-09** (#142 one *Save* that opens the download dialog) | The SRS owner: change requests to send, text in the [final audit](figma-audit-2026-10-06-final.md#requests-to-change-the-docs) |
